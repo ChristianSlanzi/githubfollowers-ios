@@ -19,6 +19,6 @@ public final class CompositionRoot {
     }
     
     private func buildInitialViewController() -> UIViewController {
-        return ViewController()
+        return AppFlowViewController()
     }
 }
