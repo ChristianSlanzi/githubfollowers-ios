@@ -10,6 +10,8 @@
 		2413F32F24BF5E080004A856 /* AppFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F32E24BF5E080004A856 /* AppFlowViewController.swift */; };
 		2413F33424BF5E700004A856 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F33324BF5E700004A856 /* UIViewController+Child.swift */; };
 		2413F33624BF631E0004A856 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2413F33524BF631E0004A856 /* README.md */; };
+		2413F33C24BF78A10004A856 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F33B24BF78A10004A856 /* SearchViewController.swift */; };
+		2413F33E24BF78B40004A856 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F33D24BF78B40004A856 /* FavoritesViewController.swift */; };
 		247485BA24BC787100D6A625 /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247485B924BC787100D6A625 /* CompositionRoot.swift */; };
 		2481E68A24BB7DB100633A31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481E68924BB7DB100633A31 /* AppDelegate.swift */; };
 		2481E68C24BB7DB100633A31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481E68B24BB7DB100633A31 /* SceneDelegate.swift */; };
@@ -33,6 +35,8 @@
 		2413F32E24BF5E080004A856 /* AppFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowViewController.swift; sourceTree = "<group>"; };
 		2413F33324BF5E700004A856 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
 		2413F33524BF631E0004A856 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		2413F33B24BF78A10004A856 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		2413F33D24BF78B40004A856 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		247485B924BC787100D6A625 /* CompositionRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
 		2481E68624BB7DB100633A31 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2481E68924BB7DB100633A31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +108,31 @@
 			path = UIViewController;
 			sourceTree = "<group>";
 		};
+		2413F33724BF74890004A856 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2413F33A24BF78890004A856 /* Favorites */,
+				2413F33824BF78630004A856 /* Search */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		2413F33824BF78630004A856 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				2413F33B24BF78A10004A856 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		2413F33A24BF78890004A856 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				2413F33D24BF78B40004A856 /* FavoritesViewController.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		247485B824BC785300D6A625 /* Composition */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +163,7 @@
 		2481E68824BB7DB100633A31 /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				2413F33724BF74890004A856 /* Scenes */,
 				2413F33024BF5E410004A856 /* Utils */,
 				2413F32C24BF5DE70004A856 /* Flow */,
 				247485B824BC785300D6A625 /* Composition */,
@@ -258,6 +288,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				247485BA24BC787100D6A625 /* CompositionRoot.swift in Sources */,
+				2413F33C24BF78A10004A856 /* SearchViewController.swift in Sources */,
+				2413F33E24BF78B40004A856 /* FavoritesViewController.swift in Sources */,
 				2413F32F24BF5E080004A856 /* AppFlowViewController.swift in Sources */,
 				2481E68E24BB7DB100633A31 /* ViewController.swift in Sources */,
 				2481E68A24BB7DB100633A31 /* AppDelegate.swift in Sources */,

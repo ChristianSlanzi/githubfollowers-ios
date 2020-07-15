@@ -19,14 +19,14 @@ class AppFlowViewController: UIViewController {
     }
     
     private func createSearchNavigationController() -> UIViewController {
-        let productsFlowVC = ViewController()
+        let productsFlowVC = SearchViewController()
         productsFlowVC.title = "Search"
         productsFlowVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         return productsFlowVC
     }
     
     private func createFavoritesListNavigationController() -> UIViewController {
-        let productDetailsFlowVC = ViewController()
+        let productDetailsFlowVC = FavoritesViewController()
         productDetailsFlowVC.title = "Favorites"
         productDetailsFlowVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         return productDetailsFlowVC
