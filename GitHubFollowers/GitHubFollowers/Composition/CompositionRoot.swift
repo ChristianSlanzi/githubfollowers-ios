@@ -12,13 +12,14 @@ import UIKit
 
 public final class CompositionRoot {
     var initialVC: UIViewController?
-    
+
     public func compose() -> UINavigationController {
         let rootNC = UINavigationController(rootViewController: buildInitialViewController())
         return rootNC
     }
     
     private func buildInitialViewController() -> UIViewController {
-        return AppFlowViewController()
+        let gitHubClient = GitHubClient(networking: URLSession.shared.erasedDataTaskPublisher)
+        return AppFlowViewController(gitHubService: gitHubClient)
     }
 }

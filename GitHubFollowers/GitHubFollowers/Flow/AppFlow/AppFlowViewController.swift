@@ -10,7 +10,16 @@ import UIKit
 
 class AppFlowViewController: UIViewController {
     private let tabController = UITabBarController()
-    private let gitHubClient = GitHubClient(networking: URLSession.shared.erasedDataTaskPublisher)
+    private let gitHubService: GitHubService
+    
+    init(gitHubService: GitHubService) {
+        self.gitHubService = gitHubService
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +29,14 @@ class AppFlowViewController: UIViewController {
     }
     
     private func createSearchNavigationController() -> UIViewController {
-        let productsFlowVC = SearchViewController(gitHubService: gitHubClient)
+        let productsFlowVC = SearchViewController(gitHubService: gitHubService)
         productsFlowVC.title = "Search"
         productsFlowVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         return productsFlowVC
     }
     
     private func createFavoritesListNavigationController() -> UIViewController {
-        let productDetailsFlowVC = FavoritesViewController(gitHubService: gitHubClient)
+        let productDetailsFlowVC = FavoritesViewController(gitHubService: gitHubService)
         productDetailsFlowVC.title = "Favorites"
         productDetailsFlowVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         return productDetailsFlowVC
