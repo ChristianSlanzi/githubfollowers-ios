@@ -20,6 +20,9 @@
 		2481E69624BB7DB500633A31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2481E69424BB7DB500633A31 /* LaunchScreen.storyboard */; };
 		2481E6A124BB7DB600633A31 /* GitHubFollowersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481E6A024BB7DB600633A31 /* GitHubFollowersTests.swift */; };
 		24EEB21324C3013D00C96EE2 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21224C3013D00C96EE2 /* Networking.swift */; };
+		24EEB21624C324D300C96EE2 /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21524C324D300C96EE2 /* GitHubService.swift */; };
+		24EEB21924C3251900C96EE2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21824C3251900C96EE2 /* User.swift */; };
+		24EEB21B24C3253600C96EE2 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21A24C3253600C96EE2 /* Follower.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		2481E6A024BB7DB600633A31 /* GitHubFollowersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowersTests.swift; sourceTree = "<group>"; };
 		2481E6A224BB7DB600633A31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24EEB21224C3013D00C96EE2 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		24EEB21524C324D300C96EE2 /* GitHubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubService.swift; sourceTree = "<group>"; };
+		24EEB21824C3251900C96EE2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		24EEB21A24C3253600C96EE2 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,7 @@
 		2481E68824BB7DB100633A31 /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				24EEB21724C324FE00C96EE2 /* Model */,
 				24EEB21124C3010B00C96EE2 /* Networking */,
 				2413F33724BF74890004A856 /* Scenes */,
 				2413F33024BF5E410004A856 /* Utils */,
@@ -193,8 +200,18 @@
 			isa = PBXGroup;
 			children = (
 				24EEB21224C3013D00C96EE2 /* Networking.swift */,
+				24EEB21524C324D300C96EE2 /* GitHubService.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		24EEB21724C324FE00C96EE2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24EEB21824C3251900C96EE2 /* User.swift */,
+				24EEB21A24C3253600C96EE2 /* Follower.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,15 +315,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24EEB21624C324D300C96EE2 /* GitHubService.swift in Sources */,
 				247485BA24BC787100D6A625 /* CompositionRoot.swift in Sources */,
 				2413F33C24BF78A10004A856 /* SearchViewController.swift in Sources */,
 				2413F33E24BF78B40004A856 /* FavoritesViewController.swift in Sources */,
 				24EEB21324C3013D00C96EE2 /* Networking.swift in Sources */,
 				2413F32F24BF5E080004A856 /* AppFlowViewController.swift in Sources */,
 				2481E68E24BB7DB100633A31 /* ViewController.swift in Sources */,
+				24EEB21B24C3253600C96EE2 /* Follower.swift in Sources */,
 				2481E68A24BB7DB100633A31 /* AppDelegate.swift in Sources */,
 				2481E68C24BB7DB100633A31 /* SceneDelegate.swift in Sources */,
 				2413F33424BF5E700004A856 /* UIViewController+Child.swift in Sources */,
+				24EEB21924C3251900C96EE2 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
