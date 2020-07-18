@@ -9,7 +9,12 @@
 import Foundation
 import Combine
 
-struct GitHubService {
+public protocol GitHubService {
+    func fetchFollowers(for username: String, page: Int) -> AnyPublisher<[Follower], Error>
+    func fetchUserInfo(for username: String) -> AnyPublisher<User, Error>
+}
+
+struct GitHubClient: GitHubService {
     let networking: Networking
     
     func fetchFollowers(for username: String, page: Int) -> AnyPublisher<[Follower], Error> {

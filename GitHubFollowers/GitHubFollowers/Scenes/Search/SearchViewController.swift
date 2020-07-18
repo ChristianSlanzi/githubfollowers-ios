@@ -10,8 +10,17 @@ import UIKit
 import Combine
 
 class SearchViewController: UIViewController {
-    let gitHubService = GitHubService(networking: URLSession.shared.erasedDataTaskPublisher)
+    var gitHubService: GitHubService
     var subscription: AnyCancellable?
+    
+    init(gitHubService: GitHubService) {
+        self.gitHubService = gitHubService
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,6 +10,7 @@ import UIKit
 
 class AppFlowViewController: UIViewController {
     private let tabController = UITabBarController()
+    private let gitHubClient = GitHubClient(networking: URLSession.shared.erasedDataTaskPublisher)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,14 +20,14 @@ class AppFlowViewController: UIViewController {
     }
     
     private func createSearchNavigationController() -> UIViewController {
-        let productsFlowVC = SearchViewController()
+        let productsFlowVC = SearchViewController(gitHubService: gitHubClient)
         productsFlowVC.title = "Search"
         productsFlowVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         return productsFlowVC
     }
     
     private func createFavoritesListNavigationController() -> UIViewController {
-        let productDetailsFlowVC = FavoritesViewController()
+        let productDetailsFlowVC = FavoritesViewController(gitHubService: gitHubClient)
         productDetailsFlowVC.title = "Favorites"
         productDetailsFlowVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         return productDetailsFlowVC
