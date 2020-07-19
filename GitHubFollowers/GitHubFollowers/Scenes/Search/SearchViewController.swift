@@ -7,14 +7,12 @@
 //
 
 import UIKit
-import Combine
 
 class SearchViewController: UIViewController {
-    var gitHubService: GitHubService
-    var subscription: AnyCancellable?
+    private let gitHubManager: GitHubNetworking
     
-    init(gitHubService: GitHubService) {
-        self.gitHubService = gitHubService
+    init(gitHubManager: GitHubNetworking) {
+        self.gitHubManager = gitHubManager
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,9 +24,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .cyan
         
-        subscription = gitHubService.fetchFollowers(for: "cardoso", page: 0).sink(receiveCompletion: { completion in
-           print(completion)
-        }) { (followers) in
+        gitHubManager.fetchFollowers(for: "cardoso", page: 0){ (followers) in
             print(followers)
         }
     }

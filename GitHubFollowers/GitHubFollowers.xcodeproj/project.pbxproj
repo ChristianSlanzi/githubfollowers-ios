@@ -12,7 +12,9 @@
 		2413F33624BF631E0004A856 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2413F33524BF631E0004A856 /* README.md */; };
 		2413F33C24BF78A10004A856 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F33B24BF78A10004A856 /* SearchViewController.swift */; };
 		2413F33E24BF78B40004A856 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F33D24BF78B40004A856 /* FavoritesViewController.swift */; };
+		246515DD24C4498800EA37AA /* GitHubServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246515DC24C4498800EA37AA /* GitHubServiceTests.swift */; };
 		247485BA24BC787100D6A625 /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247485B924BC787100D6A625 /* CompositionRoot.swift */; };
+		24780EE624C497CB0015AADB /* GitHubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24780EE524C497CB0015AADB /* GitHubManager.swift */; };
 		2481E68A24BB7DB100633A31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481E68924BB7DB100633A31 /* AppDelegate.swift */; };
 		2481E68C24BB7DB100633A31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481E68B24BB7DB100633A31 /* SceneDelegate.swift */; };
 		2481E68E24BB7DB100633A31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481E68D24BB7DB100633A31 /* ViewController.swift */; };
@@ -41,7 +43,9 @@
 		2413F33524BF631E0004A856 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2413F33B24BF78A10004A856 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2413F33D24BF78B40004A856 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		246515DC24C4498800EA37AA /* GitHubServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubServiceTests.swift; sourceTree = "<group>"; };
 		247485B924BC787100D6A625 /* CompositionRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
+		24780EE524C497CB0015AADB /* GitHubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubManager.swift; sourceTree = "<group>"; };
 		2481E68624BB7DB100633A31 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2481E68924BB7DB100633A31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2481E68B24BB7DB100633A31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,12 +145,35 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
+		246515DB24C4495900EA37AA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				246515DC24C4498800EA37AA /* GitHubServiceTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		246515DE24C44D4700EA37AA /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
 		247485B824BC785300D6A625 /* Composition */ = {
 			isa = PBXGroup;
 			children = (
 				247485B924BC787100D6A625 /* CompositionRoot.swift */,
 			);
 			path = Composition;
+			sourceTree = "<group>";
+		};
+		24780EE424C497810015AADB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				24780EE524C497CB0015AADB /* GitHubManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		2481E67D24BB7DB100633A31 = {
@@ -171,10 +198,12 @@
 		2481E68824BB7DB100633A31 /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				2413F33024BF5E410004A856 /* Utils */,
 				24EEB21724C324FE00C96EE2 /* Model */,
 				24EEB21124C3010B00C96EE2 /* Networking */,
+				24780EE424C497810015AADB /* Managers */,
 				2413F33724BF74890004A856 /* Scenes */,
-				2413F33024BF5E410004A856 /* Utils */,
+				246515DE24C44D4700EA37AA /* Custom Views */,
 				2413F32C24BF5DE70004A856 /* Flow */,
 				247485B824BC785300D6A625 /* Composition */,
 				2481E68924BB7DB100633A31 /* AppDelegate.swift */,
@@ -190,6 +219,7 @@
 		2481E69F24BB7DB600633A31 /* GitHubFollowersTests */ = {
 			isa = PBXGroup;
 			children = (
+				246515DB24C4495900EA37AA /* Networking */,
 				2481E6A024BB7DB600633A31 /* GitHubFollowersTests.swift */,
 				2481E6A224BB7DB600633A31 /* Info.plist */,
 			);
@@ -324,6 +354,7 @@
 				2481E68E24BB7DB100633A31 /* ViewController.swift in Sources */,
 				24EEB21B24C3253600C96EE2 /* Follower.swift in Sources */,
 				2481E68A24BB7DB100633A31 /* AppDelegate.swift in Sources */,
+				24780EE624C497CB0015AADB /* GitHubManager.swift in Sources */,
 				2481E68C24BB7DB100633A31 /* SceneDelegate.swift in Sources */,
 				2413F33424BF5E700004A856 /* UIViewController+Child.swift in Sources */,
 				24EEB21924C3251900C96EE2 /* User.swift in Sources */,
@@ -334,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				246515DD24C4498800EA37AA /* GitHubServiceTests.swift in Sources */,
 				2481E6A124BB7DB600633A31 /* GitHubFollowersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

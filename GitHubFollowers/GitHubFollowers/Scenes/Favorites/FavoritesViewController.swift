@@ -7,14 +7,12 @@
 //
 
 import UIKit
-import Combine
 
 class FavoritesViewController: UIViewController {
-    var gitHubService: GitHubService
-    var subscription: AnyCancellable?
+    private let gitHubManager: GitHubNetworking
     
-    init(gitHubService: GitHubService) {
-        self.gitHubService = gitHubService
+    init(gitHubManager: GitHubNetworking) {
+        self.gitHubManager = gitHubManager
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,9 +24,7 @@ class FavoritesViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemPink
         
-        subscription = gitHubService.fetchUserInfo(for: "cardoso").sink(receiveCompletion: { completion in
-           print(completion)
-        }) { (userInfo) in
+        gitHubManager.fetchUserInfo(for: "cardoso") { (userInfo) in
             print(userInfo)
         }
     }

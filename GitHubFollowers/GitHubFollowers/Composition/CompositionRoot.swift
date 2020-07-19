@@ -19,7 +19,12 @@ public final class CompositionRoot {
     }
     
     private func buildInitialViewController() -> UIViewController {
+        return AppFlowViewController(gitHubManager: buildGitHubManager())
+    }
+    
+    private func buildGitHubManager() -> GitHubNetworking {
         let gitHubClient = GitHubClient(networking: URLSession.shared.erasedDataTaskPublisher)
-        return AppFlowViewController(gitHubService: gitHubClient)
+        let gitHubManager = GitHubManager(gitHubService: gitHubClient)
+        return gitHubManager
     }
 }

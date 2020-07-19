@@ -10,10 +10,10 @@ import UIKit
 
 class AppFlowViewController: UIViewController {
     private let tabController = UITabBarController()
-    private let gitHubService: GitHubService
+    private let gitHubManager: GitHubNetworking
     
-    init(gitHubService: GitHubService) {
-        self.gitHubService = gitHubService
+    init(gitHubManager: GitHubNetworking) {
+        self.gitHubManager = gitHubManager
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -29,14 +29,14 @@ class AppFlowViewController: UIViewController {
     }
     
     private func createSearchNavigationController() -> UIViewController {
-        let productsFlowVC = SearchViewController(gitHubService: gitHubService)
+        let productsFlowVC = SearchViewController(gitHubManager: gitHubManager)
         productsFlowVC.title = "Search"
         productsFlowVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         return productsFlowVC
     }
     
     private func createFavoritesListNavigationController() -> UIViewController {
-        let productDetailsFlowVC = FavoritesViewController(gitHubService: gitHubService)
+        let productDetailsFlowVC = FavoritesViewController(gitHubManager: gitHubManager)
         productDetailsFlowVC.title = "Favorites"
         productDetailsFlowVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         return productDetailsFlowVC
