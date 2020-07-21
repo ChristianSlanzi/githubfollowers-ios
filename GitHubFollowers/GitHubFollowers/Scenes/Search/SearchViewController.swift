@@ -68,7 +68,14 @@ class SearchViewController: UIViewController {
         }
         
         viewModel.outputs.reloadData = { [weak self] (followers) in
-            self?.reloadData(followers)
+            guard let self = self else { return }
+            if followers.isEmpty {
+                let title = "Bad Luck"
+                let message = "This user does not have any followers. Go follow them. 😃"
+                self.presentAlertOnMainThread(title: title, message: message, buttonTitle: "OK")
+                return
+            }
+            self.reloadData(followers)
         }
     }
     
