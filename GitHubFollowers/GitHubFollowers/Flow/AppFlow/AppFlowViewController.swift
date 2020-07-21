@@ -30,16 +30,16 @@ class AppFlowViewController: UIViewController {
     
     private func createSearchNavigationController() -> UIViewController {
         let searchViewModel = SearchViewModel(input: SearchViewModel.Input(userName: ""), gitHubManager: gitHubManager)
-        let productsFlowVC = SearchViewController(viewModel: searchViewModel)
-        productsFlowVC.title = "Search"
-        productsFlowVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
-        return productsFlowVC
+        let searchVC = SearchViewController(viewModel: searchViewModel)
+        searchVC.title = "Search"
+        searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        return searchVC
     }
     
     private func createFavoritesListNavigationController() -> UIViewController {
-        let productDetailsFlowVC = FavoritesViewController()
-        productDetailsFlowVC.title = "Favorites"
-        productDetailsFlowVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
-        return productDetailsFlowVC
+        let favoritesVC = FavoritesViewController()
+        favoritesVC.title = "Favorites"
+        favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        return favoritesVC
     }
 }
