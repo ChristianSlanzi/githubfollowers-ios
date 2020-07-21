@@ -48,7 +48,12 @@ class SearchViewController: UIViewController {
     }
     
     @objc private func didTapButton(_ sender: Any) {
-        guard let userName = usernameTextField.text else { return }
+        guard let userName = usernameTextField.text, !userName.isEmpty else {
+            presentAlertOnMainThread(title: "Empty Username",
+                                       message: "Please enter a username. We need to know who to look for 😃!",
+                                       buttonTitle: "Ok")
+            return
+        }
     
         //TODO: prove that userName has valid characters.
         
