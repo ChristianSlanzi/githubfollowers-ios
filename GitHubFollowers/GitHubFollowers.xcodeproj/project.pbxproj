@@ -26,6 +26,7 @@
 		2481E69324BB7DB500633A31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2481E69224BB7DB500633A31 /* Assets.xcassets */; };
 		2481E69624BB7DB500633A31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2481E69424BB7DB500633A31 /* LaunchScreen.storyboard */; };
 		2481E6A124BB7DB600633A31 /* GitHubFollowersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481E6A024BB7DB600633A31 /* GitHubFollowersTests.swift */; };
+		248715FA24C7881200366726 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715F924C7881200366726 /* CustomTextField.swift */; };
 		24EEB21324C3013D00C96EE2 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21224C3013D00C96EE2 /* Networking.swift */; };
 		24EEB21624C324D300C96EE2 /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21524C324D300C96EE2 /* GitHubService.swift */; };
 		24EEB21924C3251900C96EE2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21824C3251900C96EE2 /* User.swift */; };
@@ -66,6 +67,7 @@
 		2481E69C24BB7DB600633A31 /* GitHubFollowersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubFollowersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2481E6A024BB7DB600633A31 /* GitHubFollowersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowersTests.swift; sourceTree = "<group>"; };
 		2481E6A224BB7DB600633A31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		248715F924C7881200366726 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		24EEB21224C3013D00C96EE2 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		24EEB21524C324D300C96EE2 /* GitHubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubService.swift; sourceTree = "<group>"; };
 		24EEB21824C3251900C96EE2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		246515DE24C44D4700EA37AA /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				248715F824C787F800366726 /* TextFields */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -248,6 +251,14 @@
 				246BA67524C7525700F1DD08 /* SearchViewModelTests.swift */,
 			);
 			path = GitHubFollowersTests;
+			sourceTree = "<group>";
+		};
+		248715F824C787F800366726 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				248715F924C7881200366726 /* CustomTextField.swift */,
+			);
+			path = TextFields;
 			sourceTree = "<group>";
 		};
 		24EEB21124C3010B00C96EE2 /* Networking */ = {
@@ -377,6 +388,7 @@
 				2413F33C24BF78A10004A856 /* SearchViewController.swift in Sources */,
 				2413F33E24BF78B40004A856 /* FavoritesViewController.swift in Sources */,
 				24EEB21324C3013D00C96EE2 /* Networking.swift in Sources */,
+				248715FA24C7881200366726 /* CustomTextField.swift in Sources */,
 				2413F32F24BF5E080004A856 /* AppFlowViewController.swift in Sources */,
 				2481E68E24BB7DB100633A31 /* ViewController.swift in Sources */,
 				24EEB21B24C3253600C96EE2 /* Follower.swift in Sources */,

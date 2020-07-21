@@ -11,7 +11,7 @@ import UIKit
 class SearchViewController: UIViewController {
     
     let logoImageView = UIImageView()
-    let usernameTextField = UITextField()
+    let usernameTextField = CustomTextField()
     let searchButton = UIButton()
     
     var viewModel: SearchViewModel
@@ -37,8 +37,7 @@ class SearchViewController: UIViewController {
         searchButton.backgroundColor = .systemGreen
         searchButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
 
-        
-        usernameTextField.borderStyle = .roundedRect
+        usernameTextField.setPlaceholder("Enter a username")
         
         view.addSubviews(logoImageView, usernameTextField, searchButton)
         configureCostraints()
@@ -48,36 +47,6 @@ class SearchViewController: UIViewController {
         super.viewWillAppear(true)
         usernameTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    private func configureCostraints() {
-        logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        usernameTextField.translatesAutoresizingMaskIntoConstraints = false
-        searchButton.translatesAutoresizingMaskIntoConstraints = false
-
-        let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
-
-        NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                               constant: topConstraintConstant),
-            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logoImageView.heightAnchor.constraint(equalToConstant: 200),
-            logoImageView.widthAnchor.constraint(equalToConstant: 200)
-        ])
-        
-        NSLayoutConstraint.activate([
-            usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
-            usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            usernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            usernameTextField.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
-        NSLayoutConstraint.activate([
-            searchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            searchButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            searchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            searchButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
     }
     
     @objc private func didTapButton(_ sender: Any) {
@@ -103,5 +72,39 @@ class SearchViewController: UIViewController {
     private func reloadData(_ followers: [Follower]) {
         print("user has \(followers.count) followers.")
         print(followers)
+    }
+}
+
+// MARK: - UI Costraints
+
+extension SearchViewController {
+    private func configureCostraints() {
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        //usernameTextField.translatesAutoresizingMaskIntoConstraints = false
+        searchButton.translatesAutoresizingMaskIntoConstraints = false
+
+        let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
+
+        NSLayoutConstraint.activate([
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
+                                               constant: topConstraintConstant),
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImageView.heightAnchor.constraint(equalToConstant: 200),
+            logoImageView.widthAnchor.constraint(equalToConstant: 200)
+        ])
+        
+        NSLayoutConstraint.activate([
+            usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
+            usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            usernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            usernameTextField.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        NSLayoutConstraint.activate([
+            searchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            searchButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            searchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            searchButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
 }
