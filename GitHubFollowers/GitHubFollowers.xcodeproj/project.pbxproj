@@ -15,6 +15,9 @@
 		246515DD24C4498800EA37AA /* GitHubServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246515DC24C4498800EA37AA /* GitHubServiceTests.swift */; };
 		246BA67424C750F400F1DD08 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67324C750F400F1DD08 /* SearchViewModel.swift */; };
 		246BA67624C7525700F1DD08 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67524C7525700F1DD08 /* SearchViewModelTests.swift */; };
+		246BA67824C7639300F1DD08 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67724C7639300F1DD08 /* UIViewController+Ext.swift */; };
+		246BA67B24C763CE00F1DD08 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67A24C763CE00F1DD08 /* UIView+Ext.swift */; };
+		246BA67D24C763FB00F1DD08 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67C24C763FB00F1DD08 /* Constants.swift */; };
 		247485BA24BC787100D6A625 /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247485B924BC787100D6A625 /* CompositionRoot.swift */; };
 		24780EE624C497CB0015AADB /* GitHubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24780EE524C497CB0015AADB /* GitHubManager.swift */; };
 		2481E68A24BB7DB100633A31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481E68924BB7DB100633A31 /* AppDelegate.swift */; };
@@ -48,6 +51,9 @@
 		246515DC24C4498800EA37AA /* GitHubServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubServiceTests.swift; sourceTree = "<group>"; };
 		246BA67324C750F400F1DD08 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		246BA67524C7525700F1DD08 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
+		246BA67724C7639300F1DD08 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		246BA67A24C763CE00F1DD08 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		246BA67C24C763FB00F1DD08 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		247485B924BC787100D6A625 /* CompositionRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
 		24780EE524C497CB0015AADB /* GitHubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubManager.swift; sourceTree = "<group>"; };
 		2481E68624BB7DB100633A31 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +109,8 @@
 		2413F33024BF5E410004A856 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				246BA67C24C763FB00F1DD08 /* Constants.swift */,
+				246BA67924C763CE00F1DD08 /* UIView */,
 				2413F33124BF5E480004A856 /* Extensions */,
 			);
 			path = Utils;
@@ -119,6 +127,7 @@
 		2413F33224BF5E580004A856 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
+				246BA67724C7639300F1DD08 /* UIViewController+Ext.swift */,
 				2413F33324BF5E700004A856 /* UIViewController+Child.swift */,
 			);
 			path = UIViewController;
@@ -163,6 +172,15 @@
 			children = (
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		246BA67924C763CE00F1DD08 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				246BA67A24C763CE00F1DD08 /* UIView+Ext.swift */,
+			);
+			name = UIView;
+			path = Extensions/UIView;
 			sourceTree = "<group>";
 		};
 		247485B824BC785300D6A625 /* Composition */ = {
@@ -351,8 +369,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				246BA67B24C763CE00F1DD08 /* UIView+Ext.swift in Sources */,
+				246BA67D24C763FB00F1DD08 /* Constants.swift in Sources */,
 				24EEB21624C324D300C96EE2 /* GitHubService.swift in Sources */,
 				247485BA24BC787100D6A625 /* CompositionRoot.swift in Sources */,
+				246BA67824C7639300F1DD08 /* UIViewController+Ext.swift in Sources */,
 				2413F33C24BF78A10004A856 /* SearchViewController.swift in Sources */,
 				2413F33E24BF78B40004A856 /* FavoritesViewController.swift in Sources */,
 				24EEB21324C3013D00C96EE2 /* Networking.swift in Sources */,
