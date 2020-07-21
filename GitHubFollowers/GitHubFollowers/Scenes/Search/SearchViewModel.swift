@@ -48,15 +48,15 @@ final class SearchViewModel: SearchViewModelType, SearchViewModelInputsType, Sea
     var outputs: SearchViewModelOutputsType { return self }
     
     //input
-    func viewDidLoad() {
-        
+    public func viewDidLoad() {
+        self.input.userName = ""
     }
     
-    func enteredText(name: String) {
+    public func enteredText(name: String) {
         self.input.userName = name
     }
     
-    func tappedSearchButton() {
+    public func tappedSearchButton() {
         gitHubManager.fetchFollowers(for: self.input.userName, page: 0){ (result) in
             switch result {
             case .success(let followers):
@@ -68,8 +68,14 @@ final class SearchViewModel: SearchViewModelType, SearchViewModelInputsType, Sea
     }
     
     //output
-    var didReceiveServiceError: ((Error) -> Void) = { _ in }
+    public var didReceiveServiceError: ((Error) -> Void) = { _ in }
     
-    var reloadData: (([Follower]) -> Void) = { _ in }
+    public var reloadData: (([Follower]) -> Void) = { _ in }
     
+    // public vars, methods
+    public var isSearchTextEmpty: Bool { input.userName.isEmpty }
+    
+    public func isSearchTextEqualTo(_ searchText: String) -> Bool {
+        input.userName == searchText
+    }
 }
