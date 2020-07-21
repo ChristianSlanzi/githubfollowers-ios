@@ -9,10 +9,11 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    private let gitHubManager: GitHubNetworking
     
-    init(gitHubManager: GitHubNetworking) {
-        self.gitHubManager = gitHubManager
+    var viewModel: SearchViewModel
+    
+    init(viewModel: SearchViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -24,8 +25,5 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .cyan
         
-        gitHubManager.fetchFollowers(for: "cardoso", page: 0){ (followers) in
-            print(followers)
-        }
     }
 }

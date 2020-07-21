@@ -29,7 +29,8 @@ class AppFlowViewController: UIViewController {
     }
     
     private func createSearchNavigationController() -> UIViewController {
-        let productsFlowVC = SearchViewController(gitHubManager: gitHubManager)
+        let searchViewModel = SearchViewModel(input: SearchViewModel.Input(userName: ""), gitHubManager: gitHubManager)
+        let productsFlowVC = SearchViewController(viewModel: searchViewModel)
         productsFlowVC.title = "Search"
         productsFlowVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         return productsFlowVC
