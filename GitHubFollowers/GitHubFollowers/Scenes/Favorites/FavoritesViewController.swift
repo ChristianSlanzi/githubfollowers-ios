@@ -9,10 +9,12 @@
 import UIKit
 
 class FavoritesViewController: UIViewController {
-    private let gitHubManager: GitHubNetworking
     
-    init(gitHubManager: GitHubNetworking) {
-        self.gitHubManager = gitHubManager
+    // MARK: - Properties
+
+    let tableView = UITableView()
+    
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -22,10 +24,57 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemPink
+        view.backgroundColor = .systemBackground
+        title = "Favorites"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
-        gitHubManager.fetchUserInfo(for: "cardoso") { (userInfo) in
-            print(userInfo)
-        }
+        configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    private func configureTableView() {
+        view.addSubview(tableView)
+        tableView.frame = view.bounds
+        tableView.rowHeight = 80
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.removeExcessCells()
+
+        // register cell with tableView
+        //tableView.register(FavoriteCell.self, forCellReuseIdentifier: FavoriteCell.reuseID)
+    }
+}
+
+// MARK: - Extension (Data Source)
+
+extension FavoritesViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        10
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+
+    // delete favorite
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+
+    }
+}
+
+// MARK: - Extension (Delegate)
+
+extension FavoritesViewController: UITableViewDelegate{
+    
+    // didselectrow - show followers from selected favorite
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
     }
 }

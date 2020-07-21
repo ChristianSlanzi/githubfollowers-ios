@@ -37,7 +37,7 @@ class AppFlowViewController: UIViewController {
     }
     
     private func createFavoritesListNavigationController() -> UIViewController {
-        let productDetailsFlowVC = FavoritesViewController(gitHubManager: gitHubManager)
+        let productDetailsFlowVC = FavoritesViewController()
         productDetailsFlowVC.title = "Favorites"
         productDetailsFlowVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         return productDetailsFlowVC

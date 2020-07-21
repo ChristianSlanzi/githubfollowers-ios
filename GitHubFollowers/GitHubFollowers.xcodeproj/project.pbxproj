@@ -28,6 +28,7 @@
 		2481E6A124BB7DB600633A31 /* GitHubFollowersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481E6A024BB7DB600633A31 /* GitHubFollowersTests.swift */; };
 		248715FA24C7881200366726 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715F924C7881200366726 /* CustomTextField.swift */; };
 		248715FD24C78B8500366726 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715FC24C78B8500366726 /* CustomButton.swift */; };
+		2487160024C7954900366726 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715FF24C7954900366726 /* UITableView+Ext.swift */; };
 		24EEB21324C3013D00C96EE2 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21224C3013D00C96EE2 /* Networking.swift */; };
 		24EEB21624C324D300C96EE2 /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21524C324D300C96EE2 /* GitHubService.swift */; };
 		24EEB21924C3251900C96EE2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21824C3251900C96EE2 /* User.swift */; };
@@ -70,6 +71,7 @@
 		2481E6A224BB7DB600633A31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		248715F924C7881200366726 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		248715FC24C78B8500366726 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		248715FF24C7954900366726 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		24EEB21224C3013D00C96EE2 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		24EEB21524C324D300C96EE2 /* GitHubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubService.swift; sourceTree = "<group>"; };
 		24EEB21824C3251900C96EE2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -114,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				246BA67C24C763FB00F1DD08 /* Constants.swift */,
-				246BA67924C763CE00F1DD08 /* UIView */,
 				2413F33124BF5E480004A856 /* Extensions */,
 			);
 			path = Utils;
@@ -123,6 +124,8 @@
 		2413F33124BF5E480004A856 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				248715FE24C7952F00366726 /* UITableView */,
+				246BA67924C763CE00F1DD08 /* UIView */,
 				2413F33224BF5E580004A856 /* UIViewController */,
 			);
 			path = Extensions;
@@ -185,8 +188,7 @@
 			children = (
 				246BA67A24C763CE00F1DD08 /* UIView+Ext.swift */,
 			);
-			name = UIView;
-			path = Extensions/UIView;
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		247485B824BC785300D6A625 /* Composition */ = {
@@ -270,6 +272,14 @@
 				248715FC24C78B8500366726 /* CustomButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		248715FE24C7952F00366726 /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				248715FF24C7954900366726 /* UITableView+Ext.swift */,
+			);
+			path = UITableView;
 			sourceTree = "<group>";
 		};
 		24EEB21124C3010B00C96EE2 /* Networking */ = {
@@ -408,6 +418,7 @@
 				2481E68A24BB7DB100633A31 /* AppDelegate.swift in Sources */,
 				24780EE624C497CB0015AADB /* GitHubManager.swift in Sources */,
 				2481E68C24BB7DB100633A31 /* SceneDelegate.swift in Sources */,
+				2487160024C7954900366726 /* UITableView+Ext.swift in Sources */,
 				2413F33424BF5E700004A856 /* UIViewController+Child.swift in Sources */,
 				24EEB21924C3251900C96EE2 /* User.swift in Sources */,
 			);
