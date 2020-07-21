@@ -12,7 +12,7 @@ class SearchViewController: UIViewController {
     
     let logoImageView = UIImageView()
     let usernameTextField = CustomTextField()
-    let searchButton = UIButton()
+    let searchButton = CustomButton()
     
     var viewModel: SearchViewModel
     
@@ -32,9 +32,7 @@ class SearchViewController: UIViewController {
         
         logoImageView.image = Images.ghLogo
         
-        searchButton.setTitle("Get Followers", for: .normal)
-        searchButton.layer.cornerRadius = 10
-        searchButton.backgroundColor = .systemGreen
+        searchButton.set(backgroundColor: .systemGreen, title: "Get Followers")
         searchButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
 
         usernameTextField.setPlaceholder("Enter a username")
@@ -80,8 +78,6 @@ class SearchViewController: UIViewController {
 extension SearchViewController {
     private func configureCostraints() {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        //usernameTextField.translatesAutoresizingMaskIntoConstraints = false
-        searchButton.translatesAutoresizingMaskIntoConstraints = false
 
         let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
 
