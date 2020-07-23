@@ -8,7 +8,12 @@
 
 import UIKit
 
-class AppFlowViewController: UIViewController {
+//protocol FlowController {
+//  var navigationController: UINavigationController {get}
+//}
+
+class AppFlowViewController: UIViewController{
+    
     private let tabController = UITabBarController()
     private let gitHubManager: GitHubNetworking
     
@@ -33,6 +38,7 @@ class AppFlowViewController: UIViewController {
         let searchVC = SearchViewController(viewModel: searchViewModel)
         searchVC.title = "Search"
         searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        searchVC.flowDelegate = self
         return searchVC
     }
     
@@ -41,5 +47,18 @@ class AppFlowViewController: UIViewController {
         favoritesVC.title = "Favorites"
         favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         return favoritesVC
+    }
+}
+
+protocol AppFlowControllerDelegate: AnyObject {
+    func showFollowers(_ followers: [Follower])
+}
+
+extension AppFlowViewController: AppFlowControllerDelegate {
+    func showFollowers(_ followers: [Follower]) {
+        DispatchQueue.main.async {
+            let followerVC = FollowersViewController()
+            self.navigationController?.show(followerVC, sender: self)
+        }
     }
 }

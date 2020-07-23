@@ -29,6 +29,8 @@
 		248715FA24C7881200366726 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715F924C7881200366726 /* CustomTextField.swift */; };
 		248715FD24C78B8500366726 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715FC24C78B8500366726 /* CustomButton.swift */; };
 		2487160024C7954900366726 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715FF24C7954900366726 /* UITableView+Ext.swift */; };
+		24E7DF8224C8270E005953A5 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7DF8124C8270E005953A5 /* FollowersViewController.swift */; };
+		24E7DF8424C849A8005953A5 /* FollowersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7DF8324C849A8005953A5 /* FollowersViewModel.swift */; };
 		24EEB21324C3013D00C96EE2 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21224C3013D00C96EE2 /* Networking.swift */; };
 		24EEB21624C324D300C96EE2 /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21524C324D300C96EE2 /* GitHubService.swift */; };
 		24EEB21924C3251900C96EE2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21824C3251900C96EE2 /* User.swift */; };
@@ -72,6 +74,8 @@
 		248715F924C7881200366726 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		248715FC24C78B8500366726 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		248715FF24C7954900366726 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
+		24E7DF8124C8270E005953A5 /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
+		24E7DF8324C849A8005953A5 /* FollowersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewModel.swift; sourceTree = "<group>"; };
 		24EEB21224C3013D00C96EE2 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		24EEB21524C324D300C96EE2 /* GitHubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubService.swift; sourceTree = "<group>"; };
 		24EEB21824C3251900C96EE2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 		2413F33724BF74890004A856 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				24E7DF8024C8268B005953A5 /* Followers */,
 				2413F33A24BF78890004A856 /* Favorites */,
 				2413F33824BF78630004A856 /* Search */,
 			);
@@ -282,6 +287,15 @@
 			path = UITableView;
 			sourceTree = "<group>";
 		};
+		24E7DF8024C8268B005953A5 /* Followers */ = {
+			isa = PBXGroup;
+			children = (
+				24E7DF8124C8270E005953A5 /* FollowersViewController.swift */,
+				24E7DF8324C849A8005953A5 /* FollowersViewModel.swift */,
+			);
+			path = Followers;
+			sourceTree = "<group>";
+		};
 		24EEB21124C3010B00C96EE2 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +424,7 @@
 				2413F33C24BF78A10004A856 /* SearchViewController.swift in Sources */,
 				2413F33E24BF78B40004A856 /* FavoritesViewController.swift in Sources */,
 				24EEB21324C3013D00C96EE2 /* Networking.swift in Sources */,
+				24E7DF8224C8270E005953A5 /* FollowersViewController.swift in Sources */,
 				248715FA24C7881200366726 /* CustomTextField.swift in Sources */,
 				2413F32F24BF5E080004A856 /* AppFlowViewController.swift in Sources */,
 				2481E68E24BB7DB100633A31 /* ViewController.swift in Sources */,
@@ -420,6 +435,7 @@
 				2481E68C24BB7DB100633A31 /* SceneDelegate.swift in Sources */,
 				2487160024C7954900366726 /* UITableView+Ext.swift in Sources */,
 				2413F33424BF5E700004A856 /* UIViewController+Child.swift in Sources */,
+				24E7DF8424C849A8005953A5 /* FollowersViewModel.swift in Sources */,
 				24EEB21924C3251900C96EE2 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

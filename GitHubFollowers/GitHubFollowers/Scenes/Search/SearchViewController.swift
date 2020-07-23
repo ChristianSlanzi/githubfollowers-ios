@@ -16,6 +16,8 @@ class SearchViewController: UIViewController {
     
     var viewModel: SearchViewModel
     
+    var flowDelegate: AppFlowControllerDelegate?
+    
     init(viewModel: SearchViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -82,6 +84,7 @@ class SearchViewController: UIViewController {
     private func reloadData(_ followers: [Follower]) {
         print("user has \(followers.count) followers.")
         print(followers)
+        flowDelegate?.showFollowers(followers)
     }
 }
 
