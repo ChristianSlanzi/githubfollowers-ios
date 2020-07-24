@@ -13,7 +13,7 @@ protocol SearchViewModelInputsType {
     func enteredText(name: String)
     func tappedSearchButton()
 }
-protocol SearchViewModelOutputsType: class {
+protocol SearchViewModelOutputsType: AnyObject {
     var didReceiveServiceError: ((Error) -> Void) { get set }
     var reloadData: (([Follower]) -> Void) { get set }
 }

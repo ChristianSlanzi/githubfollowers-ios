@@ -13,7 +13,7 @@ protocol FollowersViewModelInputsType {
     func loadMoreFollowers()
 }
 
-protocol FollowersViewModelOutputsType: class {
+protocol FollowersViewModelOutputsType: AnyObject {
     var didReceiveServiceError: ((Error) -> Void) { get set }
     var reloadData: (([Follower]) -> Void) { get set }
 }
