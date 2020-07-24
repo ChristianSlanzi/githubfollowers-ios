@@ -10,9 +10,21 @@ import UIKit
 
 class FollowersViewController: UIViewController {
     
+    var viewModel: FollowersViewModel
+    
     var collectionView: UICollectionView!
     
     // MARK: - Viewcontroller Lifecycle
+    
+    init(viewModel: FollowersViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        bind()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -30,6 +42,9 @@ class FollowersViewController: UIViewController {
     }
     
     @objc func addButtonTapped() {
+    }
+    
+    private func bind() {
     }
 }
 

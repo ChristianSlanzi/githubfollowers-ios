@@ -57,7 +57,9 @@ protocol AppFlowControllerDelegate: AnyObject {
 extension AppFlowViewController: AppFlowControllerDelegate {
     func showFollowers(_ followers: [Follower]) {
         DispatchQueue.main.async {
-            let followerVC = FollowersViewController()
+            let followersViewModel = FollowersViewModel()
+            followersViewModel.followers = followers
+            let followerVC = FollowersViewController(viewModel: followersViewModel)
             self.navigationController?.show(followerVC, sender: self)
         }
     }
