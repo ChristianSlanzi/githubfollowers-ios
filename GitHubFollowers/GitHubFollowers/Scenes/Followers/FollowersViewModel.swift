@@ -18,9 +18,25 @@ protocol FollowersViewModelOutputsType: AnyObject {
     var reloadData: (([Follower]) -> Void) { get set }
 }
 
-final class FollowersViewModel {
+protocol FollowersViewModelType {
+    var inputs: FollowersViewModelInputsType { get }
+    var outputs: FollowersViewModelOutputsType { get }
+}
+
+final class FollowersViewModel: FollowersViewModelType, FollowersViewModelInputsType, FollowersViewModelOutputsType {
     
+    struct Input {
+        //passing in data the viewModel needs from the view controller
+        
+    }
+    
+    struct Output {
+        
+    }
+
     // MARK: properties
+    var inputs: FollowersViewModelInputsType { return self }
+    var outputs: FollowersViewModelOutputsType { return self }
 
     var username: String!
     var followers: [Follower] = []
@@ -29,4 +45,19 @@ final class FollowersViewModel {
     var hasMoreFollowers = true
     var isSearching = false
     var isLoadingMoreFollowers = false
+    
+    // MARK: - Input
+    public func viewDidLoad() {
+        self.reloadData(followers)
+    }
+    
+    public func loadMoreFollowers() {
+        
+    }
+    
+    // MARK: - Output
+    //output
+    public var didReceiveServiceError: ((Error) -> Void) = { _ in }
+    
+    public var reloadData: (([Follower]) -> Void) = { _ in }
 }

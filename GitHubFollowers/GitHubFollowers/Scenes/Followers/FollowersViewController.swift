@@ -39,12 +39,63 @@ class FollowersViewController: UIViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
         
+        configureCollectionView()
+    }
+    
+    private func configureCollectionView() {
+        collectionView = UICollectionView(frame: view.bounds,
+                                          collectionViewLayout: CollectionViewHelper.createThreeColumnFlowLayout(in: view)
+        )
+        
+        view.addSubview(collectionView)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .systemBackground
+        collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     
     @objc func addButtonTapped() {
     }
     
     private func bind() {
+        viewModel.outputs.reloadData = { [weak self] (followers) in
+            guard let self = self else { return }
+            if followers.isEmpty {
+                let title = "Bad Luck"
+                let message = "This user does not have any followers. Go follow them. 😃"
+                self.presentAlertOnMainThread(title: title, message: message, buttonTitle: "OK")
+                return
+            }
+            self.reloadData(followers)
+        }
+    }
+    
+    private func reloadData(_ followers: [Follower]) {
+        print("user has \(followers.count) followers.")
+        print(followers)
+        collectionView.reloadData()
     }
 }
 
+// MARK: - Extensions (Delegation Conformance)
+
+/// UICollectionViewDelegate Conformance
+extension FollowersViewController: UICollectionViewDelegate {
+    
+    internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as! FollowerCell
+        cell.set(viewModel: viewModel.followers[indexPath.row])
+        return cell
+    }
+}
+
+extension FollowersViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+      return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.followers.count
+    }
+}

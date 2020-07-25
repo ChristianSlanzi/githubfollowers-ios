@@ -29,6 +29,8 @@
 		248715FA24C7881200366726 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715F924C7881200366726 /* CustomTextField.swift */; };
 		248715FD24C78B8500366726 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715FC24C78B8500366726 /* CustomButton.swift */; };
 		2487160024C7954900366726 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715FF24C7954900366726 /* UITableView+Ext.swift */; };
+		24958D3D24CB0131000B9786 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24958D3C24CB0131000B9786 /* CollectionViewHelper.swift */; };
+		24958D4024CB028E000B9786 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24958D3F24CB028E000B9786 /* FollowerCell.swift */; };
 		24E7DF8224C8270E005953A5 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7DF8124C8270E005953A5 /* FollowersViewController.swift */; };
 		24E7DF8424C849A8005953A5 /* FollowersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7DF8324C849A8005953A5 /* FollowersViewModel.swift */; };
 		24EEB21324C3013D00C96EE2 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21224C3013D00C96EE2 /* Networking.swift */; };
@@ -74,6 +76,8 @@
 		248715F924C7881200366726 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		248715FC24C78B8500366726 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		248715FF24C7954900366726 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
+		24958D3C24CB0131000B9786 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
+		24958D3F24CB028E000B9786 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		24E7DF8124C8270E005953A5 /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		24E7DF8324C849A8005953A5 /* FollowersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewModel.swift; sourceTree = "<group>"; };
 		24EEB21224C3013D00C96EE2 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 		246515DE24C44D4700EA37AA /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				24958D3B24CB00ED000B9786 /* CollectionViews */,
 				248715FB24C78B6500366726 /* Buttons */,
 				248715F824C787F800366726 /* TextFields */,
 			);
@@ -287,9 +292,26 @@
 			path = UITableView;
 			sourceTree = "<group>";
 		};
+		24958D3B24CB00ED000B9786 /* CollectionViews */ = {
+			isa = PBXGroup;
+			children = (
+				24958D3C24CB0131000B9786 /* CollectionViewHelper.swift */,
+			);
+			path = CollectionViews;
+			sourceTree = "<group>";
+		};
+		24958D3E24CB01E6000B9786 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				24958D3F24CB028E000B9786 /* FollowerCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		24E7DF8024C8268B005953A5 /* Followers */ = {
 			isa = PBXGroup;
 			children = (
+				24958D3E24CB01E6000B9786 /* Cells */,
 				24E7DF8124C8270E005953A5 /* FollowersViewController.swift */,
 				24E7DF8324C849A8005953A5 /* FollowersViewModel.swift */,
 			);
@@ -437,6 +459,8 @@
 				2413F33424BF5E700004A856 /* UIViewController+Child.swift in Sources */,
 				24E7DF8424C849A8005953A5 /* FollowersViewModel.swift in Sources */,
 				24EEB21924C3251900C96EE2 /* User.swift in Sources */,
+				24958D3D24CB0131000B9786 /* CollectionViewHelper.swift in Sources */,
+				24958D4024CB028E000B9786 /* FollowerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
