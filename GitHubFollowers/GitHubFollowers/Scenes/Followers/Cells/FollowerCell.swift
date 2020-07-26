@@ -13,7 +13,7 @@ class FollowerCell: UICollectionViewCell {
 
     static let reuseID = "FollowerCell"
     
-    let profileImageView = UIImageView(frame: .zero)
+    let profileImageView = CachedImageView(frame: .zero)
     let usernameLabel = UILabel(frame: .zero)
 
     // MARK: - Initializers
