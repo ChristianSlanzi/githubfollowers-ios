@@ -37,6 +37,7 @@ class SearchViewController: UIViewController {
         searchButton.set(backgroundColor: .systemGreen, title: "Get Followers")
         searchButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
 
+        usernameTextField.delegate = self
         usernameTextField.setPlaceholder("Enter a username")
         
         view.addSubviews(logoImageView, usernameTextField, searchButton)
@@ -50,17 +51,21 @@ class SearchViewController: UIViewController {
     }
     
     @objc private func didTapButton(_ sender: Any) {
+        //TODO: prove that userName has valid characters.
+        if let userName = getValidatedUsername() {
+            viewModel.inputs.enteredText(name: userName)
+            viewModel.inputs.tappedSearchButton()
+        }
+    }
+    
+    private func getValidatedUsername() -> String? {
         guard let userName = usernameTextField.text, !userName.isEmpty else {
             presentAlertOnMainThread(title: "Empty Username",
                                        message: "Please enter a username. We need to know who to look for 😃!",
                                        buttonTitle: "Ok")
-            return
+            return nil
         }
-    
-        //TODO: prove that userName has valid characters.
-        
-        viewModel.inputs.enteredText(name: userName)
-        viewModel.inputs.tappedSearchButton()
+        return userName
     }
     
     private func bind() {
@@ -117,5 +122,21 @@ extension SearchViewController {
             searchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             searchButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == usernameTextField {
+            textField.resignFirstResponder()
+            if let userName = getValidatedUsername() {
+                viewModel.inputs.enteredText(name: userName)
+                viewModel.inputs.textFieldReturned()
+            }
+            return false
+        }
+        return true
     }
 }

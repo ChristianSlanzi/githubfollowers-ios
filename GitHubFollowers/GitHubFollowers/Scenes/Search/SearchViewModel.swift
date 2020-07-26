@@ -12,6 +12,7 @@ protocol SearchViewModelInputsType {
     func viewDidLoad()
     func enteredText(name: String)
     func tappedSearchButton()
+    func textFieldReturned()
 }
 protocol SearchViewModelOutputsType: AnyObject {
     var didReceiveServiceError: ((Error) -> Void) { get set }
@@ -57,14 +58,11 @@ final class SearchViewModel: SearchViewModelType, SearchViewModelInputsType, Sea
     }
     
     public func tappedSearchButton() {
-        gitHubManager.fetchFollowers(for: self.input.userName, page: 0){ (result) in
-            switch result {
-            case .success(let followers):
-                self.reloadData(followers)
-            case .failure(let error):
-                self.didReceiveServiceError(error)
-            }
-        }
+        fetchFollowers()
+    }
+    
+    public func textFieldReturned() {
+        fetchFollowers()
     }
     
     //output
@@ -77,5 +75,19 @@ final class SearchViewModel: SearchViewModelType, SearchViewModelInputsType, Sea
     
     public func isSearchTextEqualTo(_ searchText: String) -> Bool {
         input.userName == searchText
+    }
+    
+    // MARK: - Helpers
+    private func fetchFollowers() {
+        guard !self.input.userName.isEmpty else { return }
+        
+        gitHubManager.fetchFollowers(for: self.input.userName, page: 0){ (result) in
+            switch result {
+            case .success(let followers):
+                self.reloadData(followers)
+            case .failure(let error):
+                self.didReceiveServiceError(error)
+            }
+        }
     }
 }
