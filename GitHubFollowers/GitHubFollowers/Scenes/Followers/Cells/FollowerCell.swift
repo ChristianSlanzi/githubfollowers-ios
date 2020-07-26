@@ -29,9 +29,9 @@ class FollowerCell: UICollectionViewCell {
     }
     
     func set(viewModel: Follower) {
-        //profileImageView.downloadImage(fromURL: viewModel.avatarUrl)
-        profileImageView.image = UIImage(named: "AppIcon")
         usernameLabel.text = viewModel.login
+        guard  let url = URL(string: viewModel.avatarUrl) else { return }
+        profileImageView.load(url: url)
     }
     
     // MARK: - Layout Methods
@@ -39,6 +39,8 @@ class FollowerCell: UICollectionViewCell {
     private func configure() {
         backgroundColor = .systemBackground
         addSubviews(profileImageView, usernameLabel)
+        profileImageView.image = UIImage(named: "gh-logo")
+        usernameLabel.text = "user"
         
         let padding: CGFloat = 8
         
@@ -58,5 +60,6 @@ class FollowerCell: UICollectionViewCell {
             usernameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             usernameLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
+        
     }
 }

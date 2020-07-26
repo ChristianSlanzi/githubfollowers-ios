@@ -29,6 +29,7 @@
 		248715FA24C7881200366726 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715F924C7881200366726 /* CustomTextField.swift */; };
 		248715FD24C78B8500366726 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715FC24C78B8500366726 /* CustomButton.swift */; };
 		2487160024C7954900366726 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715FF24C7954900366726 /* UITableView+Ext.swift */; };
+		248AB84524CD8D6300FF2A7B /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248AB84424CD8D6300FF2A7B /* UIImageView+Ext.swift */; };
 		24958D3D24CB0131000B9786 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24958D3C24CB0131000B9786 /* CollectionViewHelper.swift */; };
 		24958D4024CB028E000B9786 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24958D3F24CB028E000B9786 /* FollowerCell.swift */; };
 		24E7DF8224C8270E005953A5 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7DF8124C8270E005953A5 /* FollowersViewController.swift */; };
@@ -76,6 +77,7 @@
 		248715F924C7881200366726 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		248715FC24C78B8500366726 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		248715FF24C7954900366726 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
+		248AB84424CD8D6300FF2A7B /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		24958D3C24CB0131000B9786 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
 		24958D3F24CB028E000B9786 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		24E7DF8124C8270E005953A5 /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		2413F33124BF5E480004A856 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				248AB84324CD8D4300FF2A7B /* UIImageView */,
 				248715FE24C7952F00366726 /* UITableView */,
 				246BA67924C763CE00F1DD08 /* UIView */,
 				2413F33224BF5E580004A856 /* UIViewController */,
@@ -290,6 +293,14 @@
 				248715FF24C7954900366726 /* UITableView+Ext.swift */,
 			);
 			path = UITableView;
+			sourceTree = "<group>";
+		};
+		248AB84324CD8D4300FF2A7B /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				248AB84424CD8D6300FF2A7B /* UIImageView+Ext.swift */,
+			);
+			path = UIImageView;
 			sourceTree = "<group>";
 		};
 		24958D3B24CB00ED000B9786 /* CollectionViews */ = {
@@ -453,6 +464,7 @@
 				24EEB21B24C3253600C96EE2 /* Follower.swift in Sources */,
 				246BA67424C750F400F1DD08 /* SearchViewModel.swift in Sources */,
 				2481E68A24BB7DB100633A31 /* AppDelegate.swift in Sources */,
+				248AB84524CD8D6300FF2A7B /* UIImageView+Ext.swift in Sources */,
 				24780EE624C497CB0015AADB /* GitHubManager.swift in Sources */,
 				2481E68C24BB7DB100633A31 /* SceneDelegate.swift in Sources */,
 				2487160024C7954900366726 /* UITableView+Ext.swift in Sources */,
