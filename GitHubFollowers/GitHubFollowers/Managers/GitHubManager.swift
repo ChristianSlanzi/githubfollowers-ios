@@ -50,6 +50,4 @@ class GitHubManager: GitHubNetworking {
             completion(.success(userInfo))
         }
     }
-    
 }
-

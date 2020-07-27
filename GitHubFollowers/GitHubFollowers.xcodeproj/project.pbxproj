@@ -118,6 +118,13 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		2405628124CF229C0049236F /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
 		2413F32C24BF5DE70004A856 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +173,7 @@
 		2413F33724BF74890004A856 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2405628124CF229C0049236F /* UserProfile */,
 				24E7DF8024C8268B005953A5 /* Followers */,
 				2413F33A24BF78890004A856 /* Favorites */,
 				2413F33824BF78630004A856 /* Search */,

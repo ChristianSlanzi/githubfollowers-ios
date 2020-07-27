@@ -12,6 +12,8 @@ class FollowersViewController: UIViewController {
     
     var viewModel: FollowersViewModel
     
+    var flowDelegate: AppFlowControllerDelegate?
+    
     var collectionView: UICollectionView!
     
     // MARK: - Viewcontroller Lifecycle
@@ -70,6 +72,11 @@ class FollowersViewController: UIViewController {
                 self.reloadData(followers)
             }
         }
+        
+        viewModel.outputs.showUserProfile = { [weak self] (user) in
+            guard let self = self else { return }
+            self.flowDelegate?.showProfile(forUser: user)
+        }
     }
     
     private func reloadData(_ followers: [Follower]) { //TODO: we are not used the parameter
@@ -97,10 +104,16 @@ extension FollowersViewController: UICollectionViewDelegate {
         let height = scrollView.frame.size.height
 
         if offsetY > contentHeight - height {
+            //TODO: should I move this logic into the view model?
             guard viewModel.hasMoreFollowers, !viewModel.isLoadingMoreFollowers else { return }
             viewModel.page += 1
             viewModel.loadMoreFollowers()
         }
+    }
+    
+    // handle user tap on follower list
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.didTapUserProfileAt(indexPath: indexPath)
     }
 }
 

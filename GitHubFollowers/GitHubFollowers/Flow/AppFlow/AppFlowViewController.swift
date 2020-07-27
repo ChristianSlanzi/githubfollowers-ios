@@ -52,6 +52,7 @@ class AppFlowViewController: UIViewController{
 
 protocol AppFlowControllerDelegate: AnyObject {
     func showFollowers(_ followers: [Follower], forUser name: String)
+    func showProfile(forUser: User)
 }
 
 extension AppFlowViewController: AppFlowControllerDelegate {
@@ -60,7 +61,12 @@ extension AppFlowViewController: AppFlowControllerDelegate {
             let followersViewModel = FollowersViewModel(input: FollowersViewModel.Input(userName: name), gitHubManager: self.gitHubManager)
             followersViewModel.followers = followers
             let followerVC = FollowersViewController(viewModel: followersViewModel)
+            followerVC.flowDelegate = self
             self.navigationController?.show(followerVC, sender: self)
         }
+    }
+    
+    func showProfile(forUser: User) {
+        print("show profile view controller")
     }
 }

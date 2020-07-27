@@ -11,11 +11,13 @@ import Foundation
 protocol FollowersViewModelInputsType {
     func viewDidLoad()
     func loadMoreFollowers()
+    func didTapUserProfileAt(indexPath: IndexPath)
 }
 
 protocol FollowersViewModelOutputsType: AnyObject {
     var didReceiveServiceError: ((Error) -> Void) { get set }
     var reloadData: (([Follower]) -> Void) { get set }
+    var showUserProfile: ((User) -> Void) { get set }
 }
 
 protocol FollowersViewModelType {
@@ -64,11 +66,26 @@ final class FollowersViewModel: FollowersViewModelType, FollowersViewModelInputs
         fetchFollowers()
     }
     
+    public func didTapUserProfileAt(indexPath: IndexPath) {
+        let follower = followers[indexPath.item]
+        gitHubManager.fetchUserInfo(for: follower.login) { (result) in
+            switch result {
+            case .success(let user):
+                self.showUserProfile(user)
+                break
+            case .failure(let error):
+                self.didReceiveServiceError(error)
+            }
+        }
+    }
+    
     // MARK: - Output
     //output
     public var didReceiveServiceError: ((Error) -> Void) = { _ in }
     
     public var reloadData: (([Follower]) -> Void) = { _ in }
+    
+    public var showUserProfile: ((User) -> Void) = { _ in }
     
     // MARK: - Helpers
     private func fetchFollowers() {
