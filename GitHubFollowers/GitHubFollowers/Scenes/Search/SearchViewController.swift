@@ -74,7 +74,9 @@ class SearchViewController: UIViewController {
             self.presentAlertOnMainThread(title: "Service Error", message: error.localizedDescription, buttonTitle: "OK")
         }
         
-        viewModel.outputs.reloadData = { [weak self] (followers) in
+        viewModel.outputs.reloadData = { [weak self] (arg0) in
+            
+            let (username, followers) = arg0
             guard let self = self else { return }
             if followers.isEmpty {
                 let title = "Bad Luck"
@@ -82,14 +84,14 @@ class SearchViewController: UIViewController {
                 self.presentAlertOnMainThread(title: title, message: message, buttonTitle: "OK")
                 return
             }
-            self.reloadData(followers)
+            self.reloadData(forUser: username, followers)
         }
     }
     
-    private func reloadData(_ followers: [Follower]) {
+    private func reloadData(forUser username: String, _ followers: [Follower]) {
         print("user has \(followers.count) followers.")
         print(followers)
-        flowDelegate?.showFollowers(followers)
+        flowDelegate?.showFollowers(followers, forUser: username)
     }
 }
 

@@ -25,9 +25,11 @@ protocol FollowersViewModelType {
 
 final class FollowersViewModel: FollowersViewModelType, FollowersViewModelInputsType, FollowersViewModelOutputsType {
     
+    private let gitHubManager: GitHubNetworking
+    
     struct Input {
         //passing in data the viewModel needs from the view controller
-        
+        var userName: String
     }
     
     struct Output {
@@ -38,7 +40,7 @@ final class FollowersViewModel: FollowersViewModelType, FollowersViewModelInputs
     var inputs: FollowersViewModelInputsType { return self }
     var outputs: FollowersViewModelOutputsType { return self }
 
-    var username: String!
+    
     var followers: [Follower] = []
     var filteredFollowers: [Follower] = []
     var page = 1
@@ -46,13 +48,20 @@ final class FollowersViewModel: FollowersViewModelType, FollowersViewModelInputs
     var isSearching = false
     var isLoadingMoreFollowers = false
     
+    private var input: Input
+    
+    init(input: Input, gitHubManager: GitHubNetworking) {
+        self.input = input
+        self.gitHubManager = gitHubManager
+    }
+    
     // MARK: - Input
     public func viewDidLoad() {
         self.reloadData(followers)
     }
     
     public func loadMoreFollowers() {
-        
+        fetchFollowers()
     }
     
     // MARK: - Output
@@ -60,4 +69,20 @@ final class FollowersViewModel: FollowersViewModelType, FollowersViewModelInputs
     public var didReceiveServiceError: ((Error) -> Void) = { _ in }
     
     public var reloadData: (([Follower]) -> Void) = { _ in }
+    
+    // MARK: - Helpers
+    private func fetchFollowers() {
+        guard !self.input.userName.isEmpty else { return }
+        
+        gitHubManager.fetchFollowers(for: self.input.userName, page: page){ (result) in
+            switch result {
+            case .success(let followers):
+                if followers.count < 100 { self.hasMoreFollowers = false }
+                self.followers.append(contentsOf: followers)
+                self.reloadData(followers)
+            case .failure(let error):
+                self.didReceiveServiceError(error)
+            }
+        }
+    }
 }

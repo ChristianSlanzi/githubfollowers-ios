@@ -51,13 +51,13 @@ class AppFlowViewController: UIViewController{
 }
 
 protocol AppFlowControllerDelegate: AnyObject {
-    func showFollowers(_ followers: [Follower])
+    func showFollowers(_ followers: [Follower], forUser name: String)
 }
 
 extension AppFlowViewController: AppFlowControllerDelegate {
-    func showFollowers(_ followers: [Follower]) {
+    func showFollowers(_ followers: [Follower], forUser name: String) {
         DispatchQueue.main.async {
-            let followersViewModel = FollowersViewModel()
+            let followersViewModel = FollowersViewModel(input: FollowersViewModel.Input(userName: name), gitHubManager: self.gitHubManager)
             followersViewModel.followers = followers
             let followerVC = FollowersViewController(viewModel: followersViewModel)
             self.navigationController?.show(followerVC, sender: self)

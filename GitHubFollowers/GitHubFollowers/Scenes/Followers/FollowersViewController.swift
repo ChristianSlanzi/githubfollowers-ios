@@ -66,11 +66,13 @@ class FollowersViewController: UIViewController {
                 self.presentAlertOnMainThread(title: title, message: message, buttonTitle: "OK")
                 return
             }
-            self.reloadData(followers)
+            DispatchQueue.main.async {
+                self.reloadData(followers)
+            }
         }
     }
     
-    private func reloadData(_ followers: [Follower]) {
+    private func reloadData(_ followers: [Follower]) { //TODO: we are not used the parameter
         print("user has \(followers.count) followers.")
         print(followers)
         collectionView.reloadData()
@@ -87,6 +89,18 @@ extension FollowersViewController: UICollectionViewDelegate {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as! FollowerCell
         cell.set(viewModel: viewModel.followers[indexPath.row])
         return cell
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+
+        if offsetY > contentHeight - height {
+            guard viewModel.hasMoreFollowers, !viewModel.isLoadingMoreFollowers else { return }
+            viewModel.page += 1
+            viewModel.loadMoreFollowers()
+        }
     }
 }
 

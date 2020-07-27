@@ -26,7 +26,7 @@ class GitHubManager: GitHubNetworking {
     }
     
     func fetchFollowers(for username: String, page: Int, completion: @escaping (Result<[Follower], Error>) -> Void) {
-        subscription = gitHubService.fetchFollowers(for: username, page: 0).sink(receiveCompletion: { subcompletion in
+        subscription = gitHubService.fetchFollowers(for: username, page: page).sink(receiveCompletion: { subcompletion in
             switch subcompletion {
             case .finished:
                 break
