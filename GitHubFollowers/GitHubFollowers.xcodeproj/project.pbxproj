@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2405628024CED14B0049236F /* GitHubManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405627F24CED14B0049236F /* GitHubManagerTests.swift */; };
 		2413F32F24BF5E080004A856 /* AppFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F32E24BF5E080004A856 /* AppFlowViewController.swift */; };
 		2413F33424BF5E700004A856 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F33324BF5E700004A856 /* UIViewController+Child.swift */; };
 		2413F33624BF631E0004A856 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2413F33524BF631E0004A856 /* README.md */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2405627F24CED14B0049236F /* GitHubManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubManagerTests.swift; sourceTree = "<group>"; };
 		2413F32E24BF5E080004A856 /* AppFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowViewController.swift; sourceTree = "<group>"; };
 		2413F33324BF5E700004A856 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
 		2413F33524BF631E0004A856 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -108,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2405627E24CED1210049236F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2405627F24CED14B0049236F /* GitHubManagerTests.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		2413F32C24BF5DE70004A856 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +276,7 @@
 		2481E69F24BB7DB600633A31 /* GitHubFollowersTests */ = {
 			isa = PBXGroup;
 			children = (
+				2405627E24CED1210049236F /* Managers */,
 				246515DB24C4495900EA37AA /* Networking */,
 				2481E6A024BB7DB600633A31 /* GitHubFollowersTests.swift */,
 				2481E6A224BB7DB600633A31 /* Info.plist */,
@@ -492,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2405628024CED14B0049236F /* GitHubManagerTests.swift in Sources */,
 				246515DD24C4498800EA37AA /* GitHubServiceTests.swift in Sources */,
 				2481E6A124BB7DB600633A31 /* GitHubFollowersTests.swift in Sources */,
 				246BA67624C7525700F1DD08 /* SearchViewModelTests.swift in Sources */,
