@@ -54,7 +54,7 @@ class SearchViewController: UIViewController {
         //TODO: prove that userName has valid characters.
         if let userName = getValidatedUsername() {
             viewModel.inputs.enteredText(name: userName)
-            viewModel.inputs.tappedSearchButton()
+            viewModel.inputs.didTapSearchButton()
         }
     }
     

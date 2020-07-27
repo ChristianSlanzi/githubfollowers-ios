@@ -11,8 +11,8 @@ import Foundation
 protocol SearchViewModelInputsType {
     func viewDidLoad()
     func enteredText(name: String)
-    func tappedSearchButton()
     func textFieldReturned()
+    func didTapSearchButton()
 }
 protocol SearchViewModelOutputsType: AnyObject {
     var didReceiveServiceError: ((Error) -> Void) { get set }
@@ -57,14 +57,14 @@ final class SearchViewModel: SearchViewModelType, SearchViewModelInputsType, Sea
         self.input.userName = name
     }
     
-    public func tappedSearchButton() {
-        fetchFollowers()
-    }
-    
     public func textFieldReturned() {
         fetchFollowers()
     }
     
+    public func didTapSearchButton() {
+        fetchFollowers()
+    }
+
     //output
     public var didReceiveServiceError: ((Error) -> Void) = { _ in }
     
