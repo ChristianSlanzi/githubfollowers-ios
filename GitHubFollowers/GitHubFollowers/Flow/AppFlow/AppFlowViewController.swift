@@ -66,10 +66,11 @@ extension AppFlowViewController: AppFlowControllerDelegate {
         }
     }
     
-    func showProfile(forUser: User) {
+    func showProfile(forUser user: User) {
         print("show profile view controller")
         DispatchQueue.main.async {
-            let userProfileVC = UserProfileViewController()
+            let userProfileViewModel = UserProfileViewModel(input: UserProfileViewModel.Input(user: user))
+            let userProfileVC = UserProfileViewController(viewModel: userProfileViewModel)
             self.navigationController?.show(userProfileVC, sender: self)
         }
     }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2405628024CED14B0049236F /* GitHubManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405627F24CED14B0049236F /* GitHubManagerTests.swift */; };
 		2405628324CF2A070049236F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405628224CF2A070049236F /* UserProfileViewController.swift */; };
+		2405628524CF45180049236F /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405628424CF45180049236F /* UserProfileViewModel.swift */; };
 		2413F32F24BF5E080004A856 /* AppFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F32E24BF5E080004A856 /* AppFlowViewController.swift */; };
 		2413F33424BF5E700004A856 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F33324BF5E700004A856 /* UIViewController+Child.swift */; };
 		2413F33624BF631E0004A856 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2413F33524BF631E0004A856 /* README.md */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		2405627F24CED14B0049236F /* GitHubManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubManagerTests.swift; sourceTree = "<group>"; };
 		2405628224CF2A070049236F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		2405628424CF45180049236F /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		2413F32E24BF5E080004A856 /* AppFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowViewController.swift; sourceTree = "<group>"; };
 		2413F33324BF5E700004A856 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
 		2413F33524BF631E0004A856 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				2405628224CF2A070049236F /* UserProfileViewController.swift */,
+				2405628424CF45180049236F /* UserProfileViewModel.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				246BA67424C750F400F1DD08 /* SearchViewModel.swift in Sources */,
 				2481E68A24BB7DB100633A31 /* AppDelegate.swift in Sources */,
 				2405628324CF2A070049236F /* UserProfileViewController.swift in Sources */,
+				2405628524CF45180049236F /* UserProfileViewModel.swift in Sources */,
 				248AB84524CD8D6300FF2A7B /* UIImageView+Ext.swift in Sources */,
 				24780EE624C497CB0015AADB /* GitHubManager.swift in Sources */,
 				2481E68C24BB7DB100633A31 /* SceneDelegate.swift in Sources */,
