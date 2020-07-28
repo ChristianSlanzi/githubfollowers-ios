@@ -34,8 +34,8 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        configureUIElements()
-        layoutUI()
+        setupViews()
+        setupConstraints()
     }
     
     // MARK: - MVVM Binding
@@ -44,16 +44,11 @@ class UserProfileViewController: UIViewController {
         
     }
     
-    func configureUIElements() {
+    private func setupViews() {
         view.addSubview(profileView)
         view.addSubview(githubCardView)
         view.addSubview(followersCardView)
         view.addSubview(dateLabel)
-    }
-    
-    private func layoutUI() {
-        let padding: CGFloat = 20
-        let itemHeight: CGFloat = 140
         
         // DEBUG
         profileView.backgroundColor = .yellow
@@ -62,7 +57,12 @@ class UserProfileViewController: UIViewController {
         
         dateLabel.textAlignment = .center
         dateLabel.text = "datum"
-
+    }
+    
+    private func setupConstraints() {
+        let padding: CGFloat = 20
+        let itemHeight: CGFloat = 140
+        
         for itemView in [profileView, githubCardView, followersCardView, dateLabel] {
             itemView.translatesAutoresizingMaskIntoConstraints = false
 
