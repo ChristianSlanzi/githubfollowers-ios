@@ -15,6 +15,9 @@
 		2413F33624BF631E0004A856 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2413F33524BF631E0004A856 /* README.md */; };
 		2413F33C24BF78A10004A856 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F33B24BF78A10004A856 /* SearchViewController.swift */; };
 		2413F33E24BF78B40004A856 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F33D24BF78B40004A856 /* FavoritesViewController.swift */; };
+		242E8CA524D04BEB004DBDFC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242E8CA424D04BEB004DBDFC /* ProfileView.swift */; };
+		242E8CA724D05204004DBDFC /* GitHubCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242E8CA624D05204004DBDFC /* GitHubCardView.swift */; };
+		242E8CA924D05230004DBDFC /* FollowersCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242E8CA824D05230004DBDFC /* FollowersCardView.swift */; };
 		246515DD24C4498800EA37AA /* GitHubServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246515DC24C4498800EA37AA /* GitHubServiceTests.swift */; };
 		246BA67424C750F400F1DD08 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67324C750F400F1DD08 /* SearchViewModel.swift */; };
 		246BA67624C7525700F1DD08 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67524C7525700F1DD08 /* SearchViewModelTests.swift */; };
@@ -64,6 +67,9 @@
 		2413F33524BF631E0004A856 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2413F33B24BF78A10004A856 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2413F33D24BF78B40004A856 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		242E8CA424D04BEB004DBDFC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		242E8CA624D05204004DBDFC /* GitHubCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCardView.swift; sourceTree = "<group>"; };
+		242E8CA824D05230004DBDFC /* FollowersCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCardView.swift; sourceTree = "<group>"; };
 		246515DC24C4498800EA37AA /* GitHubServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubServiceTests.swift; sourceTree = "<group>"; };
 		246BA67324C750F400F1DD08 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		246BA67524C7525700F1DD08 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
@@ -127,6 +133,7 @@
 		2405628124CF229C0049236F /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				242E8CA324D04BD1004DBDFC /* Views */,
 				2405628224CF2A070049236F /* UserProfileViewController.swift */,
 				2405628424CF45180049236F /* UserProfileViewModel.swift */,
 			);
@@ -204,6 +211,16 @@
 				2413F33D24BF78B40004A856 /* FavoritesViewController.swift */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		242E8CA324D04BD1004DBDFC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				242E8CA424D04BEB004DBDFC /* ProfileView.swift */,
+				242E8CA624D05204004DBDFC /* GitHubCardView.swift */,
+				242E8CA824D05230004DBDFC /* FollowersCardView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		246515DB24C4495900EA37AA /* Networking */ = {
@@ -499,6 +516,8 @@
 				248715FD24C78B8500366726 /* CustomButton.swift in Sources */,
 				246BA67D24C763FB00F1DD08 /* Constants.swift in Sources */,
 				24EEB21624C324D300C96EE2 /* GitHubService.swift in Sources */,
+				242E8CA924D05230004DBDFC /* FollowersCardView.swift in Sources */,
+				242E8CA724D05204004DBDFC /* GitHubCardView.swift in Sources */,
 				247485BA24BC787100D6A625 /* CompositionRoot.swift in Sources */,
 				246BA67824C7639300F1DD08 /* UIViewController+Ext.swift in Sources */,
 				2413F33C24BF78A10004A856 /* SearchViewController.swift in Sources */,
@@ -517,6 +536,7 @@
 				248AB84524CD8D6300FF2A7B /* UIImageView+Ext.swift in Sources */,
 				24780EE624C497CB0015AADB /* GitHubManager.swift in Sources */,
 				2481E68C24BB7DB100633A31 /* SceneDelegate.swift in Sources */,
+				242E8CA524D04BEB004DBDFC /* ProfileView.swift in Sources */,
 				2487160024C7954900366726 /* UITableView+Ext.swift in Sources */,
 				2413F33424BF5E700004A856 /* UIViewController+Child.swift in Sources */,
 				24E7DF8424C849A8005953A5 /* FollowersViewModel.swift in Sources */,

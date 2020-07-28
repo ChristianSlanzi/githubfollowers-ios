@@ -23,7 +23,7 @@ public final class CompositionRoot {
     }
     
     private func buildGitHubManager() -> GitHubNetworking {
-        return GitHubManager(gitHubService: buildGitHubService(MOCKED: true))
+        return GitHubManager(gitHubService: buildGitHubService(MOCKED: false))
     }
     
     private func buildGitHubService(MOCKED: Bool = false) -> GitHubService {
