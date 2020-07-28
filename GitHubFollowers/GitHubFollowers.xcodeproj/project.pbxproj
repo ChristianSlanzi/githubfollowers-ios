@@ -29,6 +29,7 @@
 		2481E69324BB7DB500633A31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2481E69224BB7DB500633A31 /* Assets.xcassets */; };
 		2481E69624BB7DB500633A31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2481E69424BB7DB500633A31 /* LaunchScreen.storyboard */; };
 		2481E6A124BB7DB600633A31 /* GitHubFollowersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481E6A024BB7DB600633A31 /* GitHubFollowersTests.swift */; };
+		248688D424CF72B500AA1007 /* MockedNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248688D324CF72B500AA1007 /* MockedNetworking.swift */; };
 		248715FA24C7881200366726 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715F924C7881200366726 /* CustomTextField.swift */; };
 		248715FD24C78B8500366726 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715FC24C78B8500366726 /* CustomButton.swift */; };
 		2487160024C7954900366726 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715FF24C7954900366726 /* UITableView+Ext.swift */; };
@@ -81,6 +82,7 @@
 		2481E69C24BB7DB600633A31 /* GitHubFollowersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubFollowersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2481E6A024BB7DB600633A31 /* GitHubFollowersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowersTests.swift; sourceTree = "<group>"; };
 		2481E6A224BB7DB600633A31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		248688D324CF72B500AA1007 /* MockedNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedNetworking.swift; sourceTree = "<group>"; };
 		248715F924C7881200366726 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		248715FC24C78B8500366726 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		248715FF24C7954900366726 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
@@ -299,6 +301,14 @@
 			path = GitHubFollowersTests;
 			sourceTree = "<group>";
 		};
+		248688D224CF728100AA1007 /* Mocking */ = {
+			isa = PBXGroup;
+			children = (
+				248688D324CF72B500AA1007 /* MockedNetworking.swift */,
+			);
+			path = Mocking;
+			sourceTree = "<group>";
+		};
 		248715F824C787F800366726 /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,6 +378,7 @@
 		24EEB21124C3010B00C96EE2 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				248688D224CF728100AA1007 /* Mocking */,
 				24EEB21224C3013D00C96EE2 /* Networking.swift */,
 				24EEB21524C324D300C96EE2 /* GitHubService.swift */,
 			);
@@ -496,6 +507,7 @@
 				24E7DF8224C8270E005953A5 /* FollowersViewController.swift in Sources */,
 				248715FA24C7881200366726 /* CustomTextField.swift in Sources */,
 				2413F32F24BF5E080004A856 /* AppFlowViewController.swift in Sources */,
+				248688D424CF72B500AA1007 /* MockedNetworking.swift in Sources */,
 				2481E68E24BB7DB100633A31 /* ViewController.swift in Sources */,
 				24EEB21B24C3253600C96EE2 /* Follower.swift in Sources */,
 				246BA67424C750F400F1DD08 /* SearchViewModel.swift in Sources */,

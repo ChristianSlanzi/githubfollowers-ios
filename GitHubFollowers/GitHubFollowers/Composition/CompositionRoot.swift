@@ -23,8 +23,10 @@ public final class CompositionRoot {
     }
     
     private func buildGitHubManager() -> GitHubNetworking {
-        let gitHubClient = GitHubClient(networking: URLSession.shared.erasedDataTaskPublisher)
-        let gitHubManager = GitHubManager(gitHubService: gitHubClient)
-        return gitHubManager
+        return GitHubManager(gitHubService: buildGitHubService(MOCKED: true))
+    }
+    
+    private func buildGitHubService(MOCKED: Bool = false) -> GitHubService {
+        return MOCKED ? buildMockedService() : GitHubClient(networking: URLSession.shared.erasedDataTaskPublisher)
     }
 }
