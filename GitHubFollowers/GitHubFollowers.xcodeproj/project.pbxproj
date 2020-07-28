@@ -18,6 +18,7 @@
 		242E8CA524D04BEB004DBDFC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242E8CA424D04BEB004DBDFC /* ProfileView.swift */; };
 		242E8CA724D05204004DBDFC /* GitHubCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242E8CA624D05204004DBDFC /* GitHubCardView.swift */; };
 		242E8CA924D05230004DBDFC /* FollowersCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242E8CA824D05230004DBDFC /* FollowersCardView.swift */; };
+		242E8CAB24D092F9004DBDFC /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242E8CAA24D092F9004DBDFC /* ProfileViewModel.swift */; };
 		246515DD24C4498800EA37AA /* GitHubServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246515DC24C4498800EA37AA /* GitHubServiceTests.swift */; };
 		246BA67424C750F400F1DD08 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67324C750F400F1DD08 /* SearchViewModel.swift */; };
 		246BA67624C7525700F1DD08 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67524C7525700F1DD08 /* SearchViewModelTests.swift */; };
@@ -70,6 +71,7 @@
 		242E8CA424D04BEB004DBDFC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		242E8CA624D05204004DBDFC /* GitHubCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCardView.swift; sourceTree = "<group>"; };
 		242E8CA824D05230004DBDFC /* FollowersCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCardView.swift; sourceTree = "<group>"; };
+		242E8CAA24D092F9004DBDFC /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		246515DC24C4498800EA37AA /* GitHubServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubServiceTests.swift; sourceTree = "<group>"; };
 		246BA67324C750F400F1DD08 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		246BA67524C7525700F1DD08 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				242E8CA424D04BEB004DBDFC /* ProfileView.swift */,
+				242E8CAA24D092F9004DBDFC /* ProfileViewModel.swift */,
 				242E8CA624D05204004DBDFC /* GitHubCardView.swift */,
 				242E8CA824D05230004DBDFC /* FollowersCardView.swift */,
 			);
@@ -530,6 +533,7 @@
 				2481E68E24BB7DB100633A31 /* ViewController.swift in Sources */,
 				24EEB21B24C3253600C96EE2 /* Follower.swift in Sources */,
 				246BA67424C750F400F1DD08 /* SearchViewModel.swift in Sources */,
+				242E8CAB24D092F9004DBDFC /* ProfileViewModel.swift in Sources */,
 				2481E68A24BB7DB100633A31 /* AppDelegate.swift in Sources */,
 				2405628324CF2A070049236F /* UserProfileViewController.swift in Sources */,
 				2405628524CF45180049236F /* UserProfileViewModel.swift in Sources */,

@@ -59,4 +59,10 @@ class UserProfileViewModel: UserProfileViewModelType, UserProfileViewModelInputs
     //output
     public var showGitHubProfile: (() -> Void) = {  }
     public var showGitFollowers: (() -> Void) = {  }
+    
+    func getProfileViewModel() -> ProfileViewModel {
+        return ProfileViewModel(
+            input: ProfileViewModel.Input(user: input.user)
+        )
+    }
 }

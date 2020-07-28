@@ -11,6 +11,7 @@ import UIKit
 class ProfileView: UIView {
     
     // MARK: - Properties
+    var viewModel: ProfileViewModel
 
     let profileImageView = CachedImageView(frame: .zero)
     let usernameLabel = UILabel()
@@ -19,37 +20,34 @@ class ProfileView: UIView {
     let locationLabel = UILabel()
     let bioLabel = UILabel()
     
-    public convenience init() {
-        self.init(frame: .zero)
-        setupViews()
-    }
-    
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(viewModel: ProfileViewModel) {
+        self.viewModel = viewModel
+        super.init(frame: .zero)
         setupViews()
         setupCostraints()
+        bind()
     }
     
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - MVVM Binding
+    
+    private func bind() {
+        //let user = User(login: "user", avatarUrl: "http://avatarUrl", name: nil, location: nil, bio: nil, publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: Date())
+        
+        profileImageView.load(url: URL(string: viewModel.getAvatarUrl())!)
+        usernameLabel.text = viewModel.getUsername()
+        nameLabel.text = viewModel.getName()
+        locationLabel.text = viewModel.getLocation()
+        bioLabel.text = viewModel.getBio()
+        bioLabel.numberOfLines = 3
+    }
+    
     private func setupViews() {
         backgroundColor = .systemBackground
         
-        let user = User(login: "user", avatarUrl: "http://avatarUrl", name: nil, location: nil, bio: nil, publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: Date())
-        
-        profileImageView.load(url: URL(string: user.avatarUrl)!)
-
-        usernameLabel.text = user.login
-
-        nameLabel.text = user.name ?? "No Name"
-
-        locationLabel.text = user.location ?? "No Location"
-
-        bioLabel.text = user.bio ?? "No Bio Available"
-        bioLabel.numberOfLines = 3
-
         //locationImageView.image = SFSymbols.location
         locationImageView.tintColor = .secondaryLabel
         
