@@ -27,6 +27,6 @@ public final class CompositionRoot {
     }
     
     private func buildGitHubService(MOCKED: Bool = false) -> GitHubService {
-        return MOCKED ? buildMockedService() : GitHubClient(networking: URLSession.shared.erasedDataTaskPublisher)
+        return MOCKED ? buildMockedService(data: buildDataFor(followers: buildThreeFollowers())) : GitHubClient(networking: URLSession.shared.erasedDataTaskPublisher)
     }
 }

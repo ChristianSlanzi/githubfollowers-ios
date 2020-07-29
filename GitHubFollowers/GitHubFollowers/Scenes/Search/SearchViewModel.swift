@@ -80,7 +80,7 @@ final class SearchViewModel: SearchViewModelType, SearchViewModelInputsType, Sea
     
     // MARK: - Helpers
     private func fetchFollowers() {
-        guard !self.input.userName.isEmpty else { return }
+        guard !isSearchTextEmpty else { return }
         
         gitHubManager.fetchFollowers(for: self.input.userName, page: 1){ (result) in
             switch result {
