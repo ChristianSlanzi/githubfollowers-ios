@@ -11,8 +11,7 @@ import UIKit
 class UserProfileViewController: UIViewController {
     
     var viewModel: UserProfileViewModel
-    
-    
+
     let profileView: ProfileView
     let githubCardView = GitHubCardView()
     let followersCardView = FollowersCardView()
@@ -24,7 +23,6 @@ class UserProfileViewController: UIViewController {
         self.viewModel = viewModel
         self.profileView = ProfileView(viewModel: viewModel.getProfileViewModel())
         super.init(nibName: nil, bundle: nil)
-        
         
         bind()
     }
@@ -55,7 +53,7 @@ class UserProfileViewController: UIViewController {
         
         // DEBUG
         //profileView.backgroundColor = .yellow
-        githubCardView.backgroundColor = .cyan
+        //githubCardView.backgroundColor = .cyan
         followersCardView.backgroundColor = .systemPink
         
         dateLabel.textAlignment = .center
