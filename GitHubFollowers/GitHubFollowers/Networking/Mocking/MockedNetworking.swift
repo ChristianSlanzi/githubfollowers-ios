@@ -38,6 +38,14 @@ func buildThreeFollowers() -> [Follower] {
     return followers
 }
 
+func buildRandomFollowers(count: Int) -> [Follower] {
+    var followers: [Follower] = []
+    for index in 0..<count {
+        followers.append(Follower(login: "user\(index)", avatarUrl: "https://url"))
+    }
+    return followers
+}
+
 func buildDataFor(followers: [Follower]) -> Data {
     let encoder = JSONEncoder()
     guard let data = try? encoder.encode(followers) else { fatalError("Cache directory not found! This should not happen!") }

@@ -59,6 +59,7 @@ final class FollowersViewModel: FollowersViewModelType, FollowersViewModelInputs
     
     // MARK: - Input
     public func viewDidLoad() {
+        if followers.count < 100 { self.hasMoreFollowers = false }
         self.reloadData(followers)
     }
     

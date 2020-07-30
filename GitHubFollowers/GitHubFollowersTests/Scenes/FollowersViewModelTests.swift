@@ -18,14 +18,50 @@ class FollowersViewModelTests: XCTestCase {
     func testFollowersFoundWhenViewLoaded() {
         let sut = makeSutWith3Followers()
         sut.followers = buildThreeFollowers()
+        //sut.hasMoreFollowers = false
         let expectation = XCTestExpectation(description: "fetch github followers for user")
         
-        sut.reloadData = { (followers) in
+        sut.outputs.reloadData = { (followers) in
             XCTAssertEqual(followers.count, 3)
+            XCTAssertFalse(sut.hasMoreFollowers)
             expectation.fulfill()
         }
         
-        sut.viewDidLoad()
+        sut.inputs.viewDidLoad()
+        
+        // Wait until the expectation is fulfilled, with a timeout of 2 seconds.
+        wait(for: [expectation], timeout: TIMEOUT_2_SECS)
+    }
+    
+    func testLoad100FollowersWhenUserHasMoreFollowers() {
+        let sut = makeSutWith103Followers()
+        sut.followers = buildRandomFollowers(count: 100)
+        sut.hasMoreFollowers = true
+        let expectation = XCTestExpectation(description: "fetch more followers for user")
+        
+        sut.outputs.reloadData = { (followers) in
+            XCTAssertEqual(followers.count, 100)
+            expectation.fulfill()
+        }
+        
+        sut.inputs.viewDidLoad()
+        
+        // Wait until the expectation is fulfilled, with a timeout of 2 seconds.
+        wait(for: [expectation], timeout: TIMEOUT_2_SECS)
+    }
+    
+    func testLoadMoreFollowersWhenUserHasMoreFollowersAndWeScrollOver() {
+        let sut = makeSutWith103Followers()
+        sut.followers = buildRandomFollowers(count: 100)
+        sut.hasMoreFollowers = true
+        let expectation = XCTestExpectation(description: "fetch more followers for user")
+        
+        sut.outputs.reloadData = { (followers) in
+            XCTAssertEqual(followers.count, 103)
+            expectation.fulfill()
+        }
+        
+        sut.inputs.loadMoreFollowers()
         
         // Wait until the expectation is fulfilled, with a timeout of 2 seconds.
         wait(for: [expectation], timeout: TIMEOUT_2_SECS)
@@ -36,6 +72,14 @@ class FollowersViewModelTests: XCTestCase {
     private func makeSutWith3Followers() -> FollowersViewModel {
         let input = FollowersViewModel.Input(userName: "user1")
         let data = buildDataFor(followers: buildThreeFollowers())
+        let gitHubManager = GitHubManager(gitHubService: buildMockedService(data: data))
+        let sut = FollowersViewModel(input: input, gitHubManager: gitHubManager)
+        return sut
+    }
+    
+    private func makeSutWith103Followers() -> FollowersViewModel {
+        let input = FollowersViewModel.Input(userName: "user1")
+        let data = buildDataFor(followers: buildRandomFollowers(count: 103))
         let gitHubManager = GitHubManager(gitHubService: buildMockedService(data: data))
         let sut = FollowersViewModel(input: input, gitHubManager: gitHubManager)
         return sut

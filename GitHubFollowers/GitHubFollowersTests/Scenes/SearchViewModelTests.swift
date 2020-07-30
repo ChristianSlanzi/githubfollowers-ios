@@ -17,7 +17,7 @@ class SearchViewModelTests: XCTestCase {
         //given
         let sut = makeSut()
         //when
-        sut.viewDidLoad()
+        sut.inputs.viewDidLoad()
         //then
         XCTAssertEqual(sut.isSearchTextEmpty, true)
     }
@@ -26,7 +26,7 @@ class SearchViewModelTests: XCTestCase {
         //given
         let sut = makeSut()
         //when
-        sut.enteredText(name: "text")
+        sut.inputs.enteredText(name: "text")
         //then
         XCTAssertEqual(sut.isSearchTextEmpty, false)
     }
@@ -36,7 +36,7 @@ class SearchViewModelTests: XCTestCase {
         let sut = makeSut()
         let searchText = "text"
         //when
-        sut.enteredText(name: searchText)
+        sut.inputs.enteredText(name: searchText)
         //then
         XCTAssertEqual(sut.isSearchTextEqualTo(searchText), true)
     }
@@ -47,8 +47,8 @@ class SearchViewModelTests: XCTestCase {
         
         let expectation = XCTestExpectation(description: "fetch github followers for user")
         
-        sut.enteredText(name: searchText)
-        sut.reloadData = { (result) in
+        sut.inputs.enteredText(name: searchText)
+        sut.outputs.reloadData = { (result) in
             let (user, followers) = result
             XCTAssertEqual(user, searchText)
             XCTAssertEqual(followers.count, 3)
@@ -67,8 +67,8 @@ class SearchViewModelTests: XCTestCase {
         
         let expectation = XCTestExpectation(description: "fetch github followers for user")
         
-        sut.enteredText(name: searchText)
-        sut.reloadData = { (result) in
+        sut.inputs.enteredText(name: searchText)
+        sut.outputs.reloadData = { (result) in
             let (user, followers) = result
             XCTAssertEqual(user, searchText)
             XCTAssertEqual(followers.count, 3)
@@ -90,8 +90,8 @@ class SearchViewModelTests: XCTestCase {
         let expectation = XCTestExpectation(description: "fetch github followers for user")
         expectation.isInverted = true
         
-        sut.enteredText(name: searchText)
-        sut.reloadData = { (result) in
+        sut.inputs.enteredText(name: searchText)
+        sut.outputs.reloadData = { (result) in
             expectation.fulfill()
         }
 
@@ -107,8 +107,8 @@ class SearchViewModelTests: XCTestCase {
         
         let expectation = XCTestExpectation(description: "fetch github followers for user")
         
-        sut.enteredText(name: searchText)
-        sut.didReceiveServiceError = { (error) in
+        sut.inputs.enteredText(name: searchText)
+        sut.outputs.didReceiveServiceError = { (error) in
             expectation.fulfill()
         }
 
