@@ -8,23 +8,17 @@
 
 import UIKit
 
-class FollowersCardView: UIView {
+class FollowersCardView: CardView {
     
-    public init() {
-        super.init(frame: .zero)
-        setupViews()
-    }
+    // MARK: - Properties
     
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-    }
-    
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupViews() {
-        backgroundColor = .systemBackground
+    // MARK: - Setup
+
+    internal override func setupViews() {
+        super.setupViews()
+        itemInfoViewOne.set(itemInfoType: .followers, withCount: 0)
+        itemInfoViewTwo.set(itemInfoType: .following, withCount: 0)
+        actionButton.setTitle("Git Followers", for: .normal)
+        actionButton.backgroundColor = .systemGreen
     }
 }

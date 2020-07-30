@@ -54,7 +54,7 @@ class UserProfileViewController: UIViewController {
         // DEBUG
         //profileView.backgroundColor = .yellow
         //githubCardView.backgroundColor = .cyan
-        followersCardView.backgroundColor = .systemPink
+        //followersCardView.backgroundColor = .systemPink
         
         dateLabel.textAlignment = .center
         dateLabel.text = "datum"
