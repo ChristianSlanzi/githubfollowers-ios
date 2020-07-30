@@ -14,7 +14,7 @@ class UserProfileViewController: UIViewController {
 
     let profileView: ProfileView
     let githubCardView: GitHubCardView
-    let followersCardView = FollowersCardView()
+    let followersCardView: FollowersCardView
     let dateLabel = UILabel()
     
     // MARK: - Viewcontroller Lifecycle
@@ -23,6 +23,7 @@ class UserProfileViewController: UIViewController {
         self.viewModel = viewModel
         self.profileView = ProfileView(viewModel: viewModel.getProfileViewModel())
         self.githubCardView = GitHubCardView(viewModel: viewModel.getGitHubCardViewModel())
+        self.followersCardView = FollowersCardView(viewModel: viewModel.getFollowersCardViewModel())
         super.init(nibName: nil, bundle: nil)
         
         bind()

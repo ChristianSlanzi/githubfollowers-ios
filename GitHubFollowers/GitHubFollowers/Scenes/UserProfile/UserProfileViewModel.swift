@@ -69,4 +69,8 @@ class UserProfileViewModel: UserProfileViewModelType, UserProfileViewModelInputs
     func getGitHubCardViewModel() -> GitHubCardViewModel {
         return GitHubCardViewModel(input: GitHubCardViewModel.Input(user: input.user))
     }
+    
+    func getFollowersCardViewModel() -> FollowersCardViewModel {
+        return FollowersCardViewModel(input: FollowersCardViewModel.Input(user: input.user))
+    }
 }

@@ -21,6 +21,7 @@
 		242E8CAB24D092F9004DBDFC /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242E8CAA24D092F9004DBDFC /* ProfileViewModel.swift */; };
 		244E679A24D2BE57009FF2E1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E679924D2BE57009FF2E1 /* CardView.swift */; };
 		244E679C24D344EF009FF2E1 /* GitHubCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E679B24D344EF009FF2E1 /* GitHubCardViewModel.swift */; };
+		244E679E24D34D57009FF2E1 /* FollowersCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E679D24D34D57009FF2E1 /* FollowersCardViewModel.swift */; };
 		2463AD6824D17FD300DED93A /* ItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2463AD6724D17FD300DED93A /* ItemInfoView.swift */; };
 		246515DD24C4498800EA37AA /* GitHubServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246515DC24C4498800EA37AA /* GitHubServiceTests.swift */; };
 		246BA67424C750F400F1DD08 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67324C750F400F1DD08 /* SearchViewModel.swift */; };
@@ -78,6 +79,7 @@
 		242E8CAA24D092F9004DBDFC /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		244E679924D2BE57009FF2E1 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		244E679B24D344EF009FF2E1 /* GitHubCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCardViewModel.swift; sourceTree = "<group>"; };
+		244E679D24D34D57009FF2E1 /* FollowersCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCardViewModel.swift; sourceTree = "<group>"; };
 		2463AD6724D17FD300DED93A /* ItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoView.swift; sourceTree = "<group>"; };
 		246515DC24C4498800EA37AA /* GitHubServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubServiceTests.swift; sourceTree = "<group>"; };
 		246BA67324C750F400F1DD08 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				242E8CA624D05204004DBDFC /* GitHubCardView.swift */,
 				244E679B24D344EF009FF2E1 /* GitHubCardViewModel.swift */,
 				242E8CA824D05230004DBDFC /* FollowersCardView.swift */,
+				244E679D24D34D57009FF2E1 /* FollowersCardViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				248688D424CF72B500AA1007 /* MockedNetworking.swift in Sources */,
 				2481E68E24BB7DB100633A31 /* ViewController.swift in Sources */,
 				24EEB21B24C3253600C96EE2 /* Follower.swift in Sources */,
+				244E679E24D34D57009FF2E1 /* FollowersCardViewModel.swift in Sources */,
 				2463AD6824D17FD300DED93A /* ItemInfoView.swift in Sources */,
 				246BA67424C750F400F1DD08 /* SearchViewModel.swift in Sources */,
 				242E8CAB24D092F9004DBDFC /* ProfileViewModel.swift in Sources */,
