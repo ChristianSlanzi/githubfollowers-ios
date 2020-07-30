@@ -11,14 +11,30 @@ import UIKit
 class GitHubCardView: CardView {
     
     // MARK: - Properties
+    var viewModel: GitHubCardViewModel
     
+    init(viewModel: GitHubCardViewModel) {
+        self.viewModel = viewModel
+        super.init(frame: .zero)
+        bind()
+    }
+    
+    required public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     // MARK: - Setup
 
     internal override func setupViews() {
         super.setupViews()
-        itemInfoViewOne.set(itemInfoType: .repos, withCount: 0)
-        itemInfoViewTwo.set(itemInfoType: .gists, withCount: 0)
+        
         actionButton.setTitle("GitHub Profile", for: .normal)
         actionButton.backgroundColor = .purple
+    }
+    
+    // MARK: - MVVM Binding
+    
+    private func bind() {
+        itemInfoViewOne.set(itemInfoType: .repos, withCountText: viewModel.output.reposCountText)
+        itemInfoViewTwo.set(itemInfoType: .gists, withCountText: viewModel.output.gistsCountText)
     }
 }

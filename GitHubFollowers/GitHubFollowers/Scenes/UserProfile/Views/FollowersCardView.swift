@@ -16,8 +16,8 @@ class FollowersCardView: CardView {
 
     internal override func setupViews() {
         super.setupViews()
-        itemInfoViewOne.set(itemInfoType: .followers, withCount: 0)
-        itemInfoViewTwo.set(itemInfoType: .following, withCount: 0)
+        itemInfoViewOne.set(itemInfoType: .followers, withCountText: "0")
+        itemInfoViewTwo.set(itemInfoType: .following, withCountText: "0")
         actionButton.setTitle("Git Followers", for: .normal)
         actionButton.backgroundColor = .systemGreen
     }

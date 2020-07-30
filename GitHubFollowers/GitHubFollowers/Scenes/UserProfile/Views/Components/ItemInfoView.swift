@@ -73,7 +73,7 @@ extension ItemInfoView {
         case repos, gists, followers, following
     }
     
-    func set(itemInfoType: ItemInfoType, withCount count: Int) {
+    func set(itemInfoType: ItemInfoType, withCountText count: String) {
         switch itemInfoType {
         case .repos:
             iconImageView.image = SFSymbols.repos
@@ -89,6 +89,6 @@ extension ItemInfoView {
             titleLabel.text = "Following"
         }
 
-        countLabel.text = String(count)
+        countLabel.text = count
     }
 }
