@@ -34,6 +34,12 @@ class ItemInfoView: UIView {
         iconImageView.contentMode = .scaleAspectFill
         iconImageView.tintColor = .label
         
+        titleLabel.textAlignment = .left
+        titleLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        
+        countLabel.textAlignment = .center
+        countLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        
         addSubviews(iconImageView, titleLabel, countLabel)
     }
     

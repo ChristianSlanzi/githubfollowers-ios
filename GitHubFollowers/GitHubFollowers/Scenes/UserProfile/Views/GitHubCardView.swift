@@ -41,6 +41,8 @@ class GitHubCardView: UIView {
         itemInfoViewTwo.set(itemInfoType: .following, withCount: 0)
         actionButton.setTitle("Git Followers", for: .normal)
         actionButton.backgroundColor = .systemGreen
+        actionButton.layer.cornerRadius = 10
+        actionButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
                 
         // TODO: move in a common card component
         
