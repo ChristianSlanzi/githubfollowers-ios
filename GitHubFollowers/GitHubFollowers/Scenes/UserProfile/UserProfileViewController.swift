@@ -11,6 +11,8 @@ import UIKit
 class UserProfileViewController: UIViewController {
     
     var viewModel: UserProfileViewModel
+    
+    var flowDelegate: AppFlowControllerDelegate?
 
     let profileView: ProfileView
     let githubCardView: GitHubCardView
@@ -52,6 +54,8 @@ class UserProfileViewController: UIViewController {
         view.addSubview(githubCardView)
         view.addSubview(followersCardView)
         view.addSubview(dateLabel)
+        
+        self.githubCardView.flowDelegate = flowDelegate
         
         // DEBUG
         //profileView.backgroundColor = .yellow

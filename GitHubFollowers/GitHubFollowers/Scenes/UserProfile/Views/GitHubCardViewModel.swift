@@ -8,7 +8,20 @@
 
 import Foundation
 
-struct GitHubCardViewModel {
+protocol GitHubCardViewModelInputsType {
+    func didTapGitHubButton()
+}
+
+protocol GitHubCardViewModelOutputsType: AnyObject {
+    var showGitHubProfile: ((User) -> Void) { get set }
+}
+
+protocol GitHubCardViewModelType {
+    var inputs: GitHubCardViewModelInputsType { get }
+    var outputs: GitHubCardViewModelOutputsType { get }
+}
+
+class GitHubCardViewModel: GitHubCardViewModelType, GitHubCardViewModelInputsType, GitHubCardViewModelOutputsType {
     
     struct Input {
         //passing in data the viewModel needs from the view controller
@@ -30,4 +43,15 @@ struct GitHubCardViewModel {
             gistsCountText: "\(input.user.publicGists)"
         )
     }
+    
+    var inputs: GitHubCardViewModelInputsType { return self }
+    var outputs: GitHubCardViewModelOutputsType { return self }
+    
+    //input
+    func didTapGitHubButton() {
+        self.showGitHubProfile(self.input.user)
+    }
+    
+    //output
+    var showGitHubProfile: ((User) -> Void) = { _ in }
 }

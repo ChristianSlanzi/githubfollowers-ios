@@ -53,6 +53,7 @@ class AppFlowViewController: UIViewController{
 protocol AppFlowControllerDelegate: AnyObject {
     func showFollowers(_ followers: [Follower], forUser name: String)
     func showProfile(forUser: User)
+    func showGitHubPage(forUser user: User)
 }
 
 extension AppFlowViewController: AppFlowControllerDelegate {
@@ -71,7 +72,22 @@ extension AppFlowViewController: AppFlowControllerDelegate {
         DispatchQueue.main.async {
             let userProfileViewModel = UserProfileViewModel(input: UserProfileViewModel.Input(user: user))
             let userProfileVC = UserProfileViewController(viewModel: userProfileViewModel)
+            userProfileVC.flowDelegate = self
             self.navigationController?.show(userProfileVC, sender: self)
         }
+    }
+    
+    func showGitHubPage(forUser user: User) {
+       print("show git hub page")
+        
+        // show safari view controller
+        guard let url = URL(string: user.htmlUrl) else {
+            
+            presentAlertOnMainThread(title: "Invalid URL",
+                                       message: "The url attached to this user in invalid.",
+                                       buttonTitle: "Ok")
+            return
+        }
+        presentSafariViewController(with: url)
     }
 }

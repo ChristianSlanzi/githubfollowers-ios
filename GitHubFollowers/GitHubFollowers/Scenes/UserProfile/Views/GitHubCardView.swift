@@ -13,6 +13,8 @@ class GitHubCardView: CardView {
     // MARK: - Properties
     var viewModel: GitHubCardViewModel
     
+    var flowDelegate: AppFlowControllerDelegate?
+    
     init(viewModel: GitHubCardViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
@@ -36,5 +38,15 @@ class GitHubCardView: CardView {
     private func bind() {
         itemInfoViewOne.set(itemInfoType: .repos, withCountText: viewModel.output.reposCountText)
         itemInfoViewTwo.set(itemInfoType: .gists, withCountText: viewModel.output.gistsCountText)
+        
+        actionButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        
+        viewModel.outputs.showGitHubProfile = { user in
+            self.flowDelegate?.showGitHubPage(forUser: user)
+        }
+    }
+    
+    @objc private func didTapButton(_ sender: Any) {
+        viewModel.inputs.didTapGitHubButton()
     }
 }
