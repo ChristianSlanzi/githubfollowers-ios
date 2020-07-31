@@ -26,7 +26,8 @@ class CustomButton: UIButton {
     /// Configure object specific visual properties of button
     convenience init(backgroundColor: UIColor, title: String) {
         self.init(frame: .zero) // size created by autolayout
-        self.backgroundColor = backgroundColor
+        //self.backgroundColor = backgroundColor
+        self |> filledRoundedButtonStyle(color: backgroundColor)
         self.setTitle(title, for: .normal)
     }
 
@@ -34,15 +35,15 @@ class CustomButton: UIButton {
 
     /// Configure common visual properties of button
     private func configure() {
-        layer.cornerRadius = 10
-        titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        self |> filledRoundedButtonStyle(color: .black)
         setTitleColor(.white, for: .normal)
         translatesAutoresizingMaskIntoConstraints = false
     }
 
     /// Configure button properties from a different class
     func set(backgroundColor: UIColor, title: String) {
-        self.backgroundColor = backgroundColor
+        //self.backgroundColor = backgroundColor
+        self |> filledRoundedButtonStyle(color: backgroundColor)
         setTitle(title, for: .normal)
     }
 }

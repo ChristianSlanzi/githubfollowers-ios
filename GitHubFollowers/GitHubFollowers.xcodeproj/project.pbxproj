@@ -24,12 +24,14 @@
 		244E679E24D34D57009FF2E1 /* FollowersCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E679D24D34D57009FF2E1 /* FollowersCardViewModel.swift */; };
 		2463AD6824D17FD300DED93A /* ItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2463AD6724D17FD300DED93A /* ItemInfoView.swift */; };
 		246515DD24C4498800EA37AA /* GitHubServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246515DC24C4498800EA37AA /* GitHubServiceTests.swift */; };
+		2466F5F924D373A600A09003 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466F5F824D373A600A09003 /* AppStyle.swift */; };
 		246BA67424C750F400F1DD08 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67324C750F400F1DD08 /* SearchViewModel.swift */; };
 		246BA67624C7525700F1DD08 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67524C7525700F1DD08 /* SearchViewModelTests.swift */; };
 		246BA67824C7639300F1DD08 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67724C7639300F1DD08 /* UIViewController+Ext.swift */; };
 		246BA67B24C763CE00F1DD08 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67A24C763CE00F1DD08 /* UIView+Ext.swift */; };
 		246BA67D24C763FB00F1DD08 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67C24C763FB00F1DD08 /* Constants.swift */; };
 		247485BA24BC787100D6A625 /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247485B924BC787100D6A625 /* CompositionRoot.swift */; };
+		2477D1BF24D40E2B0025B73C /* FunctionalComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2477D1BE24D40E2B0025B73C /* FunctionalComposition.swift */; };
 		24780EE624C497CB0015AADB /* GitHubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24780EE524C497CB0015AADB /* GitHubManager.swift */; };
 		2481E68A24BB7DB100633A31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481E68924BB7DB100633A31 /* AppDelegate.swift */; };
 		2481E68C24BB7DB100633A31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481E68B24BB7DB100633A31 /* SceneDelegate.swift */; };
@@ -82,12 +84,14 @@
 		244E679D24D34D57009FF2E1 /* FollowersCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCardViewModel.swift; sourceTree = "<group>"; };
 		2463AD6724D17FD300DED93A /* ItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoView.swift; sourceTree = "<group>"; };
 		246515DC24C4498800EA37AA /* GitHubServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubServiceTests.swift; sourceTree = "<group>"; };
+		2466F5F824D373A600A09003 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		246BA67324C750F400F1DD08 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		246BA67524C7525700F1DD08 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
 		246BA67724C7639300F1DD08 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		246BA67A24C763CE00F1DD08 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		246BA67C24C763FB00F1DD08 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		247485B924BC787100D6A625 /* CompositionRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
+		2477D1BE24D40E2B0025B73C /* FunctionalComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalComposition.swift; sourceTree = "<group>"; };
 		24780EE524C497CB0015AADB /* GitHubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubManager.swift; sourceTree = "<group>"; };
 		2481E68624BB7DB100633A31 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2481E68924BB7DB100633A31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 		2413F33024BF5E410004A856 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2477D1BD24D40E030025B73C /* Functional */,
 				246BA67C24C763FB00F1DD08 /* Constants.swift */,
 				2413F33124BF5E480004A856 /* Extensions */,
 			);
@@ -267,6 +272,14 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
+		2466F5F724D3738F00A09003 /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				2466F5F824D373A600A09003 /* AppStyle.swift */,
+			);
+			path = Styling;
+			sourceTree = "<group>";
+		};
 		246BA67924C763CE00F1DD08 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +294,14 @@
 				247485B924BC787100D6A625 /* CompositionRoot.swift */,
 			);
 			path = Composition;
+			sourceTree = "<group>";
+		};
+		2477D1BD24D40E030025B73C /* Functional */ = {
+			isa = PBXGroup;
+			children = (
+				2477D1BE24D40E2B0025B73C /* FunctionalComposition.swift */,
+			);
+			path = Functional;
 			sourceTree = "<group>";
 		};
 		24780EE424C497810015AADB /* Managers */ = {
@@ -313,6 +334,7 @@
 		2481E68824BB7DB100633A31 /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				2466F5F724D3738F00A09003 /* Styling */,
 				2413F33024BF5E410004A856 /* Utils */,
 				24EEB21724C324FE00C96EE2 /* Model */,
 				24EEB21124C3010B00C96EE2 /* Networking */,
@@ -556,6 +578,7 @@
 				246BA67824C7639300F1DD08 /* UIViewController+Ext.swift in Sources */,
 				2413F33C24BF78A10004A856 /* SearchViewController.swift in Sources */,
 				2413F33E24BF78B40004A856 /* FavoritesViewController.swift in Sources */,
+				2477D1BF24D40E2B0025B73C /* FunctionalComposition.swift in Sources */,
 				24EEB21324C3013D00C96EE2 /* Networking.swift in Sources */,
 				24E7DF8224C8270E005953A5 /* FollowersViewController.swift in Sources */,
 				248715FA24C7881200366726 /* CustomTextField.swift in Sources */,
@@ -567,6 +590,7 @@
 				24EEB21B24C3253600C96EE2 /* Follower.swift in Sources */,
 				244E679E24D34D57009FF2E1 /* FollowersCardViewModel.swift in Sources */,
 				2463AD6824D17FD300DED93A /* ItemInfoView.swift in Sources */,
+				2466F5F924D373A600A09003 /* AppStyle.swift in Sources */,
 				246BA67424C750F400F1DD08 /* SearchViewModel.swift in Sources */,
 				242E8CAB24D092F9004DBDFC /* ProfileViewModel.swift in Sources */,
 				2481E68A24BB7DB100633A31 /* AppDelegate.swift in Sources */,
