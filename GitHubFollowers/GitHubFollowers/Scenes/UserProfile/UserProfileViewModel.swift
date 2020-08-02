@@ -12,11 +12,16 @@ protocol UserProfileViewModelInputsType {
     func viewDidLoad()
     func didTapGitHubProfileButton()
     func didTapGitFollowersButton()
+    
+    func didTapAddToFavoriteButton()
 }
 
 protocol UserProfileViewModelOutputsType: AnyObject {
     var showGitHubProfile: (() -> Void) { get set }
     var showGitFollowers: (() -> Void) { get set }
+    
+    var showAddToFavoritesResult: ((PersistanceError?) -> Void) { get set }
+
 }
 
 protocol UserProfileViewModelType {
@@ -56,9 +61,14 @@ class UserProfileViewModel: UserProfileViewModelType, UserProfileViewModelInputs
         
     }
     
+    public func didTapAddToFavoriteButton() {
+        addUserToFavorites(user: input.user)
+    }
+    
     //output
     public var showGitHubProfile: (() -> Void) = {  }
     public var showGitFollowers: (() -> Void) = {  }
+    public var showAddToFavoritesResult: ((PersistanceError?) -> Void) = { _ in }
     
     func getProfileViewModel() -> ProfileViewModel {
         return ProfileViewModel(
@@ -72,5 +82,19 @@ class UserProfileViewModel: UserProfileViewModelType, UserProfileViewModelInputs
     
     func getFollowersCardViewModel() -> FollowersCardViewModel {
         return FollowersCardViewModel(input: FollowersCardViewModel.Input(user: input.user))
+    }
+    
+    private func addUserToFavorites(user: User) {
+        let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+        
+        PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+            guard let self = self else { return }
+            
+            guard let error = error else { // if the update error is nil, Success!
+                self.showAddToFavoritesResult(nil)
+                return
+            }
+            self.showAddToFavoritesResult(error)
+        }
     }
 }

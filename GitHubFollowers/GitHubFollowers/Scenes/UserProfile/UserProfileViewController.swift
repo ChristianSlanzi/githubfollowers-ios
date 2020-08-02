@@ -26,6 +26,7 @@ class UserProfileViewController: UIViewController {
         self.profileView = ProfileView(viewModel: viewModel.getProfileViewModel())
         self.githubCardView = GitHubCardView(viewModel: viewModel.getGitHubCardViewModel())
         self.followersCardView = FollowersCardView(viewModel: viewModel.getFollowersCardViewModel())
+    
         super.init(nibName: nil, bundle: nil)
         
         bind()
@@ -46,7 +47,18 @@ class UserProfileViewController: UIViewController {
     // MARK: - MVVM Binding
     
     private func bind() {
-        
+        viewModel.showAddToFavoritesResult = { error in
+            guard let error = error else {
+                let title = "Success"
+                let message = "You have successfully favorited this user 🎉"
+                self.presentAlertOnMainThread(title: title, message: message, buttonTitle: "Hooray!")
+                return
+            }
+            
+            let title = "Something went wrong."
+            let message = error.rawValue
+            self.presentAlertOnMainThread(title: title, message: message, buttonTitle: "OK")
+        }
     }
     
     private func setupViews() {
@@ -65,6 +77,9 @@ class UserProfileViewController: UIViewController {
         
         dateLabel.textAlignment = .center
         dateLabel.text = "datum"
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        navigationItem.rightBarButtonItem = addButton
     }
     
     private func setupConstraints() {
@@ -94,5 +109,9 @@ class UserProfileViewController: UIViewController {
             dateLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
 
+    }
+    
+    @objc func addButtonTapped() {
+        viewModel.didTapAddToFavoriteButton()
     }
 }

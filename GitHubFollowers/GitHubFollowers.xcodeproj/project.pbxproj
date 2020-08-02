@@ -54,6 +54,7 @@
 		24EEB21624C324D300C96EE2 /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21524C324D300C96EE2 /* GitHubService.swift */; };
 		24EEB21924C3251900C96EE2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21824C3251900C96EE2 /* User.swift */; };
 		24EEB21B24C3253600C96EE2 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21A24C3253600C96EE2 /* Follower.swift */; };
+		24FC864124D6CF1600EEE531 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FC864024D6CF1600EEE531 /* PersistanceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		24EEB21524C324D300C96EE2 /* GitHubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubService.swift; sourceTree = "<group>"; };
 		24EEB21824C3251900C96EE2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		24EEB21A24C3253600C96EE2 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
+		24FC864024D6CF1600EEE531 /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				24780EE524C497CB0015AADB /* GitHubManager.swift */,
+				24FC864024D6CF1600EEE531 /* PersistanceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				24E7DF8224C8270E005953A5 /* FollowersViewController.swift in Sources */,
 				248715FA24C7881200366726 /* CustomTextField.swift in Sources */,
 				244E679C24D344EF009FF2E1 /* GitHubCardViewModel.swift in Sources */,
+				24FC864124D6CF1600EEE531 /* PersistanceManager.swift in Sources */,
 				2413F32F24BF5E080004A856 /* AppFlowViewController.swift in Sources */,
 				244E679A24D2BE57009FF2E1 /* CardView.swift in Sources */,
 				248688D424CF72B500AA1007 /* MockedNetworking.swift in Sources */,
