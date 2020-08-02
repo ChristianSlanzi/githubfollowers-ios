@@ -34,8 +34,8 @@ class FollowersViewModelTests: XCTestCase {
     }
     
     func testLoad100FollowersWhenUserHasMoreFollowers() {
-        let sut = makeSutWith103Followers()
-        sut.followers = buildRandomFollowers(count: 100)
+        let sut = makeSutWith103Followers(page: 1)
+        //sut.followers = buildRandomFollowers(count: 100)
         sut.hasMoreFollowers = true
         let expectation = XCTestExpectation(description: "fetch more followers for user")
         
@@ -51,8 +51,8 @@ class FollowersViewModelTests: XCTestCase {
     }
     
     func testLoadMoreFollowersWhenUserHasMoreFollowersAndWeScrollOver() {
-        let sut = makeSutWith103Followers()
-        sut.followers = buildRandomFollowers(count: 100)
+        let sut = makeSutWith103Followers(page: 2)
+        //sut.followers = buildRandomFollowers(count: 100)
         sut.hasMoreFollowers = true
         let expectation = XCTestExpectation(description: "fetch more followers for user")
         
@@ -62,6 +62,37 @@ class FollowersViewModelTests: XCTestCase {
         }
         
         sut.inputs.loadMoreFollowers()
+        
+        // Wait until the expectation is fulfilled, with a timeout of 2 seconds.
+        wait(for: [expectation], timeout: TIMEOUT_2_SECS)
+    }
+    
+    func testReturnErrorIfDataCorrupted() {
+        let sut = makeSutWithCorruptedData()
+        
+        let expectation = XCTestExpectation(description: "fetch github followers for user")
+        
+        sut.outputs.didReceiveServiceError = { (error) in
+            expectation.fulfill()
+        }
+
+        sut.viewDidLoad()
+        
+        // Wait until the expectation is fulfilled, with a timeout of 2 seconds.
+        wait(for: [expectation], timeout: TIMEOUT_2_SECS)
+    }
+    
+    func testFollowersNotFoundWhenUsernameNotEntered() {
+        let sut = makeSutWith3Followers()
+        
+        let expectation = XCTestExpectation(description: "fetch github followers for user")
+        expectation.isInverted = true
+        
+        sut.outputs.didReceiveServiceError = { (error) in
+            expectation.fulfill()
+        }
+
+        sut.viewDidLoad()
         
         // Wait until the expectation is fulfilled, with a timeout of 2 seconds.
         wait(for: [expectation], timeout: TIMEOUT_2_SECS)
@@ -77,10 +108,19 @@ class FollowersViewModelTests: XCTestCase {
         return sut
     }
     
-    private func makeSutWith103Followers() -> FollowersViewModel {
+    private func makeSutWith103Followers(page: Int) -> FollowersViewModel {
         let input = FollowersViewModel.Input(userName: "user1")
-        let data = buildDataFor(followers: buildRandomFollowers(count: 103))
+        let total = 103
+        let count = total < (100*page) ? total : (100*page)
+        let data = buildDataFor(followers: buildRandomFollowers(count: count))
         let gitHubManager = GitHubManager(gitHubService: buildMockedService(data: data))
+        let sut = FollowersViewModel(input: input, gitHubManager: gitHubManager)
+        return sut
+    }
+    private func makeSutWithCorruptedData() -> FollowersViewModel {
+        let input = FollowersViewModel.Input(userName: "user1")
+        let data = buildCorruptedData()
+        let gitHubManager = GitHubManager(gitHubService: buildMockedService(data: data, response: build400HttpResponse()))
         let sut = FollowersViewModel(input: input, gitHubManager: gitHubManager)
         return sut
     }
