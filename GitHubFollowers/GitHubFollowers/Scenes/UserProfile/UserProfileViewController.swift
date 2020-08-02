@@ -56,6 +56,7 @@ class UserProfileViewController: UIViewController {
         view.addSubview(dateLabel)
         
         self.githubCardView.flowDelegate = flowDelegate
+        self.followersCardView.flowDelegate = flowDelegate
         
         // DEBUG
         //profileView.backgroundColor = .yellow

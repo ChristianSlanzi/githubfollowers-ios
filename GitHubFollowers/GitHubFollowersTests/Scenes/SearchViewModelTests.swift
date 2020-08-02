@@ -48,7 +48,7 @@ class SearchViewModelTests: XCTestCase {
         let expectation = XCTestExpectation(description: "fetch github followers for user")
         
         sut.inputs.enteredText(name: searchText)
-        sut.outputs.reloadData = { (result) in
+        sut.outputs.showFollowers = { (result) in
             let (user, followers) = result
             XCTAssertEqual(user, searchText)
             XCTAssertEqual(followers.count, 3)
@@ -68,7 +68,7 @@ class SearchViewModelTests: XCTestCase {
         let expectation = XCTestExpectation(description: "fetch github followers for user")
         
         sut.inputs.enteredText(name: searchText)
-        sut.outputs.reloadData = { (result) in
+        sut.outputs.showFollowers = { (result) in
             let (user, followers) = result
             XCTAssertEqual(user, searchText)
             XCTAssertEqual(followers.count, 3)
@@ -91,7 +91,7 @@ class SearchViewModelTests: XCTestCase {
         expectation.isInverted = true
         
         sut.inputs.enteredText(name: searchText)
-        sut.outputs.reloadData = { (result) in
+        sut.outputs.showFollowers = { (result) in
             expectation.fulfill()
         }
 

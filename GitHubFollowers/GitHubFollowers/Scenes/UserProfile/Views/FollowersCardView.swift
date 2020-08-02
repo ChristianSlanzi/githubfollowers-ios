@@ -13,6 +13,8 @@ class FollowersCardView: CardView {
     // MARK: - Properties
     var viewModel: FollowersCardViewModel
     
+    var flowDelegate: AppFlowControllerDelegate?
+    
     init(viewModel: FollowersCardViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
@@ -36,5 +38,15 @@ class FollowersCardView: CardView {
     private func bind() {
         itemInfoViewOne.set(itemInfoType: .followers, withCountText: viewModel.output.followersCountText)
         itemInfoViewTwo.set(itemInfoType: .following, withCountText: viewModel.output.followingCountText)
+        
+        actionButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        
+        viewModel.outputs.showFollowers = { user in
+            self.flowDelegate?.showFollowers(forUser: user)
+        }
+    }
+    
+    @objc private func didTapButton(_ sender: Any) {
+        viewModel.inputs.didTapFollowersButton()
     }
 }

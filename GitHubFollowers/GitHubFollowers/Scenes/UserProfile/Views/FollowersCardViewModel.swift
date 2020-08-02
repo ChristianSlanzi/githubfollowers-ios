@@ -8,7 +8,20 @@
 
 import Foundation
 
-struct FollowersCardViewModel {
+protocol FollowersCardViewModelInputsType {
+    func didTapFollowersButton()
+}
+
+protocol FollowersCardViewModelOutputsType: AnyObject {
+    var showFollowers: ((String) -> Void) { get set }
+}
+
+protocol FollowersCardViewModelType {
+    var inputs: FollowersCardViewModelInputsType { get }
+    var outputs: FollowersCardViewModelOutputsType { get }
+}
+
+class FollowersCardViewModel: FollowersCardViewModelType, FollowersCardViewModelInputsType, FollowersCardViewModelOutputsType {
     
     struct Input {
         //passing in data the viewModel needs from the view controller
@@ -30,4 +43,16 @@ struct FollowersCardViewModel {
             followingCountText: "\(input.user.following)"
         )
     }
+    
+    var inputs: FollowersCardViewModelInputsType { return self }
+    var outputs: FollowersCardViewModelOutputsType { return self }
+    
+    //input
+    func didTapFollowersButton() {
+        self.showFollowers(self.input.user.login)
+    }
+    
+    //output
+    var showFollowers: ((String) -> Void) = { _ in }
+    
 }

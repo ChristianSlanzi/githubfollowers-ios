@@ -15,8 +15,7 @@ protocol SearchViewModelInputsType {
     func didTapSearchButton()
 }
 protocol SearchViewModelOutputsType: AnyObject {
-    var didReceiveServiceError: ((Error) -> Void) { get set }
-    var reloadData: (((String, [Follower])) -> Void) { get set }
+    var showFollowersForUsername: ((String) -> Void) { get set }
 }
 
 protocol SearchViewModelType {
@@ -27,8 +26,6 @@ protocol SearchViewModelType {
 // mvc or mvvm?
 final class SearchViewModel: SearchViewModelType, SearchViewModelInputsType, SearchViewModelOutputsType {
     
-    private let gitHubManager: GitHubNetworking
-
     struct Input {
         //passing in data the viewModel needs from the view controller
         var userName: String
@@ -40,9 +37,8 @@ final class SearchViewModel: SearchViewModelType, SearchViewModelInputsType, Sea
     
     private var input: Input
     
-    init(input: Input, gitHubManager: GitHubNetworking) {
+    init(input: Input) {
         self.input = input
-        self.gitHubManager = gitHubManager
     }
     
     var inputs: SearchViewModelInputsType { return self }
@@ -66,10 +62,7 @@ final class SearchViewModel: SearchViewModelType, SearchViewModelInputsType, Sea
     }
 
     //output
-    public var didReceiveServiceError: ((Error) -> Void) = { _ in }
-    
-    typealias UserFollowers = (String, [Follower])
-    public var reloadData: ((UserFollowers) -> Void) = { _ in }
+    public var showFollowersForUsername: ((String) -> Void) = { _ in }
     
     // public vars, methods
     public var isSearchTextEmpty: Bool { input.userName.isEmpty }
@@ -79,16 +72,10 @@ final class SearchViewModel: SearchViewModelType, SearchViewModelInputsType, Sea
     }
     
     // MARK: - Helpers
+    
     private func fetchFollowers() {
         guard !isSearchTextEmpty else { return }
         
-        gitHubManager.fetchFollowers(for: self.input.userName, page: 1){ (result) in
-            switch result {
-            case .success(let followers):
-                self.reloadData((self.input.userName, followers))
-            case .failure(let error):
-                self.didReceiveServiceError(error)
-            }
-        }
+        self.showFollowersForUsername(self.input.userName)
     }
 }

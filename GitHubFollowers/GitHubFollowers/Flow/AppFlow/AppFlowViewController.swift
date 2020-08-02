@@ -34,7 +34,7 @@ class AppFlowViewController: UIViewController{
     }
     
     private func createSearchNavigationController() -> UIViewController {
-        let searchViewModel = SearchViewModel(input: SearchViewModel.Input(userName: ""), gitHubManager: gitHubManager)
+        let searchViewModel = SearchViewModel(input: SearchViewModel.Input(userName: ""))
         let searchVC = SearchViewController(viewModel: searchViewModel)
         searchVC.title = "Search"
         searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
@@ -51,16 +51,15 @@ class AppFlowViewController: UIViewController{
 }
 
 protocol AppFlowControllerDelegate: AnyObject {
-    func showFollowers(_ followers: [Follower], forUser name: String)
+    func showFollowers(forUser name: String)
     func showProfile(forUser: User)
     func showGitHubPage(forUser user: User)
 }
 
 extension AppFlowViewController: AppFlowControllerDelegate {
-    func showFollowers(_ followers: [Follower], forUser name: String) {
+    func showFollowers(forUser name: String) {
         DispatchQueue.main.async {
             let followersViewModel = FollowersViewModel(input: FollowersViewModel.Input(userName: name), gitHubManager: self.gitHubManager)
-            followersViewModel.followers = followers
             let followerVC = FollowersViewController(viewModel: followersViewModel)
             followerVC.flowDelegate = self
             self.navigationController?.show(followerVC, sender: self)
