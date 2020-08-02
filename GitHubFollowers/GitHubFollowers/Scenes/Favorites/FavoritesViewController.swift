@@ -11,10 +11,12 @@ import UIKit
 class FavoritesViewController: UIViewController {
     
     // MARK: - Properties
-
+    var viewModel: FavoritesViewModel
+    
     let tableView = UITableView()
     
-    init() {
+    init(viewModel: FavoritesViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -29,6 +31,7 @@ class FavoritesViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         configureTableView()
+        viewModel.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +47,7 @@ class FavoritesViewController: UIViewController {
         tableView.removeExcessCells()
 
         // register cell with tableView
-        //tableView.register(FavoriteCell.self, forCellReuseIdentifier: FavoriteCell.reuseID)
+        tableView.register(FavoritesCell.self, forCellReuseIdentifier: FavoritesCell.reuseID)
     }
 }
 
@@ -53,11 +56,14 @@ class FavoritesViewController: UIViewController {
 extension FavoritesViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        //TODO: create a viewModel method to hide details
+        viewModel.favorites.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesCell.reuseID, for: indexPath) as! FavoritesCell
+        cell.set(favorite: viewModel.favorites[indexPath.row])
+        return cell
     }
 
     // delete favorite

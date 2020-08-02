@@ -43,7 +43,8 @@ class AppFlowViewController: UIViewController{
     }
     
     private func createFavoritesListNavigationController() -> UIViewController {
-        let favoritesVC = FavoritesViewController()
+        let model = FavoritesViewModel()
+        let favoritesVC = FavoritesViewController(viewModel: model)
         favoritesVC.title = "Favorites"
         favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         return favoritesVC
