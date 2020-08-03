@@ -125,6 +125,7 @@ final class FollowersViewModel: FollowersViewModelType, FollowersViewModelInputs
                 self.followers.append(contentsOf: followers)
                 self.reloadData(followers)
             case .failure(let error):
+                // TODO: - handle different kinds of error. add specific error type
                 self.didReceiveServiceError(error)
             }
         }

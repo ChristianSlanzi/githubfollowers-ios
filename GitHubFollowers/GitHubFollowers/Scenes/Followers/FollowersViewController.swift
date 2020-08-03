@@ -78,6 +78,11 @@ class FollowersViewController: UIViewController {
             }
         }
         
+        viewModel.outputs.didReceiveServiceError = { [weak self] error in
+            guard let self = self else { return }
+            self.presentAlertOnMainThread(title: "Service Error", message: error.localizedDescription, buttonTitle: "OK")
+        }
+        
         viewModel.outputs.showUserProfile = { [weak self] (user) in
             guard let self = self else { return }
             self.flowDelegate?.showProfile(forUser: user)
