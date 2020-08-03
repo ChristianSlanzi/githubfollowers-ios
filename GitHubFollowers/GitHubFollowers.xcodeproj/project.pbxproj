@@ -49,6 +49,7 @@
 		24958D4024CB028E000B9786 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24958D3F24CB028E000B9786 /* FollowerCell.swift */; };
 		249A9D1B24D0D58A00993163 /* FollowersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249A9D1A24D0D58A00993163 /* FollowersViewModelTests.swift */; };
 		24CE98E724D84190006BA7B7 /* UICollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CE98E624D84190006BA7B7 /* UICollectionView+Ext.swift */; };
+		24CE98E924D858BB006BA7B7 /* UserProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CE98E824D858BB006BA7B7 /* UserProfileViewModelTests.swift */; };
 		24E7DF8224C8270E005953A5 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7DF8124C8270E005953A5 /* FollowersViewController.swift */; };
 		24E7DF8424C849A8005953A5 /* FollowersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7DF8324C849A8005953A5 /* FollowersViewModel.swift */; };
 		24EEB21324C3013D00C96EE2 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21224C3013D00C96EE2 /* Networking.swift */; };
@@ -117,6 +118,7 @@
 		24958D3F24CB028E000B9786 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		249A9D1A24D0D58A00993163 /* FollowersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewModelTests.swift; sourceTree = "<group>"; };
 		24CE98E624D84190006BA7B7 /* UICollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Ext.swift"; sourceTree = "<group>"; };
+		24CE98E824D858BB006BA7B7 /* UserProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModelTests.swift; sourceTree = "<group>"; };
 		24E7DF8124C8270E005953A5 /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		24E7DF8324C849A8005953A5 /* FollowersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewModel.swift; sourceTree = "<group>"; };
 		24EEB21224C3013D00C96EE2 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 			children = (
 				246BA67524C7525700F1DD08 /* SearchViewModelTests.swift */,
 				249A9D1A24D0D58A00993163 /* FollowersViewModelTests.swift */,
+				24CE98E824D858BB006BA7B7 /* UserProfileViewModelTests.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				2405628024CED14B0049236F /* GitHubManagerTests.swift in Sources */,
 				246515DD24C4498800EA37AA /* GitHubServiceTests.swift in Sources */,
 				2481E6A124BB7DB600633A31 /* GitHubFollowersTests.swift in Sources */,
+				24CE98E924D858BB006BA7B7 /* UserProfileViewModelTests.swift in Sources */,
 				246BA67624C7525700F1DD08 /* SearchViewModelTests.swift in Sources */,
 				249A9D1B24D0D58A00993163 /* FollowersViewModelTests.swift in Sources */,
 			);

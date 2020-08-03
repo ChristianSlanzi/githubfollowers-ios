@@ -22,6 +22,8 @@ enum PersistenceManager {
 
     // MARK: - Properties
 
+    //TODO: having a static property makes it difficult to test isolation
+    //
     static private let defaults = UserDefaults.standard
 
     enum Keys { static let favorites = "favorites" }
