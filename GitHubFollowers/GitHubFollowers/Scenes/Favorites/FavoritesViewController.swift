@@ -13,6 +13,8 @@ class FavoritesViewController: UIViewController {
     // MARK: - Properties
     var viewModel: FavoritesViewModel
     
+    var flowDelegate: AppFlowControllerDelegate?
+    
     let tableView = UITableView()
     
     init(viewModel: FavoritesViewModel) {
@@ -31,6 +33,7 @@ class FavoritesViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         configureTableView()
+        bind()
         viewModel.viewDidLoad()
     }
     
@@ -48,6 +51,13 @@ class FavoritesViewController: UIViewController {
 
         // register cell with tableView
         tableView.register(FavoritesCell.self, forCellReuseIdentifier: FavoritesCell.reuseID)
+    }
+    
+    private func bind() {
+        viewModel.outputs.showFollowersForUsername = { [weak self] (username) in
+            guard let self = self else { return }
+            self.flowDelegate?.showFollowers(forUser: username)
+        }
     }
 }
 
@@ -81,6 +91,6 @@ extension FavoritesViewController: UITableViewDelegate{
     
     // didselectrow - show followers from selected favorite
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        viewModel.didSelectRowAt(indexPath)
     }
 }

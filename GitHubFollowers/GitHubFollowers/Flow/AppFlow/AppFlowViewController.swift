@@ -47,6 +47,7 @@ class AppFlowViewController: UIViewController{
         let favoritesVC = FavoritesViewController(viewModel: model)
         favoritesVC.title = "Favorites"
         favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        favoritesVC.flowDelegate = self
         return favoritesVC
     }
 }

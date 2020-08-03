@@ -10,11 +10,13 @@ import Foundation
 
 protocol FavoritesViewModelInputsType {
     func viewDidLoad()
+    func didSelectRowAt(_ indexPath: IndexPath)
 }
 
 protocol FavoritesViewModelOutputsType: AnyObject {
     var reloadData: (([Follower]) -> Void) { get set }
     var didReceiveServiceError: ((PersistanceError) -> Void) { get set }
+    var showFollowersForUsername: ((String) -> Void) { get set }
 }
 
 protocol FavoritesViewModelType {
@@ -56,9 +58,14 @@ final class FavoritesViewModel: FavoritesViewModelType, FavoritesViewModelInputs
         }
     }
     
+    public func didSelectRowAt(_ indexPath: IndexPath) {
+        let follower = self.favorites[indexPath.row]
+        showFollowersForUsername(follower.login)
+    }
+    
     // MARK: - Output
     //output
     public var reloadData: (([Follower]) -> Void) = { _ in }
     public var didReceiveServiceError: ((PersistanceError) -> Void) = { _ in }
-    
+    public var showFollowersForUsername: ((String) -> Void) = { _ in }
 }
