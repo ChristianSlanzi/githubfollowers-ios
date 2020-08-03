@@ -10,18 +10,11 @@ import Foundation
 
 protocol UserProfileViewModelInputsType {
     func viewDidLoad()
-    func didTapGitHubProfileButton()
-    func didTapGitFollowersButton()
-    
     func didTapAddToFavoriteButton()
 }
 
 protocol UserProfileViewModelOutputsType: AnyObject {
-    var showGitHubProfile: (() -> Void) { get set }
-    var showGitFollowers: (() -> Void) { get set }
-    
     var showAddToFavoritesResult: ((PersistanceError?) -> Void) { get set }
-
 }
 
 protocol UserProfileViewModelType {
@@ -53,21 +46,11 @@ class UserProfileViewModel: UserProfileViewModelType, UserProfileViewModelInputs
     public func viewDidLoad() {
     }
     
-    func didTapGitHubProfileButton() {
-        
-    }
-    
-    func didTapGitFollowersButton() {
-        
-    }
-    
     public func didTapAddToFavoriteButton() {
         addUserToFavorites(user: input.user)
     }
     
     //output
-    public var showGitHubProfile: (() -> Void) = {  }
-    public var showGitFollowers: (() -> Void) = {  }
     public var showAddToFavoritesResult: ((PersistanceError?) -> Void) = { _ in }
     
     func getProfileViewModel() -> ProfileViewModel {
