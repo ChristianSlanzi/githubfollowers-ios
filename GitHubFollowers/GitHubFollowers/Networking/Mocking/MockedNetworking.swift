@@ -52,6 +52,25 @@ func buildDataFor(followers: [Follower]) -> Data {
     return data
 }
 
+func buildUserProfileData() -> Data {
+    let user = User(login: "user1",
+                    avatarUrl: "http://url",
+                    name: nil,
+                    location: nil,
+                    bio: nil,
+                    publicRepos: 0,
+                    publicGists: 0,
+                    htmlUrl: "",
+                    following: 0,
+                    followers: 0,
+                    createdAt: Date())
+    let encoder = JSONEncoder()
+    encoder.keyEncodingStrategy = .convertToSnakeCase
+    encoder.dateEncodingStrategy = .iso8601
+    guard let data = try? encoder.encode(user) else { fatalError("Cache directory not found! This should not happen!") }
+    return data
+}
+
 func buildCorruptedData() -> Data {
     return Data()
 }

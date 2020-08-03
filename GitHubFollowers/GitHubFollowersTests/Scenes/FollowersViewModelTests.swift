@@ -98,6 +98,21 @@ class FollowersViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: TIMEOUT_2_SECS)
     }
     
+    func testShowUserProfileWhenDidTapUserProfile() {
+        let sut = makeSutWithUserProfile()
+        
+        let expectation = XCTestExpectation(description: "show User Profile")
+        
+        sut.showUserProfile = { (user) in
+            expectation.fulfill()
+        }
+
+        sut.viewDidLoad()
+        sut.didTapUserProfileAt(indexPath: IndexPath(row: 0, section: 0))
+        
+        // Wait until the expectation is fulfilled, with a timeout of 2 seconds.
+        wait(for: [expectation], timeout: TIMEOUT_2_SECS)
+    }
     // MARK: - Helpers
     
     private func makeSutWith3Followers() -> FollowersViewModel {
@@ -122,6 +137,15 @@ class FollowersViewModelTests: XCTestCase {
         let data = buildCorruptedData()
         let gitHubManager = GitHubManager(gitHubService: buildMockedService(data: data, response: build400HttpResponse()))
         let sut = FollowersViewModel(input: input, gitHubManager: gitHubManager)
+        return sut
+    }
+    
+    private func makeSutWithUserProfile() -> FollowersViewModel {
+        let input = FollowersViewModel.Input(userName: "user1")
+        let data = buildUserProfileData()
+        let gitHubManager = GitHubManager(gitHubService: buildMockedService(data: data))
+        let sut = FollowersViewModel(input: input, gitHubManager: gitHubManager)
+        sut.followers = [Follower(login: "user1", avatarUrl: "http://url")]
         return sut
     }
 }
