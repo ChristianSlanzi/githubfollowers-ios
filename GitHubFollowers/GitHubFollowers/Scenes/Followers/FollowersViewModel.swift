@@ -91,7 +91,9 @@ final class FollowersViewModel: FollowersViewModelType, FollowersViewModelInputs
     private func fetchFollowers() {
         guard !self.input.userName.isEmpty else { return }
         
+        isLoadingMoreFollowers = true
         gitHubManager.fetchFollowers(for: self.input.userName, page: page){ (result) in
+            self.isLoadingMoreFollowers = false
             switch result {
             case .success(let followers):
                 if followers.count < 100 { self.hasMoreFollowers = false }

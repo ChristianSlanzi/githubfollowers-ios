@@ -37,4 +37,29 @@ extension UICollectionView {
     func restore() {
         self.backgroundView = nil
     }
+    
+    /// overlay viewcontroller with an opaque layer to indicate loading state
+    func showLoadingView() {
+        let containerView = UIView(frame: CGRect(x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))
+
+        containerView.backgroundColor = .systemBackground
+        containerView.alpha = 0
+
+        UIView.animate(withDuration: 0.20) { containerView.alpha = 0.8 }
+
+        let activityIndicatior = UIActivityIndicatorView(style: .large)
+        containerView.addSubview(activityIndicatior)
+
+        activityIndicatior.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            activityIndicatior.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            activityIndicatior.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
+        ])
+
+        activityIndicatior.startAnimating()
+        
+        // The only tricky part is here:
+        self.backgroundView = containerView
+    }
 }

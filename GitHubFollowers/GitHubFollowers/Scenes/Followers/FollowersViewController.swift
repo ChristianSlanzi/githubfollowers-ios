@@ -22,10 +22,6 @@ class FollowersViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         bind()
-        
-        view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
         configureCollectionView()
     }
     
@@ -35,12 +31,14 @@ class FollowersViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.setNavigationBarHidden(false, animated: true)
+        collectionView.showLoadingView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewModel.viewDidLoad()
     }
     
@@ -75,6 +73,7 @@ class FollowersViewController: UIViewController {
         print("user has \(followers.count) followers.")
         print(followers)
         collectionView.reloadData()
+        collectionView.restore()
     }
 }
 
@@ -100,6 +99,7 @@ extension FollowersViewController: UICollectionViewDelegate {
             guard viewModel.hasMoreFollowers, !viewModel.isLoadingMoreFollowers else { return }
             viewModel.page += 1
             viewModel.loadMoreFollowers()
+            collectionView.showLoadingView()
         }
     }
     
@@ -117,10 +117,12 @@ extension FollowersViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let count = viewModel.followers.count
         
-        if count == 0 {
-            collectionView.setEmptyView(title: "Bad Luck", message: "This user does not have any followers. Go follow them. 😃")
-        } else {
-            collectionView.restore()
+        if !viewModel.isLoadingMoreFollowers {
+            if count == 0 {
+                collectionView.setEmptyView(title: "Bad Luck", message: "This user does not have any followers. Go follow them. 😃")
+            } else {
+                collectionView.restore()
+            }
         }
         return count
     }
