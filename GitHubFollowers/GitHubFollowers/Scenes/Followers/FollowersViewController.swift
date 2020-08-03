@@ -59,12 +59,7 @@ class FollowersViewController: UIViewController {
     private func bind() {
         viewModel.outputs.reloadData = { [weak self] (followers) in
             guard let self = self else { return }
-            if followers.isEmpty {
-                let title = "Bad Luck"
-                let message = "This user does not have any followers. Go follow them. 😃"
-                self.presentAlertOnMainThread(title: title, message: message, buttonTitle: "OK")
-                return
-            }
+
             DispatchQueue.main.async {
                 self.reloadData(followers)
             }
@@ -120,6 +115,13 @@ extension FollowersViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.followers.count
+        let count = viewModel.followers.count
+        
+        if count == 0 {
+            collectionView.setEmptyView(title: "Bad Luck", message: "This user does not have any followers. Go follow them. 😃")
+        } else {
+            collectionView.restore()
+        }
+        return count
     }
 }
