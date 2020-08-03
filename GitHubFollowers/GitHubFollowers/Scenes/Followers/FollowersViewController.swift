@@ -21,25 +21,40 @@ class FollowersViewController: UIViewController {
     init(viewModel: FollowersViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        bind()
-        configureCollectionView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bind()
+        configureSearchController()
+        configureCollectionView()
+        viewModel.viewDidLoad()
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        
         collectionView.showLoadingView()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        viewModel.viewDidLoad()
+    // MARK: - Layout Methods
+    
+    private func configureSearchController() {
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search for a username"
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     private func configureCollectionView() {
@@ -70,8 +85,8 @@ class FollowersViewController: UIViewController {
     }
     
     private func reloadData(_ followers: [Follower]) { //TODO: we are not used the parameter
-        print("user has \(followers.count) followers.")
-        print(followers)
+        //print("user has \(followers.count) followers.")
+        //print(followers)
         collectionView.reloadData()
         collectionView.restore()
     }
@@ -85,7 +100,7 @@ extension FollowersViewController: UICollectionViewDelegate {
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as! FollowerCell
-        cell.set(viewModel: viewModel.followers[indexPath.row])
+        cell.set(viewModel: viewModel.getFollower(indexPath))
         return cell
     }
     
@@ -115,7 +130,7 @@ extension FollowersViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count = viewModel.followers.count
+        let count = viewModel.getFollowersCount()
         
         if !viewModel.isLoadingMoreFollowers {
             if count == 0 {
@@ -125,5 +140,21 @@ extension FollowersViewController: UICollectionViewDataSource {
             }
         }
         return count
+    }
+}
+
+/// UISearchController Search Results
+extension FollowersViewController: UISearchResultsUpdating {
+
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+            viewModel.filteredFollowers.removeAll()
+            //viewModel.updateData(on: viewModel.followers)
+            viewModel.reloadData([])
+            viewModel.isSearching = false
+            return
+        }
+
+        viewModel.didSearchFor(filter)
     }
 }

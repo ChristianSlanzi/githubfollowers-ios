@@ -12,6 +12,7 @@ protocol FollowersViewModelInputsType {
     func viewDidLoad()
     func loadMoreFollowers()
     func didTapUserProfileAt(indexPath: IndexPath)
+    func didSearchFor(_ filter: String)
 }
 
 protocol FollowersViewModelOutputsType: AnyObject {
@@ -43,12 +44,22 @@ final class FollowersViewModel: FollowersViewModelType, FollowersViewModelInputs
     var outputs: FollowersViewModelOutputsType { return self }
 
     
-    var followers: [Follower] = []
+    private var followers: [Follower] = []
     var filteredFollowers: [Follower] = []
     var page = 1
     var hasMoreFollowers = true
     var isSearching = false
     var isLoadingMoreFollowers = false
+    
+    public func getFollowersCount() -> Int {
+        return isSearching ? filteredFollowers.count : followers.count
+    }
+    
+    public func getFollower(_ indexPath: IndexPath) -> Follower {
+        let activeArray = isSearching ? filteredFollowers : followers
+        let follower = activeArray[indexPath.item]
+        return follower
+    }
     
     private var input: Input
     
@@ -77,6 +88,13 @@ final class FollowersViewModel: FollowersViewModelType, FollowersViewModelInputs
                 self.didReceiveServiceError(error)
             }
         }
+    }
+    
+    public func didSearchFor(_ filter: String) {
+        isSearching = true
+        filteredFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
+        //updateData(on: viewModel.filteredFollowers)
+        reloadData(filteredFollowers)
     }
     
     // MARK: - Output
