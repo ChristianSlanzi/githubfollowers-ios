@@ -148,10 +148,7 @@ extension FollowersViewController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else {
-            viewModel.filteredFollowers.removeAll()
-            //viewModel.updateData(on: viewModel.followers)
-            viewModel.reloadData([])
-            viewModel.isSearching = false
+            viewModel.didResetSearch()
             return
         }
 

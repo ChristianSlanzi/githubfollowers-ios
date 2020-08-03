@@ -97,6 +97,13 @@ final class FollowersViewModel: FollowersViewModelType, FollowersViewModelInputs
         reloadData(filteredFollowers)
     }
     
+    public func didResetSearch() {
+        filteredFollowers.removeAll()
+        //viewModel.updateData(on: viewModel.followers)
+        reloadData([])
+        isSearching = false
+    }
+    
     // MARK: - Output
     //output
     public var didReceiveServiceError: ((Error) -> Void) = { _ in }
