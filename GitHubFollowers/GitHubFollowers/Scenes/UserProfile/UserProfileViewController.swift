@@ -65,6 +65,12 @@ class UserProfileViewController: UIViewController {
                 self.dateLabel.text = " GitHub since \(date.convertToMonthYearFormat())"
             }
         }
+        
+        viewModel.outputs.didReceiveServiceError = { [weak self] error in
+            guard let self = self else { return }
+            self.presentAlertOnMainThread(title: "Service Error", message: error.localizedDescription, buttonTitle: "OK")
+        }
+        
         viewModel.showAddToFavoritesResult = { error in
             guard let error = error else {
                 let title = "Success"
