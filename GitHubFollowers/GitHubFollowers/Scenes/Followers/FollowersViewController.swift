@@ -29,19 +29,19 @@ class FollowersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
+        view.backgroundColor = .systemBackground
+        title = "Followers"
+        navigationController?.navigationBar.prefersLargeTitles = true
         configureSearchController()
         configureCollectionView()
+        bind()
         viewModel.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = true
         
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         collectionView.showLoadingView()
     }

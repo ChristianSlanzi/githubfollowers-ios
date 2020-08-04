@@ -28,22 +28,25 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .systemBackground
         title = "Favorites"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
         configureTableView()
+        configureCostraints()
         bind()
         viewModel.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        title = "Favorites"
     }
     
     private func configureTableView() {
         view.addSubview(tableView)
-        tableView.frame = view.bounds
+        //tableView.frame = view.bounds
         tableView.rowHeight = 80
         tableView.delegate = self
         tableView.dataSource = self
@@ -52,12 +55,30 @@ class FavoritesViewController: UIViewController {
         // register cell with tableView
         tableView.register(FavoritesCell.self, forCellReuseIdentifier: FavoritesCell.reuseID)
     }
-    
+
     private func bind() {
         viewModel.outputs.showFollowersForUsername = { [weak self] (username) in
             guard let self = self else { return }
             self.flowDelegate?.showFollowers(forUser: username)
         }
+    }
+}
+
+// MARK: - UI Costraints
+
+extension FavoritesViewController {
+    private func configureCostraints() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+
+        let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
+
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
+                                               constant: topConstraintConstant),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 }
 
@@ -94,3 +115,5 @@ extension FavoritesViewController: UITableViewDelegate{
         viewModel.didSelectRowAt(indexPath)
     }
 }
+
+
