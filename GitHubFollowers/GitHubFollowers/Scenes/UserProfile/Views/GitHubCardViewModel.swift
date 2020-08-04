@@ -25,7 +25,7 @@ class GitHubCardViewModel: GitHubCardViewModelType, GitHubCardViewModelInputsTyp
     
     struct Input {
         //passing in data the viewModel needs from the view controller
-        var user: User
+        var user: User?
     }
     
     struct Output {
@@ -34,13 +34,21 @@ class GitHubCardViewModel: GitHubCardViewModelType, GitHubCardViewModelInputsTyp
     }
     
     private var input: Input
-    public let output: Output
+    public var output: Output
     
     init(input: Input) {
         self.input = input
         self.output = Output(
-            reposCountText: "\(input.user.publicRepos)",
-            gistsCountText: "\(input.user.publicGists)"
+            reposCountText: "\(input.user?.publicRepos ?? 0)",
+            gistsCountText: "\(input.user?.publicGists ?? 0)"
+        )
+    }
+    
+    public func setUser(_ user: User) {
+        self.input.user = user
+        self.output = Output(
+            reposCountText: "\(input.user?.publicRepos ?? 0)",
+            gistsCountText: "\(input.user?.publicGists ?? 0)"
         )
     }
     
@@ -49,7 +57,8 @@ class GitHubCardViewModel: GitHubCardViewModelType, GitHubCardViewModelInputsTyp
     
     //input
     func didTapGitHubButton() {
-        self.showGitHubProfile(self.input.user)
+        guard let user = self.input.user else { return }
+        self.showGitHubProfile(user)
     }
     
     //output

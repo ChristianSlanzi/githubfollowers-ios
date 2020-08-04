@@ -71,7 +71,8 @@ class SearchViewController: UIViewController {
     private func bind() {
         viewModel.outputs.showFollowersForUsername = { [weak self] (username) in
             guard let self = self else { return }
-            self.flowDelegate?.showFollowers(forUser: username)
+            //self.flowDelegate?.showFollowers(forUser: username)
+            self.flowDelegate?.showProfile(forUsername: username)
         }
     }
 }

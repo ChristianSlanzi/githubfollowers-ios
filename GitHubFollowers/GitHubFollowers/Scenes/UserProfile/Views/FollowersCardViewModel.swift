@@ -25,7 +25,7 @@ class FollowersCardViewModel: FollowersCardViewModelType, FollowersCardViewModel
     
     struct Input {
         //passing in data the viewModel needs from the view controller
-        var user: User
+        var user: User?
     }
     
     struct Output {
@@ -34,13 +34,21 @@ class FollowersCardViewModel: FollowersCardViewModelType, FollowersCardViewModel
     }
     
     private var input: Input
-    public let output: Output
+    public var output: Output
     
     init(input: Input) {
         self.input = input
         self.output = Output(
-            followersCountText: "\(input.user.followers)",
-            followingCountText: "\(input.user.following)"
+            followersCountText: "\(input.user?.followers ?? 0)",
+            followingCountText: "\(input.user?.following ?? 0)"
+        )
+    }
+    
+    public func setUser(_ user: User) {
+        self.input.user = user
+        self.output = Output(
+            followersCountText: "\(input.user?.followers ?? 0)",
+            followingCountText: "\(input.user?.following ?? 0)"
         )
     }
     
@@ -49,7 +57,8 @@ class FollowersCardViewModel: FollowersCardViewModelType, FollowersCardViewModel
     
     //input
     func didTapFollowersButton() {
-        self.showFollowers(self.input.user.login)
+        guard let user = self.input.user else { return }
+        self.showFollowers(user.login)
     }
     
     //output

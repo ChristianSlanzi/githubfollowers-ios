@@ -56,6 +56,7 @@ class AppFlowViewController: UIViewController{
 protocol AppFlowControllerDelegate: AnyObject {
     func showFollowers(forUser name: String)
     func showProfile(forUser: User)
+    func showProfile(forUsername: String)
     func showGitHubPage(forUser user: User)
 }
 
@@ -72,7 +73,17 @@ extension AppFlowViewController: AppFlowControllerDelegate {
     func showProfile(forUser user: User) {
         print("show profile view controller")
         DispatchQueue.main.async {
-            let userProfileViewModel = UserProfileViewModel(input: UserProfileViewModel.Input(user: user))
+            let userProfileViewModel = UserProfileViewModel(input: UserProfileViewModel.Input(username: user.login), gitHubManager: self.gitHubManager)
+            let userProfileVC = UserProfileViewController(viewModel: userProfileViewModel)
+            userProfileVC.flowDelegate = self
+            self.navigationController?.show(userProfileVC, sender: self)
+        }
+    }
+    
+    func showProfile(forUsername name: String) {
+        print("show profile view controller")
+        DispatchQueue.main.async {
+            let userProfileViewModel = UserProfileViewModel(input: UserProfileViewModel.Input(username: name), gitHubManager: self.gitHubManager)
             let userProfileVC = UserProfileViewController(viewModel: userProfileViewModel)
             userProfileVC.flowDelegate = self
             self.navigationController?.show(userProfileVC, sender: self)

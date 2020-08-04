@@ -14,6 +14,8 @@ protocol UserProfileViewModelInputsType {
 }
 
 protocol UserProfileViewModelOutputsType: AnyObject {
+    var didReceiveServiceError: ((Error) -> Void) { get set }
+    var reloadData: (() -> Void) { get set }
     var showAddToFavoritesResult: ((PersistanceError?) -> Void) { get set }
 }
 
@@ -22,11 +24,14 @@ protocol UserProfileViewModelType {
     var outputs: UserProfileViewModelOutputsType { get }
 }
 
-class UserProfileViewModel: UserProfileViewModelType, UserProfileViewModelInputsType, UserProfileViewModelOutputsType {
+final class UserProfileViewModel: UserProfileViewModelType, UserProfileViewModelInputsType, UserProfileViewModelOutputsType {
+    
+    private let gitHubManager: GitHubNetworking
     
     struct Input {
         //passing in data the viewModel needs from the view controller
-        var user: User
+        //var user: User
+        var username: String
     }
     
     struct Output {
@@ -35,36 +40,62 @@ class UserProfileViewModel: UserProfileViewModelType, UserProfileViewModelInputs
     
     private var input: Input
     
-    init(input: Input) {
+    init(input: Input, gitHubManager: GitHubNetworking) {
         self.input = input
+        self.gitHubManager = gitHubManager
     }
     
     var inputs: UserProfileViewModelInputsType { return self }
     var outputs: UserProfileViewModelOutputsType { return self }
     
+    private var user: User?
+    var profileViewModel: ProfileViewModel?
+    var gitHubCardViewModel: GitHubCardViewModel?
+    var followersCardViewModel: FollowersCardViewModel?
+    
     //input
     public func viewDidLoad() {
+        gitHubManager.fetchUserInfo(for: input.username) { (result) in
+            switch result {
+            case .success(let user):
+                self.user = user
+                self.profileViewModel?.setUser(user)
+                self.gitHubCardViewModel?.setUser(user)
+                self.followersCardViewModel?.setUser(user)
+                self.reloadData()
+                break
+            case .failure(let error):
+                self.didReceiveServiceError(error)
+            }
+        }
     }
     
     public func didTapAddToFavoriteButton() {
-        addUserToFavorites(user: input.user)
+        addUserToFavorites(user: user!)
     }
     
     //output
+    public var didReceiveServiceError: ((Error) -> Void) = { _ in }
+    
+    public var reloadData: () -> Void = {
+        
+    }
+    
     public var showAddToFavoritesResult: ((PersistanceError?) -> Void) = { _ in }
     
     func getProfileViewModel() -> ProfileViewModel {
-        return ProfileViewModel(
-            input: ProfileViewModel.Input(user: input.user)
-        )
+        profileViewModel = ProfileViewModel(input: ProfileViewModel.Input(user: user))
+        return profileViewModel!
     }
     
     func getGitHubCardViewModel() -> GitHubCardViewModel {
-        return GitHubCardViewModel(input: GitHubCardViewModel.Input(user: input.user))
+        gitHubCardViewModel = GitHubCardViewModel(input: GitHubCardViewModel.Input(user: user))
+        return gitHubCardViewModel!
     }
     
     func getFollowersCardViewModel() -> FollowersCardViewModel {
-        return FollowersCardViewModel(input: FollowersCardViewModel.Input(user: input.user))
+        followersCardViewModel = FollowersCardViewModel(input: FollowersCardViewModel.Input(user: user))
+        return followersCardViewModel!
     }
     
     private func addUserToFavorites(user: User) {

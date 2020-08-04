@@ -37,12 +37,16 @@ class ProfileView: UIView {
     private func bind() {
         //let user = User(login: "user", avatarUrl: "http://avatarUrl", name: nil, location: nil, bio: nil, publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: Date())
         
+        
+    }
+    
+    func reload() {
         profileImageView.load(url: URL(string: viewModel.getAvatarUrl())!)
         usernameLabel.text = viewModel.getUsername()
         nameLabel.text = viewModel.getName()
         locationLabel.text = viewModel.getLocation()
         bioLabel.text = viewModel.getBio()
-        bioLabel.numberOfLines = 3
+        
     }
     
     private func setupViews() {
@@ -50,6 +54,8 @@ class ProfileView: UIView {
         
         //locationImageView.image = SFSymbols.location
         locationImageView.tintColor = .secondaryLabel
+        
+        bioLabel.numberOfLines = 3
         
         addSubview(profileImageView)
         addSubview(usernameLabel)

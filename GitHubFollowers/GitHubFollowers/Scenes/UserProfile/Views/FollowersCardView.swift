@@ -46,6 +46,11 @@ class FollowersCardView: CardView {
         }
     }
     
+    func reload() {
+        itemInfoViewOne.set(itemInfoType: .followers, withCountText: viewModel.output.followersCountText)
+        itemInfoViewTwo.set(itemInfoType: .following, withCountText: viewModel.output.followingCountText)
+    }
+    
     @objc private func didTapButton(_ sender: Any) {
         viewModel.inputs.didTapFollowersButton()
     }

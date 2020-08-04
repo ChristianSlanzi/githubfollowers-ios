@@ -42,11 +42,27 @@ class UserProfileViewController: UIViewController {
         
         setupViews()
         setupConstraints()
+        viewModel.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        //collectionView.showLoadingView()
     }
     
     // MARK: - MVVM Binding
     
     private func bind() {
+        viewModel.outputs.reloadData = {
+            DispatchQueue.main.async {
+                self.profileView.reload()
+                self.githubCardView.reload()
+                self.followersCardView.reload()
+            }
+        }
         viewModel.showAddToFavoritesResult = { error in
             guard let error = error else {
                 let title = "Success"

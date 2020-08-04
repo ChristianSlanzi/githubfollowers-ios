@@ -46,6 +46,11 @@ class GitHubCardView: CardView {
         }
     }
     
+    func reload() {
+       itemInfoViewOne.set(itemInfoType: .repos, withCountText: viewModel.output.reposCountText)
+       itemInfoViewTwo.set(itemInfoType: .gists, withCountText: viewModel.output.gistsCountText)
+    }
+    
     @objc private func didTapButton(_ sender: Any) {
         viewModel.inputs.didTapGitHubButton()
     }
