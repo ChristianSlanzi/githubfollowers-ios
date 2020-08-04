@@ -61,6 +61,8 @@ class UserProfileViewController: UIViewController {
                 self.profileView.reload()
                 self.githubCardView.reload()
                 self.followersCardView.reload()
+                guard let date = self.viewModel.getUserCreatedAt() else { return }
+                self.dateLabel.text = " GitHub since \(date.convertToMonthYearFormat())"
             }
         }
         viewModel.showAddToFavoritesResult = { error in
@@ -92,7 +94,7 @@ class UserProfileViewController: UIViewController {
         //followersCardView.backgroundColor = .systemPink
         
         dateLabel.textAlignment = .center
-        dateLabel.text = "datum"
+        dateLabel.text = ""
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton

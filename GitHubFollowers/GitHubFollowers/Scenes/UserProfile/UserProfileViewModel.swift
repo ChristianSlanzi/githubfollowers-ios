@@ -98,6 +98,10 @@ final class UserProfileViewModel: UserProfileViewModelType, UserProfileViewModel
         return followersCardViewModel!
     }
     
+    func getUserCreatedAt() -> Date? {
+        return user?.createdAt
+    }
+    
     private func addUserToFavorites(user: User) {
         let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
         
