@@ -63,6 +63,22 @@ final class FavoritesViewModel: FavoritesViewModelType, FavoritesViewModelInputs
         showFollowersForUsername(follower.login)
     }
     
+    public func deleteFollowerAt(_ indexPath: IndexPath, _ completion: @escaping (Result<Void, PersistanceError>)-> Void) {
+        // remove from persistent array
+        PersistenceManager.updateWith(favorite: favorites[indexPath.row], actionType: .remove) { [weak self] error in
+            guard let self = self else { return }
+
+            guard let error = error else { // if the deletion was successful
+                // remove from array local to self
+                self.favorites.remove(at: indexPath.row)
+                completion(.success(()))
+                return
+            }
+
+            completion(.failure(error))
+        }
+    }
+    
     // MARK: - Output
     //output
     public var reloadData: (([Follower]) -> Void) = { _ in }

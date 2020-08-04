@@ -102,7 +102,18 @@ extension FavoritesViewController: UITableViewDataSource {
                    commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-
+        
+        viewModel.deleteFollowerAt(indexPath) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success():
+                tableView.deleteRows(at: [indexPath], with: .left)
+                break
+            case .failure(let error):
+                self.presentAlertOnMainThread(title: "Unable to remove", message: error.rawValue, buttonTitle: "Ok")
+                break
+            }
+        }
     }
 }
 
