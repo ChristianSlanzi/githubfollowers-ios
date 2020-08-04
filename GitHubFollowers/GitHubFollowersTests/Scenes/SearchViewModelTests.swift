@@ -49,7 +49,7 @@ class SearchViewModelTests: XCTestCase {
         let expectation = XCTestExpectation(description: "fetch github followers for user")
         
         sut.inputs.enteredText(name: searchText)
-        sut.outputs.showFollowersForUsername = { (username) in
+        sut.outputs.showProfileForUsername = { (username) in
             //let (user, followers) = result
             XCTAssertEqual(username, searchText)
             //XCTAssertEqual(followers.count, 3)

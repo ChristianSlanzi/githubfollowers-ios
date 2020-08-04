@@ -15,7 +15,7 @@ protocol SearchViewModelInputsType {
     func didTapSearchButton()
 }
 protocol SearchViewModelOutputsType: AnyObject {
-    var showFollowersForUsername: ((String) -> Void) { get set }
+    var showProfileForUsername: ((String) -> Void) { get set }
 }
 
 protocol SearchViewModelType {
@@ -23,12 +23,11 @@ protocol SearchViewModelType {
     var outputs: SearchViewModelOutputsType { get }
 }
 
-// mvc or mvvm?
 final class SearchViewModel: SearchViewModelType, SearchViewModelInputsType, SearchViewModelOutputsType {
     
     struct Input {
         //passing in data the viewModel needs from the view controller
-        var userName: String
+        var username: String
     }
     
     struct Output {
@@ -46,36 +45,35 @@ final class SearchViewModel: SearchViewModelType, SearchViewModelInputsType, Sea
     
     //input
     public func viewDidLoad() {
-        self.input.userName = ""
+        self.input.username = ""
     }
     
     public func enteredText(name: String) {
-        self.input.userName = name
+        self.input.username = name
     }
     
     public func textFieldReturned() {
-        fetchFollowers()
+        validateUsernameAndCallOutputCallback()
     }
     
     public func didTapSearchButton() {
-        fetchFollowers()
+        validateUsernameAndCallOutputCallback()
     }
 
     //output
-    public var showFollowersForUsername: ((String) -> Void) = { _ in }
+    public var showProfileForUsername: ((String) -> Void) = { _ in }
     
     // public vars, methods
-    public var isSearchTextEmpty: Bool { input.userName.isEmpty }
+    public var isSearchTextEmpty: Bool { input.username.isEmpty }
     
     public func isSearchTextEqualTo(_ searchText: String) -> Bool {
-        input.userName == searchText
+        input.username == searchText
     }
     
     // MARK: - Helpers
     
-    private func fetchFollowers() {
+    private func validateUsernameAndCallOutputCallback() {
         guard !isSearchTextEmpty else { return }
-        
-        self.showFollowersForUsername(self.input.userName)
+        self.showProfileForUsername(self.input.username)
     }
 }

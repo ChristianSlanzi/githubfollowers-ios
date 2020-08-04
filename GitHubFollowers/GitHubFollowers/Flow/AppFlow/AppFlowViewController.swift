@@ -34,7 +34,7 @@ class AppFlowViewController: UIViewController{
     }
     
     private func createSearchNavigationController() -> UIViewController {
-        let searchViewModel = SearchViewModel(input: SearchViewModel.Input(userName: ""))
+        let searchViewModel = SearchViewModel(input: SearchViewModel.Input(username: ""))
         let searchVC = SearchViewController(viewModel: searchViewModel)
         searchVC.title = "Search"
         searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
