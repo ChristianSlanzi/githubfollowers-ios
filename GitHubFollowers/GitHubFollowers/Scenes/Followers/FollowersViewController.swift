@@ -70,11 +70,11 @@ class FollowersViewController: UIViewController {
     }
     
     private func bind() {
-        viewModel.outputs.reloadData = { [weak self] (followers) in
+        viewModel.outputs.reloadData = { [weak self] in
             guard let self = self else { return }
 
             DispatchQueue.main.async {
-                self.reloadData(followers)
+                self.reloadData()
             }
         }
         
@@ -83,15 +83,13 @@ class FollowersViewController: UIViewController {
             self.presentAlertOnMainThread(title: "Service Error", message: error.localizedDescription, buttonTitle: "OK")
         }
         
-        viewModel.outputs.showUserProfile = { [weak self] (user) in
+        viewModel.outputs.showUserProfile = { [weak self] (name) in
             guard let self = self else { return }
-            self.flowDelegate?.showProfile(forUser: user)
+            self.flowDelegate?.showProfile(forUsername: name)
         }
     }
     
-    private func reloadData(_ followers: [Follower]) { //TODO: we are not used the parameter
-        //print("user has \(followers.count) followers.")
-        //print(followers)
+    private func reloadData() {
         collectionView.reloadData()
         collectionView.restore()
     }

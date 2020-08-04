@@ -65,7 +65,7 @@ class SearchViewModelTests: XCTestCase {
     // MARK: - Helpers:
     
     private func makeSut() -> SearchViewModel {
-        let input = SearchViewModel.Input(userName: "")
+        let input = SearchViewModel.Input(username: "")
         let sut = SearchViewModel(input: input)
         return sut
     }

@@ -32,8 +32,10 @@ class UserProfileViewModelTests: XCTestCase {
     
     private func makeSut() -> UserProfileViewModel {
         let user = User(login: "user"+String(describing: Int.random(in: 0 ..< 10)), avatarUrl: "htpps://url", name: nil, location: nil, bio: nil, publicRepos: 0, publicGists: 0, htmlUrl: "", following: 0, followers: 0, createdAt: Date())
-        let input = UserProfileViewModel.Input(user: user)
-        let sut = UserProfileViewModel(input: input)
+        let input = UserProfileViewModel.Input(username: user.login)
+        let data = buildUserProfileData()
+        let gitHubManager = GitHubManager(gitHubService: buildMockedService(data: data))
+        let sut = UserProfileViewModel(input: input, gitHubManager: gitHubManager)
         return sut
     }
     

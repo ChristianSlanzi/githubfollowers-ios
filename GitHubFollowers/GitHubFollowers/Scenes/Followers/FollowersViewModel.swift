@@ -17,8 +17,8 @@ protocol FollowersViewModelInputsType {
 
 protocol FollowersViewModelOutputsType: AnyObject {
     var didReceiveServiceError: ((Error) -> Void) { get set }
-    var reloadData: (([Follower]) -> Void) { get set }
-    var showUserProfile: ((User) -> Void) { get set }
+    var reloadData: (() -> Void) { get set }
+    var showUserProfile: ((String) -> Void) { get set }
 }
 
 protocol FollowersViewModelType {
@@ -78,29 +78,20 @@ final class FollowersViewModel: FollowersViewModelType, FollowersViewModelInputs
     }
     
     public func didTapUserProfileAt(indexPath: IndexPath) {
+        guard indexPath.row < followers.count else { return }
         let follower = followers[indexPath.item]
-        gitHubManager.fetchUserInfo(for: follower.login) { (result) in
-            switch result {
-            case .success(let user):
-                self.showUserProfile(user)
-                break
-            case .failure(let error):
-                self.didReceiveServiceError(error)
-            }
-        }
+        self.showUserProfile(follower.login)
     }
     
     public func didSearchFor(_ filter: String) {
         isSearching = true
         filteredFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
-        //updateData(on: viewModel.filteredFollowers)
-        reloadData(filteredFollowers)
+        reloadData()
     }
     
     public func didResetSearch() {
         filteredFollowers.removeAll()
-        //viewModel.updateData(on: viewModel.followers)
-        reloadData([])
+        reloadData()
         isSearching = false
     }
     
@@ -108,9 +99,9 @@ final class FollowersViewModel: FollowersViewModelType, FollowersViewModelInputs
     //output
     public var didReceiveServiceError: ((Error) -> Void) = { _ in }
     
-    public var reloadData: (([Follower]) -> Void) = { _ in }
+    public var reloadData: (() -> Void) = { }
     
-    public var showUserProfile: ((User) -> Void) = { _ in }
+    public var showUserProfile: ((String) -> Void) = { _ in }
     
     // MARK: - Helpers
     private func fetchFollowers() {
@@ -123,7 +114,7 @@ final class FollowersViewModel: FollowersViewModelType, FollowersViewModelInputs
             case .success(let followers):
                 if followers.count < 100 { self.hasMoreFollowers = false }
                 self.followers.append(contentsOf: followers)
-                self.reloadData(followers)
+                self.reloadData()
             case .failure(let error):
                 // TODO: - handle different kinds of error. add specific error type
                 self.didReceiveServiceError(error)
