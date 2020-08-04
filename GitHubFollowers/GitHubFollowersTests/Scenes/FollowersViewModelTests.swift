@@ -17,12 +17,11 @@ class FollowersViewModelTests: XCTestCase {
 
     func testFollowersFoundWhenViewLoaded() {
         let sut = makeSutWith3Followers()
-        //sut.followers = buildThreeFollowers()
-        //sut.hasMoreFollowers = false
+
         let expectation = XCTestExpectation(description: "fetch github followers for user")
         
         sut.outputs.reloadData = {
-            //XCTAssertEqual(followers.count, 3)
+            XCTAssertEqual(sut.getFollowersCount(), 3)
             XCTAssertFalse(sut.hasMoreFollowers)
             expectation.fulfill()
         }
@@ -35,12 +34,12 @@ class FollowersViewModelTests: XCTestCase {
     
     func testLoad100FollowersWhenUserHasMoreFollowers() {
         let sut = makeSutWith103Followers(page: 1)
-        //sut.followers = buildRandomFollowers(count: 100)
-        sut.hasMoreFollowers = true
+        
         let expectation = XCTestExpectation(description: "fetch more followers for user")
         
         sut.outputs.reloadData = {
-            //XCTAssertEqual(followers.count, 100)
+            XCTAssertEqual(sut.getFollowersCount(), 100)
+            XCTAssertTrue(sut.hasMoreFollowers)
             expectation.fulfill()
         }
         
@@ -51,17 +50,24 @@ class FollowersViewModelTests: XCTestCase {
     }
     
     func testLoadMoreFollowersWhenUserHasMoreFollowersAndWeScrollOver() {
-        let sut = makeSutWith103Followers(page: 2)
+        var sut = makeSutWith103Followers(page: 1)
         //sut.followers = buildRandomFollowers(count: 100)
-        sut.hasMoreFollowers = true
+        //sut.hasMoreFollowers = true
         let expectation = XCTestExpectation(description: "fetch more followers for user")
         
         sut.outputs.reloadData = {
-            //XCTAssertEqual(followers.count, 103)
-            expectation.fulfill()
+            XCTAssertEqual(sut.getFollowersCount(), 100)
+            XCTAssertTrue(sut.hasMoreFollowers)
+                
+            sut = self.makeSutWith103Followers(page: 2)
+            sut.outputs.reloadData = {
+                XCTAssertEqual(sut.getFollowersCount(), 103)
+                //XCTAssertFalse(sut.hasMoreFollowers)
+                expectation.fulfill()
+            }
+            sut.inputs.loadMoreFollowers()
         }
-        
-        sut.inputs.loadMoreFollowers()
+        sut.inputs.viewDidLoad()
         
         // Wait until the expectation is fulfilled, with a timeout of 2 seconds.
         wait(for: [expectation], timeout: TIMEOUT_2_SECS)
