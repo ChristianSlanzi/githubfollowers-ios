@@ -34,7 +34,7 @@ class SearchViewController: UIViewController {
         
         logoImageView.image = Images.ghLogo
         
-        searchButton.set(backgroundColor: .systemGreen, title: "Get Followers")
+        searchButton.set(backgroundColor: .systemGreen, title: "Search")
         searchButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
 
         usernameTextField.delegate = self
