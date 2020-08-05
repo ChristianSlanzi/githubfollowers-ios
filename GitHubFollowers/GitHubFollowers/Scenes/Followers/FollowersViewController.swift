@@ -36,14 +36,13 @@ class FollowersViewController: UIViewController {
         configureCollectionView()
         bind()
         viewModel.viewDidLoad()
+        collectionView.showLoadingView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
-        collectionView.showLoadingView()
     }
     
     // MARK: - Layout Methods
