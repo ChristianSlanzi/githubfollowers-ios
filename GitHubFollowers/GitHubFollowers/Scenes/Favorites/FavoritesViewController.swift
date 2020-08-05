@@ -28,10 +28,10 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemBackground
         title = "Favorites"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         configureTableView()
         configureCostraints()
         bind()
@@ -41,7 +41,6 @@ class FavoritesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        title = "Favorites"
     }
     
     private func configureTableView() {
