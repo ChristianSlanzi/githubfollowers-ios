@@ -13,13 +13,13 @@ import UIKit
 public final class CompositionRoot {
     var initialVC: UIViewController?
 
-    public func compose() -> UINavigationController {
-        let rootNC = UINavigationController(rootViewController: buildInitialViewController())
-        return rootNC
+    public func compose() -> UIViewController {
+        //let rootNC = UINavigationController(rootViewController: buildInitialViewController())
+        return buildInitialViewController()//rootNC
     }
     
     private func buildInitialViewController() -> UIViewController {
-        return AppFlowViewController(gitHubManager: buildGitHubManager())
+        return AppFlowController(gitHubManager: buildGitHubManager())
     }
     
     private func buildGitHubManager() -> GitHubNetworking {

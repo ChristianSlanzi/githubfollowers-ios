@@ -46,6 +46,7 @@ class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        flowDelegate?.shouldHideToolbar(hide: false)
         usernameTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: true)
     }

@@ -11,7 +11,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var navigationController: UINavigationController!
+    var rootController: UIViewController!
     
     let compositionRoot = CompositionRoot()
 
@@ -26,11 +26,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        
-        navigationController = compositionRoot.compose()
-        window?.rootViewController = navigationController
+        rootController = compositionRoot.compose()
+        window?.rootViewController = rootController
         
         window?.makeKeyAndVisible()
+        
+        UINavigationBar.appearance().tintColor = .systemGreen
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -60,7 +61,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
 
 }
 

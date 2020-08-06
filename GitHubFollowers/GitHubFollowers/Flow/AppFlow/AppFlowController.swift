@@ -12,7 +12,7 @@ import UIKit
 //  var navigationController: UINavigationController {get}
 //}
 
-class AppFlowViewController: UIViewController{
+class AppFlowController: UIViewController{
     
     private let tabController = UITabBarController()
     private let gitHubManager: GitHubNetworking
@@ -28,44 +28,51 @@ class AppFlowViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabController.viewControllers = [createSearchNavigationController(),
-                                         createFavoritesListNavigationController()]
-        add(tabController)
+        tabController.viewControllers = [startSearch(),
+                                         startFavorites()]
+        add(childController: tabController)
     }
     
-    private func createSearchNavigationController() -> UIViewController {
-        let searchViewModel = SearchViewModel(input: SearchViewModel.Input(username: ""))
-        let searchVC = SearchViewController(viewModel: searchViewModel)
-        searchVC.title = "Search"
-        searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
-        searchVC.flowDelegate = self
-        return searchVC
+    private func startSearch() -> UIViewController {
+        let searchFlowController = SearchFlowController(gitHubManager: self.gitHubManager)
+        searchFlowController.title = "Search"
+        searchFlowController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        searchFlowController.navigationController?.setNavigationBarHidden(true, animated: true)
+        searchFlowController.delegate = self
+        add(childController: searchFlowController)
+        searchFlowController.start()
+        return searchFlowController
     }
     
-    private func createFavoritesListNavigationController() -> UIViewController {
-        let model = FavoritesViewModel()
-        let favoritesVC = FavoritesViewController(viewModel: model)
-        favoritesVC.title = "Favorites"
-        favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
-        favoritesVC.flowDelegate = self
-
-        return favoritesVC
+    private func startFavorites() -> UIViewController {
+        let favoritesFlowController = FavoritesFlowController(gitHubManager: self.gitHubManager)
+        favoritesFlowController.title = "Favorites"
+        favoritesFlowController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        favoritesFlowController.navigationController?.setNavigationBarHidden(true, animated: true)
+        favoritesFlowController.delegate = self
+        add(childController: favoritesFlowController)
+        favoritesFlowController.start()
+        return favoritesFlowController
     }
 }
 
 protocol AppFlowControllerDelegate: AnyObject {
+    func shouldHideToolbar(hide: Bool)
     func showFollowers(forUser name: String)
     func showProfile(forUsername: String)
     func showGitHubPage(forUser user: User)
 }
 
-extension AppFlowViewController: AppFlowControllerDelegate {
+extension AppFlowController: AppFlowControllerDelegate {
+    func shouldHideToolbar(hide: Bool) {
+        tabController.tabBar.isHidden = hide
+    }
     func showFollowers(forUser name: String) {
         DispatchQueue.main.async {
             let followersViewModel = FollowersViewModel(input: FollowersViewModel.Input(userName: name), gitHubManager: self.gitHubManager)
             let followerVC = FollowersViewController(viewModel: followersViewModel)
             followerVC.flowDelegate = self
-            self.navigationController?.show(followerVC, sender: self)
+            self.tabController.selectedViewController?.navigationController?.show(followerVC, sender: self)
         }
     }
     
@@ -75,19 +82,19 @@ extension AppFlowViewController: AppFlowControllerDelegate {
             let userProfileViewModel = UserProfileViewModel(input: UserProfileViewModel.Input(username: name), gitHubManager: self.gitHubManager)
             let userProfileVC = UserProfileViewController(viewModel: userProfileViewModel)
             userProfileVC.flowDelegate = self
-            self.navigationController?.show(userProfileVC, sender: self)
+            self.tabController.selectedViewController?.navigationController?.show(userProfileVC, sender: self)
         }
     }
     
     func showGitHubPage(forUser user: User) {
-       print("show git hub page")
+        print("show git hub page")
         
         // show safari view controller
         guard let url = URL(string: user.htmlUrl) else {
             
             presentAlertOnMainThread(title: "Invalid URL",
-                                       message: "The url attached to this user in invalid.",
-                                       buttonTitle: "Ok")
+                                     message: "The url attached to this user in invalid.",
+                                     buttonTitle: "Ok")
             return
         }
         presentSafariViewController(with: url)

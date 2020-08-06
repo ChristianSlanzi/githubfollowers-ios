@@ -10,7 +10,7 @@
 		2405628024CED14B0049236F /* GitHubManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405627F24CED14B0049236F /* GitHubManagerTests.swift */; };
 		2405628324CF2A070049236F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405628224CF2A070049236F /* UserProfileViewController.swift */; };
 		2405628524CF45180049236F /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405628424CF45180049236F /* UserProfileViewModel.swift */; };
-		2413F32F24BF5E080004A856 /* AppFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F32E24BF5E080004A856 /* AppFlowViewController.swift */; };
+		2413F32F24BF5E080004A856 /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F32E24BF5E080004A856 /* AppFlowController.swift */; };
 		2413F33424BF5E700004A856 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F33324BF5E700004A856 /* UIViewController+Child.swift */; };
 		2413F33624BF631E0004A856 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2413F33524BF631E0004A856 /* README.md */; };
 		2413F33C24BF78A10004A856 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F33B24BF78A10004A856 /* SearchViewController.swift */; };
@@ -48,6 +48,8 @@
 		24958D3D24CB0131000B9786 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24958D3C24CB0131000B9786 /* CollectionViewHelper.swift */; };
 		24958D4024CB028E000B9786 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24958D3F24CB028E000B9786 /* FollowerCell.swift */; };
 		249A9D1B24D0D58A00993163 /* FollowersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249A9D1A24D0D58A00993163 /* FollowersViewModelTests.swift */; };
+		249BA45524DAE1A400BC5F77 /* FavoritesFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249BA45424DAE1A400BC5F77 /* FavoritesFlowController.swift */; };
+		249BA45724DAEBAF00BC5F77 /* SearchFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249BA45624DAEBAF00BC5F77 /* SearchFlowController.swift */; };
 		24CE98E724D84190006BA7B7 /* UICollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CE98E624D84190006BA7B7 /* UICollectionView+Ext.swift */; };
 		24CE98E924D858BB006BA7B7 /* UserProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CE98E824D858BB006BA7B7 /* UserProfileViewModelTests.swift */; };
 		24D3D98E24D9C03B00570EA6 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3D98D24D9C03B00570EA6 /* Date+Ext.swift */; };
@@ -76,7 +78,7 @@
 		2405627F24CED14B0049236F /* GitHubManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubManagerTests.swift; sourceTree = "<group>"; };
 		2405628224CF2A070049236F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		2405628424CF45180049236F /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
-		2413F32E24BF5E080004A856 /* AppFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowViewController.swift; sourceTree = "<group>"; };
+		2413F32E24BF5E080004A856 /* AppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
 		2413F33324BF5E700004A856 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
 		2413F33524BF631E0004A856 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2413F33B24BF78A10004A856 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,8 @@
 		24958D3C24CB0131000B9786 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
 		24958D3F24CB028E000B9786 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		249A9D1A24D0D58A00993163 /* FollowersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewModelTests.swift; sourceTree = "<group>"; };
+		249BA45424DAE1A400BC5F77 /* FavoritesFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesFlowController.swift; sourceTree = "<group>"; };
+		249BA45624DAEBAF00BC5F77 /* SearchFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFlowController.swift; sourceTree = "<group>"; };
 		24CE98E624D84190006BA7B7 /* UICollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Ext.swift"; sourceTree = "<group>"; };
 		24CE98E824D858BB006BA7B7 /* UserProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModelTests.swift; sourceTree = "<group>"; };
 		24D3D98D24D9C03B00570EA6 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
@@ -179,7 +183,9 @@
 		2413F32D24BF5DF10004A856 /* AppFlow */ = {
 			isa = PBXGroup;
 			children = (
-				2413F32E24BF5E080004A856 /* AppFlowViewController.swift */,
+				2413F32E24BF5E080004A856 /* AppFlowController.swift */,
+				249BA45424DAE1A400BC5F77 /* FavoritesFlowController.swift */,
+				249BA45624DAEBAF00BC5F77 /* SearchFlowController.swift */,
 			);
 			path = AppFlow;
 			sourceTree = "<group>";
@@ -627,9 +633,11 @@
 				244E679C24D344EF009FF2E1 /* GitHubCardViewModel.swift in Sources */,
 				24FC864324D70D0200EEE531 /* FavoritesViewModel.swift in Sources */,
 				24FC864124D6CF1600EEE531 /* PersistanceManager.swift in Sources */,
-				2413F32F24BF5E080004A856 /* AppFlowViewController.swift in Sources */,
+				2413F32F24BF5E080004A856 /* AppFlowController.swift in Sources */,
 				244E679A24D2BE57009FF2E1 /* CardView.swift in Sources */,
+				249BA45524DAE1A400BC5F77 /* FavoritesFlowController.swift in Sources */,
 				248688D424CF72B500AA1007 /* MockedNetworking.swift in Sources */,
+				249BA45724DAEBAF00BC5F77 /* SearchFlowController.swift in Sources */,
 				2481E68E24BB7DB100633A31 /* ViewController.swift in Sources */,
 				24EEB21B24C3253600C96EE2 /* Follower.swift in Sources */,
 				244E679E24D34D57009FF2E1 /* FollowersCardViewModel.swift in Sources */,
