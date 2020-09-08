@@ -11,7 +11,6 @@
 		2405628324CF2A070049236F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405628224CF2A070049236F /* UserProfileViewController.swift */; };
 		2405628524CF45180049236F /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405628424CF45180049236F /* UserProfileViewModel.swift */; };
 		2413F32F24BF5E080004A856 /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F32E24BF5E080004A856 /* AppFlowController.swift */; };
-		2413F33424BF5E700004A856 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F33324BF5E700004A856 /* UIViewController+Child.swift */; };
 		2413F33624BF631E0004A856 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2413F33524BF631E0004A856 /* README.md */; };
 		2413F33C24BF78A10004A856 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F33B24BF78A10004A856 /* SearchViewController.swift */; };
 		2413F33E24BF78B40004A856 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413F33D24BF78B40004A856 /* FavoritesViewController.swift */; };
@@ -27,11 +26,7 @@
 		2466F5F924D373A600A09003 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2466F5F824D373A600A09003 /* AppStyle.swift */; };
 		246BA67424C750F400F1DD08 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67324C750F400F1DD08 /* SearchViewModel.swift */; };
 		246BA67624C7525700F1DD08 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67524C7525700F1DD08 /* SearchViewModelTests.swift */; };
-		246BA67824C7639300F1DD08 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67724C7639300F1DD08 /* UIViewController+Ext.swift */; };
-		246BA67B24C763CE00F1DD08 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67A24C763CE00F1DD08 /* UIView+Ext.swift */; };
-		246BA67D24C763FB00F1DD08 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246BA67C24C763FB00F1DD08 /* Constants.swift */; };
 		247485BA24BC787100D6A625 /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247485B924BC787100D6A625 /* CompositionRoot.swift */; };
-		2477D1BF24D40E2B0025B73C /* FunctionalComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2477D1BE24D40E2B0025B73C /* FunctionalComposition.swift */; };
 		24780EE624C497CB0015AADB /* GitHubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24780EE524C497CB0015AADB /* GitHubManager.swift */; };
 		2481E68A24BB7DB100633A31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481E68924BB7DB100633A31 /* AppDelegate.swift */; };
 		2481E68C24BB7DB100633A31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481E68B24BB7DB100633A31 /* SceneDelegate.swift */; };
@@ -42,17 +37,16 @@
 		248688D424CF72B500AA1007 /* MockedNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248688D324CF72B500AA1007 /* MockedNetworking.swift */; };
 		248715FA24C7881200366726 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715F924C7881200366726 /* CustomTextField.swift */; };
 		248715FD24C78B8500366726 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715FC24C78B8500366726 /* CustomButton.swift */; };
-		2487160024C7954900366726 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248715FF24C7954900366726 /* UITableView+Ext.swift */; };
-		248AB84524CD8D6300FF2A7B /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248AB84424CD8D6300FF2A7B /* UIImageView+Ext.swift */; };
 		248AB84824CD92E800FF2A7B /* CachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248AB84724CD92E800FF2A7B /* CachedImageView.swift */; };
 		24958D3D24CB0131000B9786 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24958D3C24CB0131000B9786 /* CollectionViewHelper.swift */; };
 		24958D4024CB028E000B9786 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24958D3F24CB028E000B9786 /* FollowerCell.swift */; };
 		249A9D1B24D0D58A00993163 /* FollowersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249A9D1A24D0D58A00993163 /* FollowersViewModelTests.swift */; };
 		249BA45524DAE1A400BC5F77 /* FavoritesFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249BA45424DAE1A400BC5F77 /* FavoritesFlowController.swift */; };
 		249BA45724DAEBAF00BC5F77 /* SearchFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249BA45624DAEBAF00BC5F77 /* SearchFlowController.swift */; };
-		24CE98E724D84190006BA7B7 /* UICollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CE98E624D84190006BA7B7 /* UICollectionView+Ext.swift */; };
 		24CE98E924D858BB006BA7B7 /* UserProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CE98E824D858BB006BA7B7 /* UserProfileViewModelTests.swift */; };
-		24D3D98E24D9C03B00570EA6 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3D98D24D9C03B00570EA6 /* Date+Ext.swift */; };
+		24DAD6952506E1FB00E47DEE /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DAD6942506E1FB00E47DEE /* AppConstants.swift */; };
+		24DAD69F2506E69F00E47DEE /* Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DAD6922506E18200E47DEE /* Utils.framework */; };
+		24DAD6A02506E69F00E47DEE /* Utils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24DAD6922506E18200E47DEE /* Utils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24E7DF8224C8270E005953A5 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7DF8124C8270E005953A5 /* FollowersViewController.swift */; };
 		24E7DF8424C849A8005953A5 /* FollowersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7DF8324C849A8005953A5 /* FollowersViewModel.swift */; };
 		24EEB21324C3013D00C96EE2 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EEB21224C3013D00C96EE2 /* Networking.swift */; };
@@ -74,12 +68,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		24DAD6A12506E69F00E47DEE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				24DAD6A02506E69F00E47DEE /* Utils.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2405627F24CED14B0049236F /* GitHubManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubManagerTests.swift; sourceTree = "<group>"; };
 		2405628224CF2A070049236F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		2405628424CF45180049236F /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		2413F32E24BF5E080004A856 /* AppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
-		2413F33324BF5E700004A856 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
 		2413F33524BF631E0004A856 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2413F33B24BF78A10004A856 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2413F33D24BF78B40004A856 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
@@ -95,11 +102,7 @@
 		2466F5F824D373A600A09003 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		246BA67324C750F400F1DD08 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		246BA67524C7525700F1DD08 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
-		246BA67724C7639300F1DD08 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
-		246BA67A24C763CE00F1DD08 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
-		246BA67C24C763FB00F1DD08 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		247485B924BC787100D6A625 /* CompositionRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
-		2477D1BE24D40E2B0025B73C /* FunctionalComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalComposition.swift; sourceTree = "<group>"; };
 		24780EE524C497CB0015AADB /* GitHubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubManager.swift; sourceTree = "<group>"; };
 		2481E68624BB7DB100633A31 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2481E68924BB7DB100633A31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,17 +117,15 @@
 		248688D324CF72B500AA1007 /* MockedNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedNetworking.swift; sourceTree = "<group>"; };
 		248715F924C7881200366726 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		248715FC24C78B8500366726 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		248715FF24C7954900366726 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
-		248AB84424CD8D6300FF2A7B /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		248AB84724CD92E800FF2A7B /* CachedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImageView.swift; sourceTree = "<group>"; };
 		24958D3C24CB0131000B9786 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
 		24958D3F24CB028E000B9786 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		249A9D1A24D0D58A00993163 /* FollowersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewModelTests.swift; sourceTree = "<group>"; };
 		249BA45424DAE1A400BC5F77 /* FavoritesFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesFlowController.swift; sourceTree = "<group>"; };
 		249BA45624DAEBAF00BC5F77 /* SearchFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFlowController.swift; sourceTree = "<group>"; };
-		24CE98E624D84190006BA7B7 /* UICollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Ext.swift"; sourceTree = "<group>"; };
 		24CE98E824D858BB006BA7B7 /* UserProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModelTests.swift; sourceTree = "<group>"; };
-		24D3D98D24D9C03B00570EA6 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		24DAD6922506E18200E47DEE /* Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Utils.framework; sourceTree = "<group>"; };
+		24DAD6942506E1FB00E47DEE /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		24E7DF8124C8270E005953A5 /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		24E7DF8324C849A8005953A5 /* FollowersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewModel.swift; sourceTree = "<group>"; };
 		24EEB21224C3013D00C96EE2 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
@@ -141,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24DAD69F2506E69F00E47DEE /* Utils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,38 +190,6 @@
 				249BA45624DAEBAF00BC5F77 /* SearchFlowController.swift */,
 			);
 			path = AppFlow;
-			sourceTree = "<group>";
-		};
-		2413F33024BF5E410004A856 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				2477D1BD24D40E030025B73C /* Functional */,
-				246BA67C24C763FB00F1DD08 /* Constants.swift */,
-				2413F33124BF5E480004A856 /* Extensions */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		2413F33124BF5E480004A856 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				24D3D98C24D9C02700570EA6 /* Date */,
-				24CE98E524D83FE0006BA7B7 /* UICollectionView */,
-				248AB84324CD8D4300FF2A7B /* UIImageView */,
-				248715FE24C7952F00366726 /* UITableView */,
-				246BA67924C763CE00F1DD08 /* UIView */,
-				2413F33224BF5E580004A856 /* UIViewController */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		2413F33224BF5E580004A856 /* UIViewController */ = {
-			isa = PBXGroup;
-			children = (
-				246BA67724C7639300F1DD08 /* UIViewController+Ext.swift */,
-				2413F33324BF5E700004A856 /* UIViewController+Child.swift */,
-			);
-			path = UIViewController;
 			sourceTree = "<group>";
 		};
 		2413F33724BF74890004A856 /* Scenes */ = {
@@ -302,28 +272,12 @@
 			path = Styling;
 			sourceTree = "<group>";
 		};
-		246BA67924C763CE00F1DD08 /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-				246BA67A24C763CE00F1DD08 /* UIView+Ext.swift */,
-			);
-			path = UIView;
-			sourceTree = "<group>";
-		};
 		247485B824BC785300D6A625 /* Composition */ = {
 			isa = PBXGroup;
 			children = (
 				247485B924BC787100D6A625 /* CompositionRoot.swift */,
 			);
 			path = Composition;
-			sourceTree = "<group>";
-		};
-		2477D1BD24D40E030025B73C /* Functional */ = {
-			isa = PBXGroup;
-			children = (
-				2477D1BE24D40E2B0025B73C /* FunctionalComposition.swift */,
-			);
-			path = Functional;
 			sourceTree = "<group>";
 		};
 		24780EE424C497810015AADB /* Managers */ = {
@@ -339,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				2413F33524BF631E0004A856 /* README.md */,
+				24DAD6912506E15300E47DEE /* Frameworks */,
 				2481E68824BB7DB100633A31 /* GitHubFollowers */,
 				2481E69F24BB7DB600633A31 /* GitHubFollowersTests */,
 				2481E68724BB7DB100633A31 /* Products */,
@@ -358,7 +313,6 @@
 			isa = PBXGroup;
 			children = (
 				2466F5F724D3738F00A09003 /* Styling */,
-				2413F33024BF5E410004A856 /* Utils */,
 				24EEB21724C324FE00C96EE2 /* Model */,
 				24EEB21124C3010B00C96EE2 /* Networking */,
 				24780EE424C497810015AADB /* Managers */,
@@ -372,6 +326,7 @@
 				2481E69224BB7DB500633A31 /* Assets.xcassets */,
 				2481E69424BB7DB500633A31 /* LaunchScreen.storyboard */,
 				2481E69724BB7DB500633A31 /* Info.plist */,
+				24DAD6942506E1FB00E47DEE /* AppConstants.swift */,
 			);
 			path = GitHubFollowers;
 			sourceTree = "<group>";
@@ -412,22 +367,6 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
-		248715FE24C7952F00366726 /* UITableView */ = {
-			isa = PBXGroup;
-			children = (
-				248715FF24C7954900366726 /* UITableView+Ext.swift */,
-			);
-			path = UITableView;
-			sourceTree = "<group>";
-		};
-		248AB84324CD8D4300FF2A7B /* UIImageView */ = {
-			isa = PBXGroup;
-			children = (
-				248AB84424CD8D6300FF2A7B /* UIImageView+Ext.swift */,
-			);
-			path = UIImageView;
-			sourceTree = "<group>";
-		};
 		248AB84624CD92CE00FF2A7B /* ImageViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,20 +401,12 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		24CE98E524D83FE0006BA7B7 /* UICollectionView */ = {
+		24DAD6912506E15300E47DEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				24CE98E624D84190006BA7B7 /* UICollectionView+Ext.swift */,
+				24DAD6922506E18200E47DEE /* Utils.framework */,
 			);
-			path = UICollectionView;
-			sourceTree = "<group>";
-		};
-		24D3D98C24D9C02700570EA6 /* Date */ = {
-			isa = PBXGroup;
-			children = (
-				24D3D98D24D9C03B00570EA6 /* Date+Ext.swift */,
-			);
-			path = Date;
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		24E7DF8024C8268B005953A5 /* Followers */ = {
@@ -525,6 +456,7 @@
 				2481E68224BB7DB100633A31 /* Sources */,
 				2481E68324BB7DB100633A31 /* Frameworks */,
 				2481E68424BB7DB100633A31 /* Resources */,
+				24DAD6A12506E69F00E47DEE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -616,17 +548,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				246BA67B24C763CE00F1DD08 /* UIView+Ext.swift in Sources */,
 				248715FD24C78B8500366726 /* CustomButton.swift in Sources */,
-				246BA67D24C763FB00F1DD08 /* Constants.swift in Sources */,
 				24EEB21624C324D300C96EE2 /* GitHubService.swift in Sources */,
 				242E8CA924D05230004DBDFC /* FollowersCardView.swift in Sources */,
 				242E8CA724D05204004DBDFC /* GitHubCardView.swift in Sources */,
 				247485BA24BC787100D6A625 /* CompositionRoot.swift in Sources */,
-				246BA67824C7639300F1DD08 /* UIViewController+Ext.swift in Sources */,
 				2413F33C24BF78A10004A856 /* SearchViewController.swift in Sources */,
 				2413F33E24BF78B40004A856 /* FavoritesViewController.swift in Sources */,
-				2477D1BF24D40E2B0025B73C /* FunctionalComposition.swift in Sources */,
 				24EEB21324C3013D00C96EE2 /* Networking.swift in Sources */,
 				24E7DF8224C8270E005953A5 /* FollowersViewController.swift in Sources */,
 				248715FA24C7881200366726 /* CustomTextField.swift in Sources */,
@@ -639,25 +567,21 @@
 				248688D424CF72B500AA1007 /* MockedNetworking.swift in Sources */,
 				249BA45724DAEBAF00BC5F77 /* SearchFlowController.swift in Sources */,
 				2481E68E24BB7DB100633A31 /* ViewController.swift in Sources */,
+				24DAD6952506E1FB00E47DEE /* AppConstants.swift in Sources */,
 				24EEB21B24C3253600C96EE2 /* Follower.swift in Sources */,
 				244E679E24D34D57009FF2E1 /* FollowersCardViewModel.swift in Sources */,
 				2463AD6824D17FD300DED93A /* ItemInfoView.swift in Sources */,
 				2466F5F924D373A600A09003 /* AppStyle.swift in Sources */,
-				24CE98E724D84190006BA7B7 /* UICollectionView+Ext.swift in Sources */,
 				246BA67424C750F400F1DD08 /* SearchViewModel.swift in Sources */,
 				242E8CAB24D092F9004DBDFC /* ProfileViewModel.swift in Sources */,
 				2481E68A24BB7DB100633A31 /* AppDelegate.swift in Sources */,
 				2405628324CF2A070049236F /* UserProfileViewController.swift in Sources */,
 				24FC864624D71FD800EEE531 /* FavoritesCell.swift in Sources */,
 				2405628524CF45180049236F /* UserProfileViewModel.swift in Sources */,
-				248AB84524CD8D6300FF2A7B /* UIImageView+Ext.swift in Sources */,
 				24780EE624C497CB0015AADB /* GitHubManager.swift in Sources */,
 				2481E68C24BB7DB100633A31 /* SceneDelegate.swift in Sources */,
 				242E8CA524D04BEB004DBDFC /* ProfileView.swift in Sources */,
-				2487160024C7954900366726 /* UITableView+Ext.swift in Sources */,
-				2413F33424BF5E700004A856 /* UIViewController+Child.swift in Sources */,
 				24E7DF8424C849A8005953A5 /* FollowersViewModel.swift in Sources */,
-				24D3D98E24D9C03B00570EA6 /* Date+Ext.swift in Sources */,
 				248AB84824CD92E800FF2A7B /* CachedImageView.swift in Sources */,
 				24EEB21924C3251900C96EE2 /* User.swift in Sources */,
 				24958D3D24CB0131000B9786 /* CollectionViewHelper.swift in Sources */,
@@ -750,7 +674,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -804,7 +728,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -820,6 +744,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8495WNP42U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = GitHubFollowers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -838,6 +766,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8495WNP42U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = GitHubFollowers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

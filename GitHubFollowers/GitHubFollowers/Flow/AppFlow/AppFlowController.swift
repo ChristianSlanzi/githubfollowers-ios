@@ -12,7 +12,7 @@ import UIKit
 //  var navigationController: UINavigationController {get}
 //}
 
-class AppFlowController: UIViewController{
+class AppFlowController: UIViewController {
     
     private let tabController = UITabBarController()
     private let gitHubManager: GitHubNetworking

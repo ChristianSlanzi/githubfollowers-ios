@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Utils
 
 class UserProfileViewController: UIViewController {
     
@@ -62,7 +63,7 @@ class UserProfileViewController: UIViewController {
                 self.githubCardView.reload()
                 self.followersCardView.reload()
                 guard let date = self.viewModel.getUserCreatedAt() else { return }
-                self.dateLabel.text = " GitHub since \(date.convertToMonthYearFormat())"
+                self.dateLabel.text = " GitHub since \(date.toMonthYearString())"
             }
         }
         
