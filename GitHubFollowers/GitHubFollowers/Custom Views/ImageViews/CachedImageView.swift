@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Utils
+import CS_Common_Utils
 
 fileprivate let imageCache = NSCache<NSString, UIImage>() // private image caching
 

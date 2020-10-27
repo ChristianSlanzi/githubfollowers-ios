@@ -1,0 +1,37 @@
+PODS:
+  - CS_Common_UI (0.1.1):
+    - CS_Common_Utils (~> 0.1.3)
+  - CS_Common_Utils (0.1.5)
+  - Overture (0.5.0)
+
+DEPENDENCIES:
+  - CS_Common_UI (from `https://github.com/christianslanzi/CS_Common_UI.git`)
+  - CS_Common_Utils (from `https://github.com/christianslanzi/CS_Common_Utils.git`)
+  - Overture
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Overture
+
+EXTERNAL SOURCES:
+  CS_Common_UI:
+    :git: https://github.com/christianslanzi/CS_Common_UI.git
+  CS_Common_Utils:
+    :git: https://github.com/christianslanzi/CS_Common_Utils.git
+
+CHECKOUT OPTIONS:
+  CS_Common_UI:
+    :commit: f18c9acf76423cfe39388fdcb1fa31e0e037cc10
+    :git: https://github.com/christianslanzi/CS_Common_UI.git
+  CS_Common_Utils:
+    :commit: 36fb13d76ebba3213b25c78d42de905541b36fde
+    :git: https://github.com/christianslanzi/CS_Common_Utils.git
+
+SPEC CHECKSUMS:
+  CS_Common_UI: 70939f61dba6c5e4ec923f7ae4ddffa69496f17e
+  CS_Common_Utils: 69d9ec666302fcf7334977df3b8e3a6ee2d7c3e4
+  Overture: 2e6252ead5da6d3347f758047f27a31cb469d59d
+
+PODFILE CHECKSUM: ceda7ba72fda51c71c5d3459201c58f5400b8a12
+
+COCOAPODS: 1.8.4

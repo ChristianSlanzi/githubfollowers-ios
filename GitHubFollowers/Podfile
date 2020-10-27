@@ -1,0 +1,23 @@
+source 'https://github.com/christianslanzi/Specs.git'
+source 'https://github.com/CocoaPods/Specs/blob/master/Specs/3/e/8/Overture/0.5.0/Overture.podspec.json'
+
+platform :ios, '13.0'
+
+workspace 'GitHubFollowers.xcworkspace'
+
+target 'GitHubFollowers' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for GitHubFollowers
+    pod 'CS_Common_Utils', git: 'https://github.com/christianslanzi/CS_Common_Utils.git'
+    pod 'CS_Common_UI', git: 'https://github.com/christianslanzi/CS_Common_UI.git'
+    pod 'Overture'
+      
+
+  target 'GitHubFollowersTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
